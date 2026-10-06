@@ -1,18 +1,296 @@
 [
-  {"id": "salle-mur-vins-paysage", "file": "210934.png", "crop": {"x0": 0.012, "y0": 0.245, "x1": 0.986, "y1": 0.745}, "rotate_deg": 1, "wb": "mixed-light", "exposure": "ok", "noise": "medium", "kind": "room", "inpaint": [[0.03, 0.16, 0.08, 0.24]], "rights": "to-confirm"},
-  {"id": "salle-mur-vins", "file": "210934.png", "crop": {"x0": 0.012, "y0": 0.186, "x1": 0.986, "y1": 0.875}, "rotate_deg": 1, "wb": "mixed-light", "exposure": "ok", "noise": "medium", "kind": "room", "rights": "to-confirm"},
-  {"id": "salle-arche-bar", "file": "210756.png", "crop": {"x0": 0.115, "y0": 0.055, "x1": 0.95, "y1": 0.895}, "rotate_deg": 0, "wb": "mixed-light", "exposure": "ok", "noise": "low", "kind": "room", "rights": "to-confirm"},
-  {"id": "plat-poulpe", "file": "210724.png", "crop": {"x0": 0.0, "y0": 0.045, "x1": 1.0, "y1": 1.0}, "rotate_deg": 0, "wb": "ok", "exposure": "ok", "noise": "low", "kind": "food", "rights": "to-confirm"},
-  {"id": "salle-cave-chartreuse", "file": "210811.png", "crop": {"x0": 0.0, "y0": 0.16, "x1": 1.0, "y1": 0.905}, "rotate_deg": 0, "wb": "ok", "exposure": "ok", "noise": "low", "kind": "room", "rights": "to-confirm"},
-  {"id": "dessert-moelleux-chocolat", "file": "210849.png", "crop": {"x0": 0.02, "y0": 0.165, "x1": 0.985, "y1": 0.905}, "rotate_deg": 1.2, "wb": "ok", "exposure": "flat-low-contrast", "noise": "low", "kind": "food", "rights": "to-confirm"},
-  {"id": "plat-entrecote", "file": "210657.png", "crop": {"x0": 0.0, "y0": 0.0, "x1": 1.0, "y1": 1.0}, "rotate_deg": 0, "wb": "ok", "exposure": "ok", "noise": "low", "kind": "food", "rights": "to-confirm"},
-  {"id": "dessert-ile-flottante", "file": "210640.png", "crop": {"x0": 0.08, "y0": 0.2, "x1": 0.92, "y1": 0.92}, "rotate_deg": 0, "wb": "ok", "exposure": "ok", "noise": "low", "kind": "food", "rights": "to-confirm"},
-  {"id": "dessert-pomme-pochee", "file": "210712.png", "crop": {"x0": 0.08, "y0": 0.282, "x1": 0.98, "y1": 0.93}, "rotate_deg": 0, "wb": "ok", "exposure": "ok", "noise": "medium", "kind": "food", "rights": "to-confirm"},
-  {"id": "dessert-moelleux-fruits-rouges", "file": "210719.png", "crop": {"x0": 0.2, "y0": 0.045, "x1": 0.745, "y1": 0.8}, "rotate_deg": 0, "wb": "mixed-light", "exposure": "ok", "noise": "low", "kind": "food", "rights": "to-confirm"},
-  {"id": "salle-mur-vins-portrait", "file": "210838.png", "crop": {"x0": 0.035, "y0": 0.15, "x1": 0.985, "y1": 0.9}, "rotate_deg": -0.8, "wb": "mixed-light", "exposure": "clipped-highlights", "noise": "medium", "kind": "room", "rights": "to-confirm"},
-  {"id": "salle-allee-carreaux", "file": "210825.png", "crop": {"x0": 0.13, "y0": 0.08, "x1": 0.745, "y1": 0.84}, "rotate_deg": 0, "wb": "too-warm", "exposure": "ok", "noise": "medium", "kind": "room", "rights": "to-confirm", "note": "staff member visible at the bar: inpaint or get consent"},
-  {"id": "detail-niche-chartreuse", "file": "210844.png", "crop": {"x0": 0.07, "y0": 0.115, "x1": 0.95, "y1": 0.905}, "rotate_deg": -1.5, "wb": "mixed-light", "exposure": "ok", "noise": "low", "kind": "room", "rights": "to-confirm"},
-  {"id": "exterieur-ruelle", "file": "210858.png", "crop": {"x0": 0.475, "y0": 0.2, "x1": 1.0, "y1": 0.9}, "rotate_deg": 0, "wb": "mixed-light", "exposure": "ok", "noise": "medium", "kind": "room", "rights": "to-confirm", "note": "blur the dated chalkboard text"},
-  {"id": "enseigne", "file": "210926.png", "crop": {"x0": 0.14, "y0": 0.02, "x1": 0.945, "y1": 0.33}, "rotate_deg": 1.5, "wb": "ok", "exposure": "ok", "noise": "low", "kind": "detail", "rights": "to-confirm"},
-  {"id": "detail-chartreuse-etagere", "file": "210831.png", "crop": {"x0": 0.24, "y0": 0.22, "x1": 0.878, "y1": 0.655}, "rotate_deg": 0, "wb": "ok", "exposure": "ok", "noise": "medium", "kind": "detail", "rights": "blocked: customer photo (uploader patrizio del bove), do not publish without written consent"}
+ {
+  "id": "salle-mur-vins-paysage",
+  "file": "210934.png",
+  "crop": {
+   "x0": 0.012,
+   "y0": 0.245,
+   "x1": 0.986,
+   "y1": 0.745
+  },
+  "rotate_deg": 1,
+  "wb": "mixed-light",
+  "exposure": "ok",
+  "noise": "medium",
+  "kind": "room",
+  "inpaint": [
+   [
+    0.03,
+    0.16,
+    0.08,
+    0.24
+   ]
+  ],
+  "rights": "to-confirm"
+ },
+ {
+  "id": "salle-mur-vins",
+  "file": "210934.png",
+  "crop": {
+   "x0": 0.012,
+   "y0": 0.186,
+   "x1": 0.986,
+   "y1": 0.875
+  },
+  "rotate_deg": 1,
+  "wb": "mixed-light",
+  "exposure": "ok",
+  "noise": "medium",
+  "kind": "room",
+  "rights": "to-confirm"
+ },
+ {
+  "id": "salle-arche-bar",
+  "file": "210756.png",
+  "crop": {
+   "x0": 0.115,
+   "y0": 0.055,
+   "x1": 0.95,
+   "y1": 0.895
+  },
+  "rotate_deg": 0,
+  "wb": "mixed-light",
+  "exposure": "ok",
+  "noise": "low",
+  "kind": "room",
+  "rights": "to-confirm"
+ },
+ {
+  "id": "plat-poulpe",
+  "file": "210724.png",
+  "crop": {
+   "x0": 0.0,
+   "y0": 0.045,
+   "x1": 1.0,
+   "y1": 1.0
+  },
+  "rotate_deg": 0,
+  "wb": "ok",
+  "exposure": "ok",
+  "noise": "low",
+  "kind": "food",
+  "rights": "to-confirm"
+ },
+ {
+  "id": "salle-cave-chartreuse",
+  "file": "210811.png",
+  "crop": {
+   "x0": 0.0,
+   "y0": 0.16,
+   "x1": 1.0,
+   "y1": 0.905
+  },
+  "rotate_deg": 0,
+  "wb": "ok",
+  "exposure": "ok",
+  "noise": "low",
+  "kind": "room",
+  "rights": "to-confirm"
+ },
+ {
+  "id": "dessert-moelleux-chocolat",
+  "file": "210849.png",
+  "crop": {
+   "x0": 0.02,
+   "y0": 0.165,
+   "x1": 0.985,
+   "y1": 0.905
+  },
+  "rotate_deg": 1.2,
+  "wb": "ok",
+  "exposure": "flat-low-contrast",
+  "noise": "low",
+  "kind": "food",
+  "rights": "to-confirm"
+ },
+ {
+  "id": "plat-entrecote",
+  "file": "210657.png",
+  "crop": {
+   "x0": 0.0,
+   "y0": 0.0,
+   "x1": 1.0,
+   "y1": 1.0
+  },
+  "rotate_deg": 0,
+  "wb": "ok",
+  "exposure": "ok",
+  "noise": "low",
+  "kind": "food",
+  "rights": "to-confirm"
+ },
+ {
+  "id": "dessert-ile-flottante",
+  "file": "210640.png",
+  "crop": {
+   "x0": 0.08,
+   "y0": 0.2,
+   "x1": 0.92,
+   "y1": 0.92
+  },
+  "rotate_deg": 0,
+  "wb": "ok",
+  "exposure": "ok",
+  "noise": "low",
+  "kind": "food",
+  "rights": "to-confirm"
+ },
+ {
+  "id": "dessert-pomme-pochee",
+  "file": "210712.png",
+  "crop": {
+   "x0": 0.08,
+   "y0": 0.282,
+   "x1": 0.98,
+   "y1": 0.93
+  },
+  "rotate_deg": 0,
+  "wb": "ok",
+  "exposure": "ok",
+  "noise": "medium",
+  "kind": "food",
+  "rights": "to-confirm"
+ },
+ {
+  "id": "dessert-moelleux-fruits-rouges",
+  "file": "210719.png",
+  "crop": {
+   "x0": 0.2,
+   "y0": 0.045,
+   "x1": 0.745,
+   "y1": 0.8
+  },
+  "rotate_deg": 0,
+  "wb": "mixed-light",
+  "exposure": "ok",
+  "noise": "low",
+  "kind": "food",
+  "rights": "to-confirm"
+ },
+ {
+  "id": "salle-mur-vins-portrait",
+  "file": "210838.png",
+  "crop": {
+   "x0": 0.035,
+   "y0": 0.15,
+   "x1": 0.985,
+   "y1": 0.9
+  },
+  "rotate_deg": -0.8,
+  "wb": "mixed-light",
+  "exposure": "clipped-highlights",
+  "noise": "medium",
+  "kind": "room",
+  "rights": "to-confirm"
+ },
+ {
+  "id": "salle-allee-carreaux",
+  "file": "210825.png",
+  "crop": {
+   "x0": 0.13,
+   "y0": 0.08,
+   "x1": 0.745,
+   "y1": 0.84
+  },
+  "rotate_deg": 0,
+  "wb": "too-warm",
+  "exposure": "ok",
+  "noise": "medium",
+  "kind": "room",
+  "rights": "to-confirm",
+  "note": "staff member visible at the bar: inpaint or get consent"
+ },
+ {
+  "id": "detail-niche-chartreuse",
+  "file": "210844.png",
+  "crop": {
+   "x0": 0.07,
+   "y0": 0.115,
+   "x1": 0.95,
+   "y1": 0.905
+  },
+  "rotate_deg": -1.5,
+  "wb": "mixed-light",
+  "exposure": "ok",
+  "noise": "low",
+  "kind": "room",
+  "rights": "to-confirm"
+ },
+ {
+  "id": "exterieur-ruelle",
+  "file": "210858.png",
+  "crop": {
+   "x0": 0.475,
+   "y0": 0.2,
+   "x1": 1.0,
+   "y1": 0.9
+  },
+  "rotate_deg": 0,
+  "wb": "mixed-light",
+  "exposure": "ok",
+  "noise": "medium",
+  "kind": "room",
+  "rights": "to-confirm",
+  "note": "blur the dated chalkboard text",
+  "blur": [
+   [
+    0.66,
+    0.8,
+    1.0,
+    1.0
+   ]
+  ]
+ },
+ {
+  "id": "enseigne",
+  "file": "210926.png",
+  "crop": {
+   "x0": 0.14,
+   "y0": 0.02,
+   "x1": 0.945,
+   "y1": 0.33
+  },
+  "rotate_deg": 1.5,
+  "wb": "ok",
+  "exposure": "ok",
+  "noise": "low",
+  "kind": "detail",
+  "rights": "to-confirm"
+ },
+ {
+  "id": "detail-chartreuse-etagere",
+  "file": "210831.png",
+  "crop": {
+   "x0": 0.24,
+   "y0": 0.22,
+   "x1": 0.878,
+   "y1": 0.655
+  },
+  "rotate_deg": 0,
+  "wb": "ok",
+  "exposure": "ok",
+  "noise": "medium",
+  "kind": "detail",
+  "rights": "blocked: customer photo (uploader patrizio del bove), do not publish without written consent"
+ },
+ {
+  "id": "plat-pate-en-croute",
+  "file": "pate-reference.webp",
+  "crop": {
+   "x0": 0,
+   "y0": 0,
+   "x1": 1,
+   "y1": 1
+  },
+  "rotate_deg": 0,
+  "wb": "ok",
+  "exposure": "ok",
+  "noise": "low",
+  "kind": "food",
+  "tweaks": {
+   "opacity": 0.3
+  },
+  "rights": "owner (supplied and retouched by the owner in chat)",
+  "note": "dish not on the current carte: confirm before using as a signature"
+ }
 ]

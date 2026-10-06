@@ -212,3 +212,12 @@ Macon village → Mâcon-Villages; Nuit Saint Georges → Nuits-Saint-Georges; C
 Lubéron → Luberon; Côte Chalonaise → Côte Chalonnaise; St Guilemh → Saint-Guilhem; Metrat → Métrat;
 Cheze → Chèze; « secret d'un cep'age » → « Secret d'un cep'âge »; Vieille vignes → Vieilles vignes.
 Open questions: Touraine « Ancrage » price currency; Pic Saint-Loup « Cuvée Manon » 26 €; rosé « OH ! by Omérade ».
+
+## Owner decisions — 2026-10-06 (after Phase 2)
+
+- Art direction: **A « L'Enseigne »**.
+- Photo rights: the owner confirms the 15 retained photos are theirs ("toutes à moi"). Still excluded:
+  `detail-chartreuse-etagere` (published on Google by a customer, uploader name visible). The staff
+  member visible in `salle-allee-carreaux` will be removed by retouching unless consent is given.
+- Original logo file: not available → the SVG reconstruction in `assets/brand/` becomes the site logo.
+- Lunch formulas confirmed: 21 € (2 plats) and 25 € (3 plats), Tuesday to Friday lunch.

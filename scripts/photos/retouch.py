@@ -132,26 +132,87 @@ def local_contrast(img, amount):
     return cv2.cvtColor(lab, cv2.COLOR_LAB2BGR)
 
 
-def grade(img, kind, warmth=1.0, vibrance=1.0):
-    """Unified 'Comme Avant' look: warm highlights, neutral-warm shadows, gentle vibrance."""
+# Hue bands in OpenCV units (0-179). Factor applied to saturation inside the band (soft edges).
+# Cyan is pulled down hard (mint LEDs, sky reflections on black plates); blues are protected so the
+# brand navy (sign, bar tiles, logo) never drifts to teal or violet.
+HUE_SAT = [
+    (24, 33, 0.92),   # yellows: keep Chartreuse yellow from bleeding
+    (34, 80, 0.92),   # greens: herbs, gel, foliage slightly calmer
+    (80, 103, 0.68),  # cyans
+    (140, 170, 0.88), # magentas
+]
+
+
+def hue_saturation(img):
+    hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV).astype(np.float32)
+    h, s = hsv[..., 0], hsv[..., 1]
+    factor = np.ones_like(s)
+    for lo, hi, k in HUE_SAT:
+        width = 4.0
+        inside = np.clip(np.minimum(h - lo, hi - h) / width + 0.5, 0, 1)
+        factor = factor * (1 - inside * (1 - k))
+    hsv[..., 1] = np.clip(s * factor, 0, 255)
+    return cv2.cvtColor(hsv.astype(np.uint8), cv2.COLOR_HSV2BGR)
+
+
+def highlight_shoulder(f, start=0.88, ceiling=0.965):
+    """Roll highlights off so lamps, meringue and napkins keep texture (max ~246/255)."""
+    over = np.clip(f - start, 0, None)
+    span = ceiling - start
+    return np.where(f > start, start + span * (1 - np.exp(-over / span)), f)
+
+
+def grade(img, kind, warmth=1.0, vibrance=1.0, opacity=1.0):
+    """Unified 'Comme Avant' look: warm amber shadows, golden highlights, calm cyans, protected navy."""
+    base = img
     f = img.astype(np.float32) / 255.0
     lum = (0.114 * f[..., 0] + 0.587 * f[..., 1] + 0.299 * f[..., 2])[..., None]
     hi = np.clip((lum - 0.45) / 0.55, 0, 1)
     sh = np.clip((0.4 - lum) / 0.4, 0, 1)
-    warm_hi = np.array([-0.008, 0.002, 0.008], np.float32) * warmth   # BGR: less blue, more red in highlights
-    warm_sh = np.array([-0.002, 0.000, 0.002], np.float32) * warmth   # barely warm shadows (no muddy brown)
+    warm_hi = np.array([-0.010, 0.002, 0.010], np.float32) * warmth   # BGR: golden highlights
+    warm_sh = np.array([-0.008, -0.001, 0.006], np.float32) * warmth  # amber shadows, black point ~#0E0C0A
     f = f + hi * warm_hi + sh * warm_sh
-    f = np.clip(f, 0, 1)
+    f = highlight_shoulder(np.clip(f, 0, 1))
+    out = (np.clip(f, 0, 1) * 255).astype(np.uint8)
+    out = hue_saturation(out)
     # vibrance: boost low-saturation pixels more than saturated ones
-    hsv = cv2.cvtColor((f * 255).astype(np.uint8), cv2.COLOR_BGR2HSV).astype(np.float32)
+    hsv = cv2.cvtColor(out, cv2.COLOR_BGR2HSV).astype(np.float32)
     sat = hsv[..., 1] / 255.0
-    boost = (0.05 if kind == "food" else 0.03) * vibrance
+    boost = (0.06 if kind == "food" else 0.03) * vibrance
     sat = sat + boost * (1 - sat) * sat * 2.0
     hsv[..., 1] = np.clip(sat * 255.0, 0, 255)
     out = cv2.cvtColor(hsv.astype(np.uint8), cv2.COLOR_HSV2BGR)
-    if kind == "food":
-        out = vignette(out, 0.06)
+    out = vignette(out, 0.07 if kind == "food" else 0.12)
+    if opacity < 1:
+        out = cv2.addWeighted(base, 1 - opacity, out, opacity, 0)
     return out
+
+
+def to_px(rect, img):
+    h, w = img.shape[:2]
+    x0, y0, x1, y1 = rect
+    return int(x0 * w), int(y0 * h), int(x1 * w), int(y1 * h)
+
+
+def inpaint_rects(img, rects):
+    """Remove small distractions (CCTV dome, stray glints). Rects are 0-1 in the cropped frame."""
+    if not rects:
+        return img
+    mask = np.zeros(img.shape[:2], np.uint8)
+    for r in rects:
+        x0, y0, x1, y1 = to_px(r, img)
+        mask[y0:y1, x0:x1] = 255
+    return cv2.inpaint(img, mask, 7, cv2.INPAINT_TELEA)
+
+
+def blur_rects(img, rects):
+    """Soften dated text (chalkboard prices) so it does not freeze outdated info."""
+    for r in rects or []:
+        x0, y0, x1, y1 = to_px(r, img)
+        roi = img[y0:y1, x0:x1]
+        if roi.size:
+            img[y0:y1, x0:x1] = cv2.GaussianBlur(roi, (0, 0), max(4, (x1 - x0) / 25))
+    return img
 
 
 def vignette(img, strength):
@@ -194,11 +255,14 @@ def geometry(entry, raw_dir, upscaler, cache_dir):
 def color(img, entry):
     t = entry.get("tweaks", {})
     kind = entry.get("kind", "room")
+    img = inpaint_rects(img, entry.get("inpaint"))
+    img = blur_rects(img, entry.get("blur"))
     img = neutralise_wb(img, entry.get("wb", "ok"), t.get("wb_strength", 1.0))
     img = tone(img, entry.get("exposure", "ok"), kind)
     img = local_contrast(img, t.get("local_contrast", 0.12 if kind == "food" else 0.18))
-    img = grade(img, kind, t.get("warmth", 1.0), t.get("vibrance", 1.0))
-    img = sharpen(img, t.get("sharpen", 0.3))
+    default_opacity = 0.65 if kind == "food" else 1.0
+    img = grade(img, kind, t.get("warmth", 1.0), t.get("vibrance", 1.0), t.get("opacity", default_opacity))
+    img = sharpen(img, t.get("sharpen", 0.3), 0.8)
     return limit_size(img)
 
 
@@ -210,6 +274,7 @@ def main():
     ap.add_argument("--model", default="")
     ap.add_argument("--only", default="")
     ap.add_argument("--cache", default="")
+    ap.add_argument("--geometry-only", action="store_true")
     args = ap.parse_args()
     entries = json.load(open(args.manifest))
     only = set(filter(None, args.only.split(",")))
@@ -222,7 +287,11 @@ def main():
             continue
         cache = args.cache or os.path.join(args.out, "_cache")
         os.makedirs(cache, exist_ok=True)
-        out = color(geometry(e, args.raw, up, cache), e)
+        base = geometry(e, args.raw, up, cache)
+        if args.geometry_only:
+            print(f"{e['id']}: geometry cached {base.shape[1]}x{base.shape[0]}", flush=True)
+            continue
+        out = color(base, e)
         path = os.path.join(args.out, e["id"] + ".jpg")
         cv2.imwrite(path, out, [cv2.IMWRITE_JPEG_QUALITY, 92, cv2.IMWRITE_JPEG_PROGRESSIVE, 1])
         print(f"{e['id']}: {out.shape[1]}x{out.shape[0]} -> {path}", flush=True)

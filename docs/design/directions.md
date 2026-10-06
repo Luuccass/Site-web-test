@@ -99,7 +99,7 @@ booking sheet only. Pinned story: none (the content is the carte).
 **Idea.** The board is the house: the owners' real chalkboard, photographed each day, is the hero and
 the only display voice. Ground = the measured slate of the reference photo.
 
-**Palette.** Ardoise `#2A2A2C` ground · Craie `#ECEBE6` text (13.4:1) · Craie fill with slate text for
+**Palette.** Ardoise `#2A2A2C` ground · Craie `#ECEBE6` text (12.0:1) · Craie fill with slate text for
 the CTA · borders ≥ 3:1. No accent colour.
 
 **Type.** Alegreya alone (text, UI, prices), small caps and tabular figures; the handwriting comes only

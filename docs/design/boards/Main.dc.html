@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Trois directions</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;1,400&amp;family=Literata:opsz,wght@7..72,400;7..72,600&amp;family=Alegreya:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#17213B}a:hover{color:#000}
+</style>
+</helmet>
+<div style="width: 1200px; height: 820px; box-sizing: border-box; padding: 64px 64px 56px; background: #FFFFFF; color: #17213B; font-family: 'Spectral', Georgia, serif; display: flex; flex-direction: column; gap: 40px">
+  <div style="display: flex; align-items: center; gap: 28px">
+    <img src="/_blob/6d2f3bf1776dcaa8c1302770065821e8" alt="Logo Restaurant Comme Avant, Dardilly" style="width: 112px; height: 112px">
+    <div style="display: flex; flex-direction: column; gap: 6px">
+      <h1 style="margin: 0; font-weight: 300; font-size: 48px; line-height: 1.05">Trois directions pour Comme Avant</h1>
+      <p style="margin: 0; font-size: 19px; line-height: 1.4; color: #3D435B">Chaque rangée de la toile montre une planche, la page d'accueil sur téléphone et sur ordinateur.</p>
+    </div>
+  </div>
+  <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; flex-grow: 1">
+    <div style="display: flex; flex-direction: column; gap: 18px; padding: 28px; background: #17213B; color: #FFFFFF; border-radius: 4px">
+      <p style="margin: 0; font-size: 15px; font-weight: 500; color: #17213B; background: #FFFFFF; align-self: flex-start; padding: 6px 12px; border-radius: 2px">Recommandée</p>
+      <h2 style="margin: 0; font-weight: 400; font-size: 34px; line-height: 1.1">A, L'Enseigne</h2>
+      <p style="margin: 0; font-size: 18px; line-height: 1.45">Le site prolonge le panneau de la porte : le bleu de l'enseigne, le nom, et l'affichette des horaires rendue vivante.</p>
+      <div style="display: flex; gap: 8px; margin-top: auto">
+        <div style="width: 48px; height: 48px; background: #17213B; border: 1px solid #FFFFFF"></div>
+        <div style="width: 48px; height: 48px; background: #FFFFFF"></div>
+        <div style="width: 48px; height: 48px; background: #A78547"></div>
+        <div style="width: 48px; height: 48px; background: #3D435B; border: 1px solid #FFFFFF"></div>
+      </div>
+      <p style="margin: 0; font-size: 16px">Spectral, Montserrat pour la plaque</p>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 18px; padding: 28px; background: #FFFFFF; color: #22304F; border: 1px solid #8FA3B8; border-radius: 4px; font-family: 'Literata', Georgia, serif">
+      <p style="margin: 0; font-size: 15px; visibility: hidden; padding: 6px 12px">.</p>
+      <h2 style="margin: 0; font-weight: 600; font-size: 34px; line-height: 1.1">B, Le Midi</h2>
+      <p style="margin: 0; font-size: 18px; line-height: 1.45">Le déjeuner d'abord : une grande assiette en plein jour sur la mosaïque de la terrasse, et la carte du moment juste dessous.</p>
+      <div style="display: flex; gap: 8px; margin-top: auto">
+        <div style="width: 48px; height: 48px; background: #FFFFFF; border: 1px solid #8FA3B8"></div>
+        <div style="width: 48px; height: 48px; background: #22304F"></div>
+        <div style="width: 48px; height: 48px; background: #B4563A"></div>
+        <div style="width: 48px; height: 48px; background: #8FA3B8"></div>
+      </div>
+      <p style="margin: 0; font-size: 16px">Literata seule</p>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 18px; padding: 28px; background: #2A2A2C; color: #ECEBE6; border-radius: 4px; font-family: 'Alegreya', Georgia, serif">
+      <p style="margin: 0; font-size: 15px; visibility: hidden; padding: 6px 12px">.</p>
+      <h2 style="margin: 0; font-weight: 500; font-size: 34px; line-height: 1.1">C, L'Ardoise</h2>
+      <p style="margin: 0; font-size: 18px; line-height: 1.45">L'ardoise du jour, écrite par Magali et Fabrice, devient la page d'accueil. Demande la séance photo.</p>
+      <div style="display: flex; gap: 8px; margin-top: auto">
+        <div style="width: 48px; height: 48px; background: #2A2A2C; border: 1px solid #ECEBE6"></div>
+        <div style="width: 48px; height: 48px; background: #ECEBE6"></div>
+      </div>
+      <p style="margin: 0; font-size: 16px">Alegreya seule</p>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1200,"height":820}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

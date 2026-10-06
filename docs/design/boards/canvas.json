@@ -1,0 +1,26 @@
+{
+  "v": 3,
+  "createdOnFiles": {"v": 1, "at": "2026-10-06T21:15:00Z"},
+  "title": "Comme Avant — directions artistiques",
+  "launch": {"view": "canvas"},
+  "pages": [],
+  "boards": {
+    "Main.dc.html": {"x": 0, "y": 0, "w": 1200, "h": 820, "title": "Les trois directions"},
+    "A-planche.dc.html": {"x": 0, "y": 1300, "w": 1200, "h": 1800, "title": "A, planche"},
+    "A-mobile.dc.html": {"x": 1280, "y": 1300, "w": 390, "h": 6817, "title": "A, accueil sur téléphone"},
+    "A-accueil.dc.html": {"x": 1750, "y": 1300, "w": 1440, "h": 6873, "title": "A, accueil sur ordinateur", "expand": "fill"},
+    "B-planche.dc.html": {"x": 0, "y": 8600, "w": 1200, "h": 1800, "title": "B, planche"},
+    "B-mobile.dc.html": {"x": 1280, "y": 8600, "w": 390, "h": 7320, "title": "B, accueil sur téléphone"},
+    "B-accueil.dc.html": {"x": 1750, "y": 8600, "w": 1440, "h": 5684, "title": "B, accueil sur ordinateur", "expand": "fill"},
+    "C-planche.dc.html": {"x": 0, "y": 16340, "w": 1200, "h": 1800, "title": "C, planche"},
+    "C-mobile.dc.html": {"x": 1280, "y": 16340, "w": 390, "h": 7436, "title": "C, accueil sur téléphone"},
+    "C-accueil.dc.html": {"x": 1750, "y": 16340, "w": 1440, "h": 6610, "title": "C, accueil sur ordinateur", "expand": "fill"}
+  },
+  "order": ["Main.dc.html", "A-planche.dc.html", "A-mobile.dc.html", "A-accueil.dc.html", "B-planche.dc.html", "B-mobile.dc.html", "B-accueil.dc.html", "C-planche.dc.html", "C-mobile.dc.html", "C-accueil.dc.html"],
+  "notes": {
+    "rowA": {"x": 0, "y": 1000, "text": "A, L'Enseigne (recommandée)", "kind": "title1", "maxW": 3190},
+    "rowB": {"x": 0, "y": 8300, "text": "B, Le Midi", "kind": "title1", "maxW": 3190},
+    "rowC": {"x": 0, "y": 16040, "text": "C, L'Ardoise", "kind": "title1", "maxW": 3190}
+  },
+  "designSystems": []
+}

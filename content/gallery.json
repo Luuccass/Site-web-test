@@ -1,0 +1,20 @@
+{
+  "note": "Photos are generated from assets/photos/retouched by `npm run images`. `focal` is the point kept visible when a photo is cropped (0–1).",
+  "photos": [
+    { "id": "salle-arche-bar", "group": "salle", "alt": "Arche en pierre dorée, suspensions en rotin et bar aux carreaux émaillés bleu marine, une table dressée au premier plan", "caption": "La salle, sous l'arche en pierre dorée", "focal": [0.59, 0.58] },
+    { "id": "salle-mur-vins", "group": "salle", "alt": "Mur de bouteilles rétroéclairé en niches arrondies sous quatre suspensions en rotin, banquette et tables dressées", "caption": "Le mur des vins", "focal": [0.48, 0.42] },
+    { "id": "salle-cave-chartreuse", "group": "salle", "alt": "Table ronde dressée devant la cave vitrée en arc de cercle, mur terre cuite et affiche ancienne de Chartreuse", "caption": "La cave et le coin Chartreuse", "focal": [0.6, 0.4] },
+    { "id": "plat-poulpe", "group": "assiettes", "alt": "Poulpe, pommes de terre et herbes hachées dans une assiette noire posée sur une table en mosaïque", "caption": "Poulpe, pommes de terre et herbes", "focal": [0.4, 0.49] },
+    { "id": "detail-carreaux-ciment", "group": "details", "alt": "Chemin de carreaux de ciment terre cuite, crème et bleu-gris entre des fauteuils en velours à pieds dorés", "caption": "Les carreaux de ciment de la salle", "focal": [0.55, 0.6] },
+    { "id": "dessert-moelleux-chocolat", "group": "assiettes", "alt": "Gâteau au chocolat en cocotte noire, une plaquette en chocolat « Restaurant Comme Avant Dardilly » posée dessus", "caption": "Le chocolat, signé de la maison", "focal": [0.48, 0.44] },
+    { "id": "exterieur-ruelle", "group": "details", "alt": "Ruelle piétonne de Dardilly-le-Bas, façade en pierre dorée et lanterne allumée du restaurant", "caption": "La ruelle, à côté de l'église", "focal": [0.34, 0.39] },
+    { "id": "plat-entrecote", "group": "assiettes", "alt": "Pièce de bœuf tranchée rosée, pommes grenaille et sauce crème à la ciboulette sur une assiette noire", "caption": "Bœuf rosé, grenailles et sauce à la ciboulette", "focal": [0.48, 0.48] },
+    { "id": "detail-niche-chartreuse", "group": "details", "alt": "Cave vitrée en arc de cercle sur un mur terre cuite, bouteilles et caisses de Chartreuse sous une affiche ancienne", "caption": "La niche de la Chartreuse", "focal": [0.47, 0.5] },
+    { "id": "dessert-ile-flottante", "group": "assiettes", "alt": "Île flottante sur crème anglaise, parsemée d'éclats rouges, dans une coupe en verre", "caption": "Île flottante", "focal": [0.6, 0.52] },
+    { "id": "salle-mur-vins-portrait", "group": "salle", "alt": "Mur de vins rétroéclairé, suspensions en rotin et table dressée sur le sol en carreaux de ciment", "caption": "Une table devant les vins", "focal": [0.5, 0.35] },
+    { "id": "plat-pate-en-croute", "group": "assiettes", "alt": "Tranche de pâté en croûte avec un insert de foie gras sur une ardoise, pickles, câpres et grains de grenade", "caption": "Pâté en croûte et foie gras", "focal": [0.42, 0.62] },
+    { "id": "dessert-pomme-pochee", "group": "assiettes", "alt": "Pomme pochée sur un sablé émietté, crème vanille et perles de gel vert dans une assiette en grès bleu-vert", "caption": "Pomme pochée et sablé", "focal": [0.47, 0.28] },
+    { "id": "enseigne", "group": "details", "alt": "Enseigne bleu marine « Restaurant Comme Avant » fixée sur un mur en pierre dorée", "caption": "L'enseigne", "focal": [0.47, 0.6] },
+    { "id": "dessert-moelleux-fruits-rouges", "group": "assiettes", "alt": "Moelleux aux myrtilles nappé de fruits rouges, quenelle de crème et feuille de menthe, cercle de coulis", "caption": "Moelleux aux fruits rouges", "focal": [0.5, 0.34] }
+  ]
+}

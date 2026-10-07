@@ -1,0 +1,37 @@
+{
+  "rating": {
+    "value": 4.8,
+    "count": 102,
+    "asOf": "2026-10-06",
+    "source": "Google"
+  },
+  "listingUrl": "https://www.google.com/maps/search/?api=1&query=Restaurant%20Comme%20Avant%2C%203%20place%20de%20l%27%C3%89glise%2C%2069570%20Dardilly",
+  "disclaimer": "Extraits d'avis publiés sur Google, choisis par le restaurant ; ces avis ne font pas l'objet d'une procédure de vérification par le restaurant.",
+  "note": "An excerpt is shown only when `author` and `date` are filled in exactly as Google displays them (French consumer law). Excerpts must stay short quotations.",
+  "excerpts": [
+    {
+      "id": "avis-1",
+      "text": "Nous avons passé un excellent moment. Le décor est magnifique, les plats sont succulents",
+      "author": null,
+      "date": null
+    },
+    {
+      "id": "avis-3",
+      "text": "Une belle découverte. Cadre chic et cosy. Un serveur aux petits soins.",
+      "author": null,
+      "date": null
+    },
+    {
+      "id": "avis-4",
+      "text": "La carte est régulièrement renouvelée et une ardoise propose fréquemment de nouveaux plats, différents de ceux de la carte.",
+      "author": null,
+      "date": null
+    },
+    {
+      "id": "avis-6",
+      "text": "Les plats sont savoureux, bien présentés et copieux avec du personnel agréable.",
+      "author": null,
+      "date": null
+    }
+  ]
+}

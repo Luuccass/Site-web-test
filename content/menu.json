@@ -1,0 +1,56 @@
+{
+  "updatedAt": "2026-10-06",
+  "pricesNote": "Prix nets en euros, service compris.",
+  "formules": {
+    "when": "du mardi au vendredi midi",
+    "items": [
+      { "id": "formule-2", "label": "2 plats", "detail": "entrée et plat, ou plat et dessert", "price": 21 },
+      { "id": "formule-3", "label": "3 plats", "detail": "entrée, plat et dessert", "price": 25 }
+    ]
+  },
+  "sections": [
+    {
+      "id": "entrees",
+      "title": "Les entrées",
+      "items": [
+        { "id": "tartare-truite", "name": "Tartare de truite fumée, vinaigrette au vinaigre de calamansi", "price": 11, "allergens": [], "allergensValidatedAt": null },
+        { "id": "betterave", "name": "Betterave en trois façons (pickles, rôtie et en purée), chèvre frais, granola au parmesan et graines de courge", "price": 11, "allergens": [], "allergensValidatedAt": null },
+        { "id": "nems-tete-de-veau", "name": "Nems de tête de veau et paleron de bœuf (France), sauce thaï", "price": 12, "allergens": [], "allergensValidatedAt": null }
+      ]
+    },
+    {
+      "id": "plats",
+      "title": "Les plats",
+      "items": [
+        { "id": "filet-aubrac", "name": "Filet de bœuf d'Aubrac (France), pomme Anna, sauce au poivre vert de Madagascar", "price": 33, "allergens": [], "allergensValidatedAt": null },
+        { "id": "lieu-noir", "name": "Pavé de lieu noir, choux-fleurs rôtis aux épices, écume de coco et citronnelle", "price": 25, "allergens": [], "allergensValidatedAt": null },
+        { "id": "tartare-boeuf", "name": "Tartare de bœuf (France) coupé au couteau, pommes de terre grenailles et salade", "price": 25, "allergens": [], "allergensValidatedAt": null },
+        { "id": "chevreuil", "name": "Dos de chevreuil (France), sauce grand veneur, mousseline de céleris raves et pomme Granny Smith", "price": 29, "allergens": [], "allergensValidatedAt": null },
+        { "id": "conchiglioni", "name": "Conchiglioni farcis aux épinards, ricotta et noisettes, vierge au parmesan et noisettes", "price": 22, "allergens": [], "allergensValidatedAt": null },
+        { "id": "broche", "name": "Suggestions et broche du jour", "detail": "selon arrivage", "price": null, "allergens": [], "allergensValidatedAt": null, "askAllergens": true }
+      ]
+    },
+    {
+      "id": "fromages",
+      "title": "Les fromages",
+      "items": [
+        { "id": "faisselle", "name": "Faisselle crème ou coulis", "price": 5.5, "allergens": [], "allergensValidatedAt": null },
+        { "id": "bleu-auvergne", "name": "Bleu d'Auvergne AOP", "price": 7, "allergens": [], "allergensValidatedAt": null },
+        { "id": "brie-meaux", "name": "Brie de Meaux AOP", "price": 7, "allergens": [], "allergensValidatedAt": null }
+      ]
+    },
+    {
+      "id": "desserts",
+      "title": "Les desserts",
+      "items": [
+        { "id": "baba-chartreuse", "name": "Baba à la chartreuse jaune et chantilly", "price": 8, "alcohol": true, "allergens": [], "allergensValidatedAt": null },
+        { "id": "poire-pochee", "name": "Poire pochée au caramel, ganache montée au chocolat au lait et poivre de Voatsiperifery", "price": 8, "allergens": [], "allergensValidatedAt": null },
+        { "id": "dome-chocolat", "name": "Dôme chocolat, orange amère et tuile au grué", "price": 8, "allergens": [], "allergensValidatedAt": null },
+        { "id": "cafe-gourmand", "name": "Café gourmand", "price": 7.5, "allergens": [], "allergensValidatedAt": null },
+        { "id": "the-gourmand", "name": "Thé gourmand", "price": 8.5, "allergens": [], "allergensValidatedAt": null },
+        { "id": "cafe-chartreuse", "name": "Café chartreuse (glace chartreuse et shooters de chartreuse jaune et chartreuse verte)", "price": 10.5, "alcohol": true, "allergens": [], "allergensValidatedAt": null },
+        { "id": "coupe-glace", "name": "Coupe de glace (2 boules et chantilly)", "price": 7, "allergens": [], "allergensValidatedAt": null }
+      ]
+    }
+  ]
+}

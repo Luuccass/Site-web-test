@@ -1,0 +1,5 @@
+{
+  "note": "L'ardoise du mois. Set `month` to the month it applies to (YYYY-MM) and list the items. Outside that month the site shows the generic line instead.",
+  "month": null,
+  "items": []
+}

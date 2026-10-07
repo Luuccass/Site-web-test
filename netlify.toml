@@ -1,0 +1,60 @@
+# Netlify (free plan): static site built by Next.js (`output: "export"` → ./out).
+[build]
+  command = "npm run build"
+  publish = "out"
+
+[build.environment]
+  NODE_VERSION = "22"
+  NEXT_TELEMETRY_DISABLED = "1"
+
+# Security headers for every page.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=()"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+    # Inline scripts: Next.js payload + the tiny pre-paint status script. The interactive map is an
+    # OpenStreetMap iframe loaded only after a click.
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; frame-src https://www.openstreetmap.org; form-action 'self'; base-uri 'self'; frame-ancestors 'none'; object-src 'none'; upgrade-insecure-requests"
+
+# Fingerprinted assets: cache for a year.
+[[headers]]
+  for = "/_next/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+[[headers]]
+  for = "/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Carte PDFs change with the carte: short cache.
+[[headers]]
+  for = "/pdf/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+
+# Old Wix pages → new pages (keep search rankings and old links working).
+# (Netlify matches rules with and without a trailing slash, so /la-carte and /nous-trouver need no rule.)
+[[redirects]]
+  from = "/menus"
+  to = "/la-carte/#formules"
+  status = 301
+[[redirects]]
+  from = "/cartesdesvins"
+  to = "/la-carte/vins/"
+  status = 301
+[[redirects]]
+  from = "/apropos"
+  to = "/le-restaurant/"
+  status = 301
+[[redirects]]
+  from = "/contact"
+  to = "/nous-trouver/#contact"
+  status = 301
+[[redirects]]
+  from = "/politique-en-mati%C3%A8re-de-cookies"
+  to = "/confidentialite/"
+  status = 301

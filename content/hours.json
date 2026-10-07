@@ -1,0 +1,23 @@
+{
+  "timezone": "Europe/Paris",
+  "verifiedThrough": "2026-12-31",
+  "services": [
+    { "day": 2, "service": "midi", "open": "11:30", "close": "14:00" },
+    { "day": 3, "service": "midi", "open": "11:30", "close": "14:00" },
+    { "day": 4, "service": "midi", "open": "11:30", "close": "14:00" },
+    { "day": 4, "service": "soir", "open": "19:30", "close": "21:30" },
+    { "day": 5, "service": "midi", "open": "11:30", "close": "14:00" },
+    { "day": 5, "service": "soir", "open": "19:30", "close": "21:30" },
+    { "day": 6, "service": "midi", "open": "11:30", "close": "14:00" },
+    { "day": 6, "service": "soir", "open": "19:30", "close": "21:30" }
+  ],
+  "lastOrders": null,
+  "publicHolidays": "call",
+  "closures": [],
+  "booking": {
+    "horizonDays": 30,
+    "sameDayLeadMinutes": 60,
+    "slotMinutes": 15,
+    "groupThreshold": 8
+  }
+}

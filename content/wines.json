@@ -1,0 +1,700 @@
+{
+  "updatedAt": "2026-10-06",
+  "byGlass": [
+    {
+      "colour": "blanc",
+      "name": "Mâcon-Villages AOC",
+      "sizes": [
+        {
+          "cl": 12,
+          "price": 5.0
+        },
+        {
+          "cl": 25,
+          "price": 7.0
+        },
+        {
+          "cl": 46,
+          "price": 12.0
+        }
+      ]
+    },
+    {
+      "colour": "blanc",
+      "name": "Viognier IGP",
+      "sizes": [
+        {
+          "cl": 12,
+          "price": 6.0
+        },
+        {
+          "cl": 25,
+          "price": 8.0
+        },
+        {
+          "cl": 46,
+          "price": 14.0
+        }
+      ]
+    },
+    {
+      "colour": "blanc",
+      "name": "Marsanne 2024, Collines Rhodaniennes IGP, Domaine Louis Chèze (100 % Marsanne)",
+      "sizes": [
+        {
+          "cl": 12,
+          "price": 6.0
+        }
+      ]
+    },
+    {
+      "colour": "rouge",
+      "name": "Côtes du Rhône Sablet",
+      "sizes": [
+        {
+          "cl": 12,
+          "price": 5.0
+        },
+        {
+          "cl": 25,
+          "price": 7.0
+        },
+        {
+          "cl": 46,
+          "price": 12.0
+        }
+      ]
+    },
+    {
+      "colour": "rouge",
+      "name": "Brouilly",
+      "sizes": [
+        {
+          "cl": 12,
+          "price": 6.0
+        },
+        {
+          "cl": 25,
+          "price": 8.0
+        },
+        {
+          "cl": 46,
+          "price": 14.0
+        }
+      ]
+    },
+    {
+      "colour": "rouge",
+      "name": "AOP Syrahvissante 2024, Domaine Louis Chèze (100 % Syrah)",
+      "sizes": [
+        {
+          "cl": 12,
+          "price": 6.0
+        }
+      ]
+    },
+    {
+      "colour": "rose",
+      "name": "Côtes de Provence",
+      "sizes": [
+        {
+          "cl": 12,
+          "price": 5.0
+        },
+        {
+          "cl": 25,
+          "price": 7.0
+        },
+        {
+          "cl": 46,
+          "price": 12.0
+        }
+      ]
+    }
+  ],
+  "bottles": [
+    {
+      "colour": "rouge",
+      "region": "Vin de France",
+      "name": "Gamaret « La clé de Sophie » – Domaine Bouteille",
+      "price": 56.0,
+      "format": "Magnum 1,5 l"
+    },
+    {
+      "colour": "rouge",
+      "region": "Vin de France",
+      "name": "Gamaret « La clé de Sophie » – Domaine Bouteille",
+      "price": 29.0
+    },
+    {
+      "colour": "rouge",
+      "region": "Vin de France",
+      "name": "Pinot noir 2022 « Les Perrières de Pierre » – Domaine Bouteille",
+      "price": 45.0
+    },
+    {
+      "colour": "rouge",
+      "region": "Vin de France",
+      "name": "Vin de France « 50-cinquante » 2024 – Domaine Louis Chèze",
+      "price": 21.0
+    },
+    {
+      "colour": "rouge",
+      "region": "Vin de France",
+      "name": "Vin de France Syrahvissante 2024 – Domaine Louis Chèze",
+      "price": 24.0
+    },
+    {
+      "colour": "rouge",
+      "region": "Vin de France",
+      "name": "Vallée du Rhône « Cuvée Emma » 2020 – Domaine Gallety",
+      "price": 74.0
+    },
+    {
+      "colour": "rouge",
+      "region": "Beaujolais",
+      "name": "Beaujolais 2023 – Domaine Bouteille",
+      "price": 22.0
+    },
+    {
+      "colour": "rouge",
+      "region": "Beaujolais",
+      "name": "Chiroubles « La scandaleuse » 2024 – Domaine Métrat & Fils",
+      "price": 28.0
+    },
+    {
+      "colour": "rouge",
+      "region": "Beaujolais",
+      "name": "Morgon 2025 – Château Gaillard",
+      "price": 30.0
+    },
+    {
+      "colour": "rouge",
+      "region": "Beaujolais",
+      "name": "Moulin-à-Vent – Château des Jacques 2023 – Louis Jadot",
+      "price": 50.0
+    },
+    {
+      "colour": "rouge",
+      "region": "Coteaux du Lyonnais",
+      "name": "Coteaux du Lyonnais « Domaine de Baptiste » 2020 – Domaine Bouteille",
+      "price": 21.0
+    },
+    {
+      "colour": "rouge",
+      "region": "Vallée du Rhône",
+      "name": "AOP Côtes du Rhône « Saint Esprit » 2023 – Delas",
+      "price": 21.0
+    },
+    {
+      "colour": "rouge",
+      "region": "Vallée du Rhône",
+      "name": "AOP Côtes du Rhône « Le temps est venu » 2024 – Domaine Ogier",
+      "price": 23.0
+    },
+    {
+      "colour": "rouge",
+      "region": "Vallée du Rhône",
+      "name": "Saint-Joseph « Les Challeys » 2024 – Maison Delas",
+      "price": 42.0
+    },
+    {
+      "colour": "rouge",
+      "region": "Vallée du Rhône",
+      "name": "Saint-Joseph « Le Passage » 2022 – Domaine Ogier",
+      "price": 64.0
+    },
+    {
+      "colour": "rouge",
+      "region": "Vallée du Rhône",
+      "name": "AOC Saint-Joseph « Caroline » 2023 – Domaine Louis Chèze",
+      "price": 56.0
+    },
+    {
+      "colour": "rouge",
+      "region": "Vallée du Rhône",
+      "name": "IGP Collines Rhodaniennes « Saxeolum » 2023 – Domaine Louis Chèze",
+      "price": 85.0
+    },
+    {
+      "colour": "rouge",
+      "region": "Vallée du Rhône",
+      "name": "AOP Côte-Rôtie « Fortis » 2023 – Stéphane Montez",
+      "price": 105.0
+    },
+    {
+      "colour": "rouge",
+      "region": "Vallée du Rhône",
+      "name": "AOP Côte-Rôtie 2023 – Gisèle Vernay & Sébastien Colombier",
+      "price": 82.0
+    },
+    {
+      "colour": "rouge",
+      "region": "Vallée du Rhône",
+      "name": "AOP Côte-Rôtie « Secret d'un cep'âge » 2022 – Vernay Colombier",
+      "price": 93.0
+    },
+    {
+      "colour": "rouge",
+      "region": "Vallée du Rhône",
+      "name": "AOP Ermitage « Les Greffieux » 2007 – Domaine Chapoutier",
+      "price": 210.0
+    },
+    {
+      "colour": "rouge",
+      "region": "Vallée du Rhône",
+      "name": "AOP Ermitage « Les Greffieux » 2013 – Domaine Chapoutier",
+      "price": 198.0
+    },
+    {
+      "colour": "rouge",
+      "region": "Vallée du Rhône",
+      "name": "AOP Ermitage « Le Pavillon » 2007 – Domaine Chapoutier",
+      "price": 360.0
+    },
+    {
+      "colour": "rouge",
+      "region": "Vallée du Rhône",
+      "name": "AOP Cornas « St Pierre » 2020 – Domaine Chapoutier",
+      "price": 120.0
+    },
+    {
+      "colour": "rouge",
+      "region": "Vallée du Rhône",
+      "name": "AOP Cornas 2022 – Stéphane Montez",
+      "price": 108.0
+    },
+    {
+      "colour": "rouge",
+      "region": "Vallée du Rhône",
+      "name": "AOP Crozes-Hermitage « Les Meysonniers » 2023 – Domaine Chapoutier",
+      "price": 55.0
+    },
+    {
+      "colour": "rouge",
+      "region": "Vallée du Rhône",
+      "name": "Châteauneuf-du-Pape 2021 – Domaine de Font de Courtedune",
+      "price": 75.0
+    },
+    {
+      "colour": "rouge",
+      "region": "Vallée du Rhône",
+      "name": "AOP Châteauneuf-du-Pape « Vieux Télégraphe » 2020 – Famille Brunier",
+      "price": 97.0
+    },
+    {
+      "colour": "rouge",
+      "region": "Vallée du Rhône",
+      "name": "Beaumes-de-Venise 2023 – Dom Venitia RhonéA",
+      "price": 33.0
+    },
+    {
+      "colour": "rouge",
+      "region": "Vallée du Rhône",
+      "name": "Vacqueyras 2024 – Bastide Saint Dominique",
+      "price": 38.0
+    },
+    {
+      "colour": "rouge",
+      "region": "Vallée du Rhône",
+      "name": "AOP Côtes du Vivarais « Cuvée Gallety » 2022 – Domaine Gallety",
+      "price": 46.0
+    },
+    {
+      "colour": "rouge",
+      "region": "Vallée du Rhône",
+      "name": "AOP Côtes du Vivarais « La Syrare » 2020 – Domaine Gallety",
+      "price": 87.0
+    },
+    {
+      "colour": "rouge",
+      "region": "Vallée du Rhône",
+      "name": "AOP Côtes du Vivarais « La Syrare » 2019 – Domaine Gallety",
+      "price": 172.0,
+      "format": "Magnum 1,5 l"
+    },
+    {
+      "colour": "rouge",
+      "region": "Vallée du Rhône",
+      "name": "AOP Côtes du Vivarais « La Syrare » 2010 – Domaine Gallety",
+      "price": 130.0
+    },
+    {
+      "colour": "rouge",
+      "region": "Savoie",
+      "name": "IGP Vin des Allobroges « Argile Rouge » 2024 – Domaine des Ardoisières",
+      "price": 47.0
+    },
+    {
+      "colour": "rouge",
+      "region": "Bourgogne",
+      "name": "AOP Bourgogne Pinot noir « Tradition » 2022 – Domaine Fichet",
+      "price": 30.0
+    },
+    {
+      "colour": "rouge",
+      "region": "Bourgogne",
+      "name": "Bourgogne Côte Chalonnaise 2024 – Domaine Lagarde",
+      "price": 34.0
+    },
+    {
+      "colour": "rouge",
+      "region": "Bourgogne",
+      "name": "Givry 2024 – Domaine Chamilly",
+      "price": 48.0
+    },
+    {
+      "colour": "rouge",
+      "region": "Bourgogne",
+      "name": "AOC Ladoix « Les Chaillots » 2023 – Château de Meursault",
+      "price": 68.0
+    },
+    {
+      "colour": "rouge",
+      "region": "Bourgogne",
+      "name": "Mercurey 2023 – Louis Jadot",
+      "price": 61.0
+    },
+    {
+      "colour": "rouge",
+      "region": "Bourgogne",
+      "name": "Hautes-Côtes de Beaune 2023 – Domaine Françoise Jeanniard",
+      "price": 61.0
+    },
+    {
+      "colour": "rouge",
+      "region": "Bourgogne",
+      "name": "AOC Nuits-Saint-Georges 2021 – Domaine de Bellene",
+      "price": 98.0
+    },
+    {
+      "colour": "rouge",
+      "region": "Bourgogne",
+      "name": "Aloxe-Corton 2023 – Domaine Daniel Largeot",
+      "price": 75.0
+    },
+    {
+      "colour": "rouge",
+      "region": "Bourgogne",
+      "name": "AOP Irancy 2023 – Maison de la Chapelle",
+      "price": 68.0
+    },
+    {
+      "colour": "rouge",
+      "region": "Saumur / Val de Loire",
+      "name": "AOP Sancerre 2023 – Domaine Corty",
+      "price": 39.0
+    },
+    {
+      "colour": "rouge",
+      "region": "Saumur / Val de Loire",
+      "name": "AOC Saint-Nicolas-de-Bourgueil 2023 – Domaine de la Lande – Delaunay père & fils",
+      "price": 29.0
+    },
+    {
+      "colour": "rouge",
+      "region": "Côtes de Provence / Luberon",
+      "name": "Luberon rouge 2022 – Domaine Saint Jean",
+      "price": 28.0
+    },
+    {
+      "colour": "rouge",
+      "region": "Côtes de Provence / Luberon",
+      "name": "Côtes de Provence cru classé « La Réserve » 2023 – Château de Brégançon – bio",
+      "price": 36.0
+    },
+    {
+      "colour": "rouge",
+      "region": "Languedoc",
+      "name": "AOP Pic Saint-Loup « Les Glorieuses » 2020 – Clos Marie, Christophe Peyrus",
+      "price": 63.0
+    },
+    {
+      "colour": "rouge",
+      "region": "Languedoc",
+      "name": "IGP Coteaux du Languedoc « Costa Caoude » 2014 – Mas Haut Buis",
+      "price": 52.0
+    },
+    {
+      "colour": "rouge",
+      "region": "Languedoc",
+      "name": "Corbières « Les Gourgoules » 2024 – Château de Caraguilhes",
+      "price": 29.0
+    },
+    {
+      "colour": "rouge",
+      "region": "Bordeaux",
+      "name": "AOP Saint-Émilion Grand Cru Classé 2019 – Château Le Châtelet",
+      "price": 94.0
+    },
+    {
+      "colour": "rouge",
+      "region": "Bordeaux",
+      "name": "Haut-Médoc « La Croix Dompierre » 2022 – Domaine Dompierre",
+      "price": 51.0
+    },
+    {
+      "colour": "rouge",
+      "region": "Bordeaux",
+      "name": "Pessac-Léognan 2021 – Château d'Eyran",
+      "price": 48.0
+    },
+    {
+      "colour": "rouge",
+      "region": "Bordeaux",
+      "name": "AOC Fronsac 2022 – Château La Vieille Cure",
+      "price": 64.0
+    },
+    {
+      "colour": "blanc",
+      "region": "Vin de France",
+      "name": "Viognier « Cuvée Rolland » – Domaine Bouteille",
+      "price": 28.0
+    },
+    {
+      "colour": "blanc",
+      "region": "Beaujolais",
+      "name": "Beaujolais blanc 2024 – Domaine Bouteille Philippe et Rolland",
+      "price": 24.0
+    },
+    {
+      "colour": "blanc",
+      "region": "Vallée du Rhône",
+      "name": "IGP « Les Hauts du Monteillet » 2024 – Stéphane Montez",
+      "price": 32.0
+    },
+    {
+      "colour": "blanc",
+      "region": "Vallée du Rhône",
+      "name": "IGP « Le petit viognier » 2024 – Stéphane Montez",
+      "price": 42.0
+    },
+    {
+      "colour": "blanc",
+      "region": "Vallée du Rhône",
+      "name": "AOC Saint-Péray « Les Tanneurs » 2024 – Domaine Chapoutier",
+      "price": 38.0
+    },
+    {
+      "colour": "blanc",
+      "region": "Vallée du Rhône",
+      "name": "Marsanne 2024 – Collines Rhodaniennes IGP – Domaine Louis Chèze",
+      "price": 30.0
+    },
+    {
+      "colour": "blanc",
+      "region": "Vallée du Rhône",
+      "name": "AOC Saint-Joseph 2024 – Stéphane Montez",
+      "price": 52.0
+    },
+    {
+      "colour": "blanc",
+      "region": "Vallée du Rhône",
+      "name": "Saint-Joseph 2023 – Domaine Pierre Gaillard",
+      "price": 64.0
+    },
+    {
+      "colour": "blanc",
+      "region": "Vallée du Rhône",
+      "name": "Crozes-Hermitage « Cuvée L » 2025 – Domaine Combier",
+      "price": 39.0
+    },
+    {
+      "colour": "blanc",
+      "region": "Vallée du Rhône",
+      "name": "Crozes-Hermitage « Clos des Grives » 2023 – Domaine Combier",
+      "price": 99.0
+    },
+    {
+      "colour": "blanc",
+      "region": "Vallée du Rhône",
+      "name": "AOP Condrieu « Chanson » 2023 – Stéphane Montez",
+      "price": 88.0
+    },
+    {
+      "colour": "blanc",
+      "region": "Vallée du Rhône",
+      "name": "AOP Condrieu « Vernon » 2024 – Vernay Colombier",
+      "price": 72.0
+    },
+    {
+      "colour": "blanc",
+      "region": "Bourgogne",
+      "name": "Mâcon-Burgy « Cuvée Les 3 Terroirs » 2024 – Domaine Fichet",
+      "price": 32.0
+    },
+    {
+      "colour": "blanc",
+      "region": "Bourgogne",
+      "name": "Bourgogne Aligoté 2023 – Domaine Lagarde",
+      "price": 29.0
+    },
+    {
+      "colour": "blanc",
+      "region": "Bourgogne",
+      "name": "Petit Chablis 2024 – Domaine Chevallier",
+      "price": 32.0
+    },
+    {
+      "colour": "blanc",
+      "region": "Bourgogne",
+      "name": "Chablis « Vieilles vignes » 2022 – Domaine Étienne Defaix",
+      "price": 49.0
+    },
+    {
+      "colour": "blanc",
+      "region": "Bourgogne",
+      "name": "AOC Saint-Véran 2025 – Domaine de la Denante",
+      "price": 34.0
+    },
+    {
+      "colour": "blanc",
+      "region": "Bourgogne",
+      "name": "AOC Pouilly-Fuissé 2023 – Domaine de la Denante",
+      "price": 51.0
+    },
+    {
+      "colour": "blanc",
+      "region": "Bourgogne",
+      "name": "AOP Pernand-Vergelesses 2023 – Domaine Françoise Jeanniard",
+      "price": 65.0
+    },
+    {
+      "colour": "blanc",
+      "region": "Bourgogne",
+      "name": "AOC Meursault 2023 – Joseph Pascal",
+      "price": 98.0
+    },
+    {
+      "colour": "blanc",
+      "region": "Bourgogne",
+      "name": "Puligny-Montrachet 2022 – Domaine Jean Ferry",
+      "price": 148.0
+    },
+    {
+      "colour": "blanc",
+      "region": "Cévennes",
+      "name": "IGP Cévennes « Épisode Cévenol » 2024 – Domaine de Berguerolles",
+      "price": 24.0
+    },
+    {
+      "colour": "blanc",
+      "region": "Cévennes",
+      "name": "IGP Cévennes « White Rabbit » (vin non filtré) 2024 – Domaine de Berguerolles",
+      "price": 26.0
+    },
+    {
+      "colour": "blanc",
+      "region": "Cévennes",
+      "name": "IGP Cévennes « La vie en orange » – Domaine de Berguerolles",
+      "price": 22.0
+    },
+    {
+      "colour": "blanc",
+      "region": "Saumur / Val de Loire",
+      "name": "AOP Saumur « L'Insolite » 2023 – Domaine des Roches Neuves",
+      "price": 29.0
+    },
+    {
+      "colour": "blanc",
+      "region": "Saumur / Val de Loire",
+      "name": "Saumur « Les Moulins » 2024 – Chai de la Dive",
+      "price": 30.0
+    },
+    {
+      "colour": "blanc",
+      "region": "Saumur / Val de Loire",
+      "name": "AOC Touraine « Ancrage » 2024 – Les Quatre Piliers",
+      "price": 36.0
+    },
+    {
+      "colour": "blanc",
+      "region": "Saumur / Val de Loire",
+      "name": "Sancerre 2024 – Domaine La Gemière",
+      "price": 42.0
+    },
+    {
+      "colour": "blanc",
+      "region": "Languedoc",
+      "name": "IGP Saint-Guilhem-le-Désert « Tapade » 2024 – Domaine Mas Conscience",
+      "price": 30.0
+    },
+    {
+      "colour": "blanc",
+      "region": "Languedoc",
+      "name": "AOP Pic Saint-Loup « Cuvée Manon » 2021 – Clos Marie, Christophe Peyrus",
+      "price": 26.0
+    },
+    {
+      "colour": "blanc",
+      "region": "Languedoc",
+      "name": "IGP Languedoc 2023 – Château La Roque – bio",
+      "price": 32.0
+    },
+    {
+      "colour": "rose",
+      "region": "Rosés",
+      "name": "IGP Languedoc – Puech-Haut « Argali »",
+      "price": 28.0
+    },
+    {
+      "colour": "rose",
+      "region": "Rosés",
+      "name": "« Le Versant » Grenache rosé 2025 – IGP Pays d'Oc – Vignobles Foncalieu",
+      "price": 25.0
+    },
+    {
+      "colour": "rose",
+      "region": "Rosés",
+      "name": "IGP Cévennes « J'adore le rosé » – Domaine de Berguerolles",
+      "price": 23.0
+    },
+    {
+      "colour": "rose",
+      "region": "Rosés",
+      "name": "IGP Var « OH ! by Omérade » – Domaine Fabre",
+      "price": 19.0
+    },
+    {
+      "colour": "rose",
+      "region": "Rosés",
+      "name": "« Symphonie » 2025 – Château Sainte Marguerite – AOC Côtes de Provence",
+      "price": 41.0
+    },
+    {
+      "colour": "rose",
+      "region": "Rosés",
+      "name": "Côtes de Provence – Minuty « M » – édition limitée",
+      "price": 37.0
+    },
+    {
+      "colour": "rose",
+      "region": "Rosés",
+      "name": "Côtes de Provence – Figuière « Magali »",
+      "price": 32.0
+    },
+    {
+      "colour": "rose",
+      "region": "Rosés",
+      "name": "« San Ghjuva » – Isula Rosé 2025 – IGP Île de Beauté",
+      "price": 24.0
+    },
+    {
+      "colour": "bulles",
+      "region": "Champagne",
+      "name": "AOP Champagne « Brut Tradition » – Charles de Villenfin",
+      "price": 48.0
+    }
+  ],
+  "sparklingByGlass": [
+    {
+      "name": "Coupe de champagne « Brut Tradition », Charles de Villenfin",
+      "price": 10.0
+    },
+    {
+      "name": "Kir royal",
+      "price": 12.0
+    }
+  ],
+  "note": "Millésimes selon disponibilité."
+}

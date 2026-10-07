@@ -110,7 +110,7 @@ def rosette(cx, cy, r_letter, stroke):
     return "\n    ".join(parts)
 
 
-def build(regular, semibold, badge=True):
+def build(regular, semibold, badge=True, compact=False, tight=False):
     reg, semi = Setter(regular), Setter(semibold)
     big = 158            # font size giving the measured ~116 px cap height
     track = 0.02
@@ -137,14 +137,25 @@ def build(regular, semibold, badge=True):
     body = [
         f'<path fill="{WHITE}" d="{reg.path("COMME", x1, base1, big, track, skip=(1,))}"/>',
         f'<path fill="{WHITE}" d="{reg.path("AVANT", x2, base2, big, track)}"/>',
-        f'<path fill="{WHITE}" d="{semi.path("RESTAURANT", c - rest_w / 2, 200, small, small_track)}"/>',
-        f'<path fill="{WHITE}" d="{semi.path("DARDILLY", c - dard_w / 2, 640, small, small_track)}"/>',
         rosette(ocx, ocy, o_r, stroke),
     ]
+    if not compact:
+        body += [
+            f'<path fill="{WHITE}" d="{semi.path("RESTAURANT", c - rest_w / 2, 200, small, small_track)}"/>',
+            f'<path fill="{WHITE}" d="{semi.path("DARDILLY", c - dard_w / 2, 640, small, small_track)}"/>',
+        ]
     bg = f'<circle cx="{c}" cy="{c}" r="{c - 4}" fill="{NAVY}"/>' if badge else ""
+    # Compact: tight box around COMME AVANT + rosette (header use). Full: square 776 box.
+    if compact:
+        view = f"{x1 - 6:.0f} {ocy - o_r - stroke * 2.6:.0f} {w1 + 12:.0f} {base2 - (ocy - o_r - stroke * 2.6) + 8:.0f}"
+    elif tight:
+        top = 200 - semi.cap * small / semi.upm - 14
+        view = f"{x1 - 6:.0f} {top:.0f} {w1 + 12:.0f} {640 + 14 - top:.0f}"
+    else:
+        view = f"0 0 {SIZE} {SIZE}"
     return (
-        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {SIZE} {SIZE}" role="img" aria-labelledby="t">\n'
-        f'  <title id="t">Restaurant Comme Avant, Dardilly</title>\n  {bg}\n  <g>\n    '
+        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="{view}" role="img" aria-label="Restaurant Comme Avant, Dardilly">\n'
+        f'  {bg}\n  <g>\n    '
         + "\n    ".join(body)
         + "\n  </g>\n</svg>\n"
     )
@@ -157,6 +168,10 @@ def main():
         f.write(build(regular, semibold, badge=True))
     with open(os.path.join(out, "logo-comme-avant-wordmark.svg"), "w") as f:
         f.write(build(regular, semibold, badge=False))
+    with open(os.path.join(out, "logo-comme-avant-stacked.svg"), "w") as f:
+        f.write(build(regular, semibold, badge=False, tight=True))
+    with open(os.path.join(out, "logo-comme-avant-compact.svg"), "w") as f:
+        f.write(build(regular, semibold, badge=False, compact=True))
     print("ok")
 
 

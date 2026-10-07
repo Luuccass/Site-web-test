@@ -1,0 +1,401 @@
+@import "tailwindcss";
+
+/* ── Design tokens: direction A « L'Enseigne » ─────────────────────────────────────────────── */
+@theme {
+  --color-navy: #17213b;          /* the sign at the door: grounds, buttons on white (white text 15.9:1) */
+  --color-navy-raised: #1f2b4d;   /* cells and panels on navy */
+  --color-paper: #ffffff;         /* reading surfaces: carte, hours, booking (navy text 15.9:1) */
+  --color-ink: #17213b;
+  --color-ink-soft: #4a5168;      /* secondary text on white (7.9:1) */
+  --color-on-navy: #ffffff;
+  --color-on-navy-soft: #c9cdd9;  /* secondary text on navy (10:1) */
+  --color-stone: #a78547;         /* pierre dorée: hero frame and footer field only */
+  --color-disc: #3d435b;          /* logo disc only */
+  --color-line: #d5d8e0;          /* decorative rules on white */
+  --color-field: #7a8196;         /* form field borders on white (3.9:1) */
+  --color-line-navy: #8c93a8;     /* rules and borders on navy (5.2:1) */
+  --color-error: #a3302a;         /* form errors on white (7:1) */
+
+  --font-serif: var(--font-spectral), "Spectral", Georgia, "Times New Roman", serif;
+  --font-plaque: var(--font-montserrat), "Montserrat", "Helvetica Neue", Arial, sans-serif;
+
+  --text-display: clamp(2.25rem, 1.55rem + 3vw, 4.25rem);
+  --text-h1: clamp(2.5rem, 1.7rem + 3.4vw, 4.75rem);
+  --text-h2: clamp(1.9rem, 1.45rem + 1.9vw, 3rem);
+  --text-h3: clamp(1.3rem, 1.18rem + 0.5vw, 1.625rem);
+  --text-body: 1.125rem;
+  --text-small: 1rem;
+
+  --ease-door: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ── Base ──────────────────────────────────────────────────────────────────────────────────── */
+:root {
+  --sticky-top: 0px;
+  --bar-h: 0px;
+  color-scheme: light;
+}
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-padding-top: calc(var(--sticky-top) + 1rem);
+  scroll-padding-bottom: calc(var(--bar-h) + env(safe-area-inset-bottom) + 1rem);
+}
+@media (prefers-reduced-motion: no-preference) {
+  html:not(.lenis) {
+    scroll-behavior: smooth;
+  }
+}
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-serif);
+  font-size: var(--text-body);
+  line-height: 1.6;
+  font-kerning: normal;
+  font-variant-ligatures: common-ligatures;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  padding-bottom: calc(var(--bar-h) + env(safe-area-inset-bottom));
+}
+h1,
+h2,
+h3 {
+  font-weight: 300;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+p,
+li {
+  text-wrap: pretty;
+  hyphens: manual;
+}
+a {
+  color: inherit;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+::selection {
+  background: var(--color-navy);
+  color: var(--color-on-navy);
+}
+
+/* Focus: 2 px outline, 3 px offset, colour per surface (works in forced-colors). */
+:focus-visible {
+  outline: 2px solid var(--color-navy);
+  outline-offset: 3px;
+}
+.on-navy :focus-visible,
+.on-navy:focus-visible {
+  outline-color: var(--color-on-navy);
+}
+.on-photo :focus-visible {
+  outline: 2px solid var(--color-on-navy);
+  box-shadow: 0 0 0 5px var(--color-navy);
+}
+
+/* Typographic helpers */
+.tnum {
+  font-variant-numeric: lining-nums tabular-nums;
+}
+.smcp {
+  font-variant-caps: all-small-caps;
+  letter-spacing: 0.02em;
+}
+.measure {
+  max-width: 36em;
+}
+
+/* Buttons: the sign on white (navy fill) and the sign in reverse on navy (white fill). */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 3rem;
+  padding: 0.65rem 1.35rem;
+  border-radius: 2px;
+  font-weight: 500;
+  font-size: 1.0625rem;
+  line-height: 1.2;
+  text-decoration: none;
+  transition: transform 120ms var(--ease-out-soft), background-color 160ms ease, color 160ms ease;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+.btn:active {
+  transform: scale(0.98);
+}
+.btn-solid {
+  background: var(--color-navy);
+  color: var(--color-on-navy);
+  border: 1px solid var(--color-navy);
+}
+.btn-solid:hover {
+  background: #0f1730;
+}
+.btn-line {
+  background: transparent;
+  color: var(--color-navy);
+  border: 1px solid var(--color-navy);
+}
+.btn-line:hover {
+  background: rgba(23, 33, 59, 0.06);
+}
+.on-navy .btn-solid {
+  background: var(--color-on-navy);
+  color: var(--color-navy);
+  border-color: var(--color-on-navy);
+}
+.on-navy .btn-solid:hover {
+  background: #e9ebf1;
+}
+.on-navy .btn-line {
+  color: var(--color-on-navy);
+  border-color: var(--color-on-navy);
+}
+.on-navy .btn-line:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Standalone links: underline draws in on hover (in-text links keep a permanent underline). */
+.link-draw {
+  text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 100% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  padding-bottom: 2px;
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .link-draw {
+    background-size: 0% 1px;
+    transition: background-size 220ms var(--ease-out-soft);
+  }
+  .link-draw:hover,
+  .link-draw:focus-visible,
+  .link-draw[aria-current="page"] {
+    background-size: 100% 1px;
+  }
+}
+
+/* ── Motion ────────────────────────────────────────────────────────────────────────────────── */
+/* M1 « L'affiche s'accroche »: transform only, everything painted from the first frame. */
+@media (prefers-reduced-motion: no-preference) {
+  :root:not([data-soft-nav]) .m1-notice {
+    animation: m1-notice 760ms var(--ease-out-soft) 80ms backwards;
+  }
+  :root:not([data-soft-nav]) .m1-photo {
+    animation: m1-photo 900ms var(--ease-out-soft) backwards;
+  }
+}
+@keyframes m1-notice {
+  from {
+    transform: translateY(12px);
+  }
+  to {
+    transform: none;
+  }
+}
+@keyframes m1-photo {
+  from {
+    transform: scale(1.04);
+  }
+  to {
+    transform: none;
+  }
+}
+
+/* M2m « La porte s'ouvre »: two navy leaves slide apart (translateX only). */
+.door {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.door__leaf {
+  display: none;
+}
+html.js-doors .door:not(.is-open) .door__leaf,
+html.js-doors .door.is-opening .door__leaf {
+  display: block;
+  position: absolute;
+  inset: 0 50% 0 0;
+  background: var(--color-navy);
+  z-index: 2;
+  transition: transform 1100ms var(--ease-door);
+}
+html.js-doors .door .door__leaf--right {
+  inset: 0 0 0 50%;
+}
+html.js-doors .door.is-opening .door__leaf--left {
+  transform: translateX(-101%);
+}
+html.js-doors .door.is-opening .door__leaf--right {
+  transform: translateX(101%);
+}
+html.js-doors .door .door__photo {
+  transition: transform 1400ms var(--ease-out-soft);
+}
+html.js-doors .door:not(.is-open):not(.is-opening) .door__photo {
+  transform: scale(1.06);
+}
+@media (prefers-reduced-motion: reduce) {
+  html.js-doors .door .door__leaf {
+    display: none !important;
+  }
+  html.js-doors .door .door__photo {
+    transform: none !important;
+  }
+}
+
+/* M3 « Le mur s'allume »: each cell's warm glow fades in, text stays fully legible. */
+.cell {
+  position: relative;
+  isolation: isolate;
+}
+.cell::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(120% 90% at 50% 0%, rgba(255, 240, 214, 0.2), rgba(255, 240, 214, 0) 70%);
+  opacity: 1;
+  z-index: -1;
+  pointer-events: none;
+}
+html.js-cells .wall:not(.is-lit) .cell::before {
+  opacity: 0;
+}
+html.js-cells .wall .cell::before {
+  transition: opacity 700ms ease var(--cell-delay, 0ms);
+}
+@media (prefers-reduced-motion: reduce) {
+  html.js-cells .wall .cell::before {
+    opacity: 1 !important;
+    transition: none;
+  }
+}
+
+/* Sticky bar and header become static on very short viewports (zoom, landscape phones). */
+@media (max-height: 500px) {
+  .sticky-bar {
+    position: static !important;
+  }
+  .site-header {
+    position: static !important;
+  }
+}
+
+/* ── Print: the carte and the wines print like a real menu ────────────────────────────────── */
+@media print {
+  @page {
+    margin: 16mm 14mm;
+  }
+  body {
+    font-size: 11pt;
+    padding: 0 !important;
+    color: #000;
+  }
+  .no-print,
+  .site-header,
+  .sticky-bar,
+  .site-footer,
+  .door__leaf {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+  a {
+    text-decoration: none;
+  }
+  * {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}
+.print-only {
+  display: none;
+}
+
+/* Status-dependent CTA order: when a service is still possible today, « Appeler » comes first. */
+html[data-primary="call"] .cta-row .cta-call {
+  order: -1;
+}
+html[data-primary="call"] .cta-row:not(.on-navy *) .cta-call {
+  background: var(--color-navy);
+  color: var(--color-on-navy);
+  border-color: var(--color-navy);
+}
+html[data-primary="call"] .cta-row:not(.on-navy *) .cta-book {
+  background: transparent;
+  color: var(--color-navy);
+  border-color: var(--color-navy);
+}
+html[data-primary="call"] .on-navy .cta-row .cta-call {
+  background: var(--color-on-navy);
+  color: var(--color-navy);
+  border-color: var(--color-on-navy);
+}
+html[data-primary="call"] .on-navy .cta-row .cta-book {
+  background: transparent;
+  color: var(--color-on-navy);
+  border-color: var(--color-on-navy);
+}
+
+/* « Plus » sheet: native dialog sliding down from the header. */
+.plus-sheet::backdrop {
+  background: rgba(10, 14, 28, 0.5);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .plus-sheet {
+    opacity: 0;
+    transform: translateY(-12px);
+    transition:
+      opacity 200ms ease,
+      transform 280ms var(--ease-out-soft),
+      overlay 280ms allow-discrete,
+      display 280ms allow-discrete;
+  }
+  .plus-sheet[open] {
+    opacity: 1;
+    transform: none;
+  }
+  @starting-style {
+    .plus-sheet[open] {
+      opacity: 0;
+      transform: translateY(-12px);
+    }
+  }
+}
+
+/* Week table: today's row, set before paint by the status script (html[data-today]). */
+.week .today-label {
+  display: none;
+  margin-left: 0.5em;
+  font-style: italic;
+  font-weight: 400;
+}
+html[data-today="1"] .week tr[data-day="1"],
+html[data-today="2"] .week tr[data-day="2"],
+html[data-today="3"] .week tr[data-day="3"],
+html[data-today="4"] .week tr[data-day="4"],
+html[data-today="5"] .week tr[data-day="5"],
+html[data-today="6"] .week tr[data-day="6"],
+html[data-today="7"] .week tr[data-day="7"] {
+  background: var(--color-navy);
+  color: var(--color-on-navy);
+}
+html[data-today="1"] .week tr[data-day="1"] .today-label,
+html[data-today="2"] .week tr[data-day="2"] .today-label,
+html[data-today="3"] .week tr[data-day="3"] .today-label,
+html[data-today="4"] .week tr[data-day="4"] .today-label,
+html[data-today="5"] .week tr[data-day="5"] .today-label,
+html[data-today="6"] .week tr[data-day="6"] .today-label,
+html[data-today="7"] .week tr[data-day="7"] .today-label {
+  display: inline;
+}
+.week tr th:first-child, .week tr td:last-child { padding-inline: 0.75rem; }

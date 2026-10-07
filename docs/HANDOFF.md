@@ -20,18 +20,19 @@ one icon family, content in editable files (menu.json, hours.json, site.config.t
 | 0 Audit | done (see chat; key limits below) |
 | 1 Questions | done; answers in `docs/content/owner-input-2026-10-06.md` |
 | 2 Direction | **done — owner chose A « L'Enseigne »** (`docs/design/directions.md`, boards on the canvas) |
-| 3 Architecture | **draft written** (`docs/design/phase3-architecture.md`); adversarial review was started then stopped at the owner's request → **re-run it first** |
+| 3 Architecture | **v2 written after adversarial review** (`docs/design/phase3-architecture.md`, review in `docs/research/phase3-review.md`); **presented to the owner 2026-10-07 — waiting for validation + the 3 pre-build answers (§8)** |
 | 4–6 | not started |
 
 ## Next actions, in order
 
-1. Re-run the Phase 3 review: `Workflow` with the saved script `.claude/workflows/phase3-review.js`
-   (3 lenses: UX/conversion, motion+perf+a11y, SEO+French legal; then synthesis).
-2. Apply the endorsed revisions to `docs/design/phase3-architecture.md`, commit, present Phase 3 to
-   the owner in French (sitemap, 10-second journey, mobile wireframe, CTA hierarchy, motion plan M1–M8,
-   open questions). **Wait for validation.**
-3. Phase 4: scaffold Next.js 16; build content files first; prototype motions M1–M3 and share a
-   preview link before building every page (promised to the owner).
+1. ~~Re-run the Phase 3 review~~ (done 2026-10-07) and ~~apply it~~ (v2 done, presented).
+2. **Wait for the owner's validation of Phase 3** and the 3 pre-build answers (hosting, booking e-mail
+   and rules, who updates / ardoise yes-no).
+3. Phase 4: scaffold Next.js 16; content files first (menu.json, wines.json, hours.json, reviews.json,
+   site.config.ts, gallery.json); self-hosted Spectral subsets; prototype motions M1, M2/M2m, M3 and
+   share a protected preview link before building every page (promised to the owner).
+4. Also prepared on 2026-10-07: `docs/content/allergens-draft.md` (to validate), photo
+   `detail-carreaux-ciment` (staff member excluded; `salle-allee-carreaux` not publishable).
 
 ## Owner decisions so far
 

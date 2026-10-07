@@ -61,8 +61,10 @@ const server = http2.createSecureServer({ key: readFileSync(key), cert: readFile
   else headers["cache-control"] = "public, max-age=0, must-revalidate";
   let body = readFileSync(file);
   if (COMPRESSIBLE.has(ext) && /\bbr\b/.test(req.headers["accept-encoding"] ?? "")) {
-    if (!cache.has(file)) cache.set(file, zlib.brotliCompressSync(body, { params: { [zlib.constants.BROTLI_PARAM_QUALITY]: 11 } }));
-    body = cache.get(file);
+    // Keyed by modification time, so a rebuild is picked up without restarting the server.
+    const k = `${file}:${statSync(file).mtimeMs}`;
+    if (!cache.has(k)) cache.set(k, zlib.brotliCompressSync(body, { params: { [zlib.constants.BROTLI_PARAM_QUALITY]: 11 } }));
+    body = cache.get(k);
     headers["content-encoding"] = "br";
   }
   res.writeHead(status, headers);

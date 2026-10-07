@@ -145,12 +145,12 @@ Autres commandes :
 | `npm run images` | génère les images optimisées à partir de `assets/photos/retouched/` |
 | `npm run og` | régénère l'image de partage `public/og.jpg` (réseaux sociaux) |
 
-Contrôles qualité complets (captures d'écran, accessibilité, Lighthouse), avec le site lancé par
-`npx serve out -l 4173` :
+Contrôles qualité complets (captures d'écran aux six largeurs, accessibilité, Lighthouse), après
+`npm run build` :
 
 ```bash
-node scripts/qa/run-qa.mjs http://localhost:4173 qa-output
-node scripts/qa/serve-h2.mjs 4443 out &   # HTTP/2 + Brotli, comme Netlify
+node scripts/qa/serve-h2.mjs 4443 out &   # sert out/ en HTTP/2 + Brotli, comme Netlify
+node scripts/qa/run-qa.mjs https://localhost:4443 qa-output
 node scripts/qa/lighthouse.mjs https://localhost:4443 qa-output
 ```
 

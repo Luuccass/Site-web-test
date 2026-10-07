@@ -36,7 +36,15 @@ export function Footer() {
               {open.map((d) => (
                 <div key={d.day} className="contents">
                   <dt className="text-on-navy">{d.label}</dt>
-                  <dd className="tnum">{[d.midi, d.soir].filter(Boolean).map((r, i) => (<span key={i} className="whitespace-nowrap">{i ? " et " : ""}{r}</span>))}</dd>
+                  <dd className="tnum">
+                    {/* the space between the two services sits outside the nowrap spans: the line may break there */}
+                    {[d.midi, d.soir].filter(Boolean).map((r, i) => (
+                      <span key={i}>
+                        {i ? " " : ""}
+                        <span className="whitespace-nowrap">{i ? `et ${r}` : r}</span>
+                      </span>
+                    ))}
+                  </dd>
                 </div>
               ))}
             </dl>

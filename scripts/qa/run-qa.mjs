@@ -1,13 +1,13 @@
 // Phase 5 QA: screenshots at 6 widths, axe accessibility audit, acceptance checks.
-// Usage: node scripts/qa/run-qa.mjs http://localhost:4173 OUT_DIR
-// Needs a static server on the exported site (npx serve out -l 4173) and Chromium
+// Usage: node scripts/qa/run-qa.mjs https://localhost:4443 OUT_DIR
+// Needs a static server on the exported site (node scripts/qa/serve-h2.mjs 4443 out) and Chromium
 // (CHROME_PATH or /opt/pw-browsers/chromium-1194/chrome-linux/chrome).
 import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import AxeBuilder from "@axe-core/playwright";
 import { chromium } from "playwright-core";
 
-const [, , BASE = "http://localhost:4173", OUT = "qa-output"] = process.argv;
+const [, , BASE = "https://localhost:4443", OUT = "qa-output"] = process.argv;
 const CHROME = process.env.CHROME_PATH || "/opt/pw-browsers/chromium-1194/chrome-linux/chrome";
 const PAGES = ["/", "/la-carte/", "/la-carte/vins/", "/le-restaurant/", "/galerie/", "/nous-trouver/", "/reserver/", "/mentions-legales/", "/confidentialite/", "/page-inexistante/"];
 const WIDTHS = [
@@ -36,7 +36,7 @@ async function scrollThrough(page, h) {
 }
 
 for (const [w, h] of WIDTHS) {
-  const ctx = await browser.newContext({ viewport: { width: w, height: h }, timezoneId: "Europe/Paris", locale: "fr-FR" });
+  const ctx = await browser.newContext({ ignoreHTTPSErrors: true, viewport: { width: w, height: h }, timezoneId: "Europe/Paris", locale: "fr-FR" });
   for (const p of PAGES) {
     const page = await ctx.newPage();
     const external = new Set();
@@ -73,7 +73,7 @@ for (const [w, h, scale] of [
   [412, 823, 1],
   [360, 640, 2],
 ]) {
-  const ctx = await browser.newContext({ viewport: { width: w, height: h }, timezoneId: "Europe/Paris", locale: "fr-FR" });
+  const ctx = await browser.newContext({ ignoreHTTPSErrors: true, viewport: { width: w, height: h }, timezoneId: "Europe/Paris", locale: "fr-FR" });
   const page = await ctx.newPage();
   await page.goto(BASE + "/", { waitUntil: "networkidle" });
   if (scale !== 1) await page.addStyleTag({ content: `html{font-size:${scale * 100}%}` });
@@ -81,7 +81,8 @@ for (const [w, h, scale] of [
   const r = await page.evaluate(() => {
     const cta = document.getElementById("hero-cta")?.getBoundingClientRect();
     const bar = document.querySelector(".sticky-bar");
-    const barVisible = bar && getComputedStyle(bar).transform === "none";
+    // Tailwind 4 moves it with the `translate` property: test its position, not `transform`.
+    const barVisible = !!bar && getComputedStyle(bar).display !== "none" && bar.getBoundingClientRect().top < window.innerHeight - 1;
     return { ctaBottom: cta?.bottom ?? null, vh: window.innerHeight, barVisible };
   });
   report.acceptance.push({ check: "hero CTA or sticky bar visible at load", viewport: `${w}x${h}`, textScale: scale, ok: (r.ctaBottom !== null && r.ctaBottom <= r.vh) || r.barVisible, ...r });
@@ -90,7 +91,7 @@ for (const [w, h, scale] of [
 
 // Reduced motion: doors open and walls lit without animation.
 {
-  const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, reducedMotion: "reduce" });
+  const ctx = await browser.newContext({ ignoreHTTPSErrors: true, viewport: { width: 390, height: 844 }, reducedMotion: "reduce" });
   const page = await ctx.newPage();
   await page.goto(BASE + "/", { waitUntil: "networkidle" });
   const r = await page.evaluate(() => ({
@@ -103,7 +104,7 @@ for (const [w, h, scale] of [
 
 // No JavaScript: content and booking form present.
 {
-  const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, javaScriptEnabled: false });
+  const ctx = await browser.newContext({ ignoreHTTPSErrors: true, viewport: { width: 390, height: 844 }, javaScriptEnabled: false });
   const page = await ctx.newPage();
   await page.goto(BASE + "/reserver/", { waitUntil: "load" });
   const r = await page.evaluate(() => ({

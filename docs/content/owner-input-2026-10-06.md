@@ -221,3 +221,20 @@ Open questions: Touraine « Ancrage » price currency; Pic Saint-Loup « Cuvée 
   member visible in `salle-allee-carreaux` will be removed by retouching unless consent is given.
 - Original logo file: not available → the SVG reconstruction in `assets/brand/` becomes the site logo.
 - Lunch formulas confirmed: 21 € (2 plats) and 25 € (3 plats), Tuesday to Friday lunch.
+
+## Owner decisions — 2026-10-07 (Phase 3 validated)
+
+- Phase 3 validated; go to Phase 4.
+- Hosting must be free and handled by us. Vercel Hobby forbids commercial use → **Netlify free plan**
+  (commercial use allowed; 300 credits/month; site pauses if exceeded — keep it static and light).
+  Architecture consequence: Next.js **static export** + **Netlify Forms** for booking requests.
+- Booking: requests to **contact@restaurant-comme-avant.com**, phone 04 78 66 19 57; bookable up to
+  **1 month ahead**; same day accepted **up to 1 h before** the requested time if there is room
+  (same-day requests are flagged « AUJOURD'HUI » and the form recommends calling).
+- Ardoise: updated **monthly**, by the site manager (the person we work with), not by the owners →
+  « L'ardoise du mois » with automatic fallback when the month has passed. No CMS: content JSON files.
+- Everything else: proceed without; allergens left to our judgment (decision: per-dish allergens stay
+  unpublished until the kitchen validates them; legend + mandatory statement are shown).
+- DNS facts (2026-10-07): nameservers ns10/ns11.wixdns.net (zone managed at Wix); apex A → Wix,
+  www CNAME → cdn3.wixdns.net; **e-mail hosted at OVH** (MX mx1/mx2/mx3.mail.ovh.net, SPF
+  `v=spf1 include:mx.ovh.com -all`) → must be preserved when the website moves.

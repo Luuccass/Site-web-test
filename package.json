@@ -4,13 +4,15 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "npm run pdf",
     "build": "next build",
     "start": "npx serve out",
     "lint": "eslint",
     "test": "vitest run",
     "images": "node scripts/images/build.mjs",
     "og": "node scripts/images/og.mjs",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "pdf": "tsx scripts/pdf/build-pdf.tsx"
   },
   "dependencies": {
     "gsap": "^3.15.0",

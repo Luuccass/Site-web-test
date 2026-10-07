@@ -37,14 +37,14 @@ export function HoursPlaque({ headingLevel = 2, withAppleMaps = false }: { headi
       </div>
       <div>
         <StatusLines className="flex flex-col" line1ClassName="text-[length:var(--text-h3)]" line2ClassName="text-ink-soft" />
-        <table className="week mt-6 w-full border-collapse text-left">
+        <table className="week mt-6 w-full border-collapse text-left max-sm:text-[0.9375rem]">
           <caption className="sr-only">Horaires de la semaine</caption>
           <thead>
             <tr className="border-b border-line text-ink-soft">
-              <th scope="col" className="py-2 pr-4 font-normal">
+              <th scope="col" className="py-2 pr-3 font-normal sm:pr-4">
                 Jour
               </th>
-              <th scope="col" className="py-2 pr-4 font-normal">
+              <th scope="col" className="py-2 pr-3 font-normal sm:pr-4">
                 Midi
               </th>
               <th scope="col" className="py-2 font-normal">
@@ -55,11 +55,11 @@ export function HoursPlaque({ headingLevel = 2, withAppleMaps = false }: { headi
           <tbody>
             {weekTable.map((d) => (
               <tr key={d.day} data-day={d.day} className="border-b border-line">
-                <th scope="row" className="py-2.5 pr-4 font-medium">
+                <th scope="row" className="py-2.5 pr-3 font-medium sm:pr-4">
                   {d.label}
                   <span className="today-label"> aujourd&apos;hui</span>
                 </th>
-                <td className="tnum whitespace-nowrap py-2.5 pr-4">{d.midi ?? "Fermé"}</td>
+                <td className="tnum whitespace-nowrap py-2.5 pr-3 sm:pr-4">{d.midi ?? "Fermé"}</td>
                 <td className="tnum whitespace-nowrap py-2.5">{d.soir ?? "Fermé"}</td>
               </tr>
             ))}

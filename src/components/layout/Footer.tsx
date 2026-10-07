@@ -9,14 +9,14 @@ export function Footer() {
     <footer className="site-footer bg-stone text-ink">
       <div className="mx-auto max-w-[84rem] px-4 py-12 sm:px-8 sm:py-16 lg:px-12">
         <div className="on-navy grid gap-10 bg-navy px-6 py-10 text-on-navy sm:px-10 md:grid-cols-[1.1fr_1fr] md:gap-12 md:px-14 md:py-14">
-          <div className="flex flex-col gap-6">
+          <div className="@container flex flex-col gap-6">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/brand/logo-comme-avant-stacked.svg" alt="Restaurant Comme Avant, Dardilly" width={678} height={486} className="h-auto w-48 sm:w-56" loading="lazy" />
             <p className="text-on-navy-soft">Réservation au</p>
             <a
               href={`tel:${site.phone.e164}`}
               className="tnum -mt-5 font-light leading-none tracking-[-0.01em] no-underline hover:underline"
-              style={{ fontSize: "clamp(2.25rem, calc((100vw - 2rem) / 7.2), 4.5rem)" }}
+              style={{ fontSize: "clamp(1.75rem, 14.5cqi, 4.5rem)" /* the number fills its column, never wider */ }}
             >
               {site.phone.display.replace(/ /g, " ")}
             </a>

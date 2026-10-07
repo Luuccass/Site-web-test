@@ -408,3 +408,48 @@ html[data-today="7"] .week tr[data-day="7"] .today-label {
   display: inline;
 }
 .week tr th:first-child, .week tr td:last-child { padding-inline: 0.75rem; }
+
+/* M6 « Passer la porte »: page transitions (src/app/template.tsx). The header is anchored; the rest of
+   the page (footer, mobile bar) swaps without animation, only the page content moves. */
+::view-transition {
+  pointer-events: none;
+}
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+}
+::view-transition-group(site-header) {
+  animation: none;
+  z-index: 100;
+}
+::view-transition-old(site-header) {
+  display: none;
+}
+::view-transition-new(site-header) {
+  animation: none;
+}
+::view-transition-old(.page-exit) {
+  animation: vt-fade-out 140ms ease-in both;
+}
+::view-transition-new(.page-enter) {
+  animation: vt-rise 300ms var(--ease-out-soft) 90ms both;
+}
+@keyframes vt-fade-out {
+  to {
+    opacity: 0;
+  }
+}
+@keyframes vt-rise {
+  from {
+    opacity: 0;
+    translate: 0 8px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(*),
+  ::view-transition-new(*),
+  ::view-transition-group(*) {
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
+  }
+}

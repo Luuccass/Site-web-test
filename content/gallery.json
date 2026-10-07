@@ -14,7 +14,7 @@
     { "id": "salle-mur-vins-portrait", "group": "salle", "alt": "Mur de vins rétroéclairé, suspensions en rotin et table dressée sur le sol en carreaux de ciment", "caption": "Une table devant les vins", "focal": [0.5, 0.35] },
     { "id": "plat-pate-en-croute", "group": "assiettes", "alt": "Tranche de pâté en croûte avec un insert de foie gras sur une ardoise, pickles, câpres et grains de grenade", "caption": "Pâté en croûte et foie gras", "focal": [0.42, 0.62] },
     { "id": "dessert-pomme-pochee", "group": "assiettes", "alt": "Pomme pochée sur un sablé émietté, crème vanille et perles de gel vert dans une assiette en grès bleu-vert", "caption": "Pomme pochée et sablé", "focal": [0.47, 0.28] },
-    { "id": "enseigne", "group": "details", "alt": "Enseigne bleu marine « Restaurant Comme Avant » fixée sur un mur en pierre dorée", "caption": "L'enseigne", "focal": [0.47, 0.6] },
+    { "id": "enseigne", "group": "details", "alt": "Enseigne bleu marine « Restaurant Comme Avant » fixée sur un mur en pierre dorée", "caption": "L'enseigne", "focal": [0.36, 0.6] },
     { "id": "dessert-moelleux-fruits-rouges", "group": "assiettes", "alt": "Moelleux aux myrtilles nappé de fruits rouges, quenelle de crème et feuille de menthe, cercle de coulis", "caption": "Moelleux aux fruits rouges", "focal": [0.5, 0.34] }
   ]
 }

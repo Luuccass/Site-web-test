@@ -1,0 +1,107 @@
+/* M2 « Entrer chez Comme Avant » (/le-restaurant).
+   Default (mobile, tablet, touch, reduced motion, no JS): stacked steps, each photo in a <Door> (M2m).
+   Desktop with JS and motion allowed: the photos move to a sticky stage on the right, the text steps
+   scroll on the left (ordinary DOM, reading order kept), and StoryMotion scrubs the door leaves.
+   The media query below must stay identical to STORY_QUERY in StoryMotion.tsx. Plain CSS (unlayered),
+   so these rules win over the Tailwind utilities used for the stacked layout. */
+
+.ca-story__stage {
+  display: none;
+}
+
+@media (min-width: 1024px) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  html.js-doors .ca-story:not([data-static]) .ca-story__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+    column-gap: clamp(2.5rem, 5vw, 6rem);
+  }
+  html.js-doors .ca-story:not([data-static]) .ca-story__steps {
+    grid-column: 1;
+    grid-row: 1;
+    gap: 0;
+  }
+  html.js-doors .ca-story:not([data-static]) .ca-story__step {
+    display: flex;
+    align-items: center;
+    min-height: 100svh;
+    padding-block: 4rem;
+  }
+  /* The inline photos stay in the accessibility tree (alt text read in order), visually hidden:
+     the stage shows the same files (same srcset and sizes, so the browser fetches them once). */
+  html.js-doors .ca-story:not([data-static]) .ca-story__media {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+  }
+  html.js-doors .ca-story:not([data-static]) .ca-story__stage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-column: 2;
+    grid-row: 1;
+    align-self: start;
+    position: sticky;
+    top: 0;
+    height: 100svh;
+  }
+}
+
+/* The stage: one door frame (4:5), three photo layers, one pair of leaves per photo. */
+.ca-story__frame {
+  position: relative;
+  height: min(78svh, 42.5rem);
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--color-navy-raised);
+  outline: 1px solid var(--color-line-navy);
+  outline-offset: 0.75rem;
+}
+.ca-story__layer {
+  position: absolute;
+  inset: 0;
+}
+.ca-story__layer:not([data-layer="0"]) {
+  visibility: hidden;
+}
+.ca-story__zoom {
+  position: absolute;
+  inset: 0;
+  will-change: transform;
+}
+/* Leaves are hidden until StoryMotion takes over, so a failed script never leaves a door shut. */
+.ca-story__leaf {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  background: var(--color-navy-raised);
+  visibility: hidden;
+  will-change: transform;
+}
+.ca-story__leaf::before {
+  content: "";
+  position: absolute;
+  inset: 1.5rem;
+  border: 1px solid rgba(140, 147, 168, 0.45);
+}
+.ca-story__leaf--l {
+  left: 0;
+  border-right: 1px solid var(--color-line-navy);
+}
+.ca-story__leaf--r {
+  right: 0;
+  border-left: 1px solid var(--color-line-navy);
+}
+
+@media print {
+  .ca-story__stage {
+    display: none !important;
+  }
+}

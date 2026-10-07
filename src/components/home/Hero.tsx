@@ -8,7 +8,7 @@ import { formulesText, hoursSentence, site } from "@/lib/data";
 export function Hero() {
   return (
     <section aria-labelledby="hero-status" className="grid lg:min-h-[calc(100svh-4.25rem)] lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
-      <div className="bg-stone p-2.5 sm:p-6 lg:flex lg:items-center lg:justify-center lg:p-12 xl:p-16">
+      <div className="bg-stone p-2.5 sm:p-6 lg:flex lg:items-center lg:justify-center lg:p-8 xl:p-16">
         <div className="mx-auto w-full max-w-[36rem] bg-navy px-4 pb-4 pt-6 text-on-navy sm:px-8 sm:pb-8 sm:pt-10">
           <h1 className="sr-only">Restaurant Comme Avant, cuisine française à Dardilly</h1>
           {/* eslint-disable-next-line @next/next/no-img-element */}

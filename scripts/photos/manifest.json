@@ -198,7 +198,7 @@
   "noise": "medium",
   "kind": "room",
   "rights": "to-confirm",
-  "note": "staff member visible at the bar: inpaint or get consent"
+  "note": "staff member visible at the bar: do not publish without her written consent (automatic inpainting rejected: ghosting); use detail-carreaux-ciment instead"
  },
  {
   "id": "detail-niche-chartreuse",
@@ -292,5 +292,22 @@
   },
   "rights": "owner (supplied and retouched by the owner in chat)",
   "note": "dish not on the current carte: confirm before using as a signature"
+ },
+ {
+  "id": "detail-carreaux-ciment",
+  "file": "210825.png",
+  "crop": {
+   "x0": 0.13,
+   "y0": 0.379,
+   "x1": 0.518,
+   "y1": 0.829
+  },
+  "rotate_deg": 0,
+  "wb": "too-warm",
+  "exposure": "ok",
+  "noise": "medium",
+  "kind": "room",
+  "rights": "owner-confirmed 2026-10-06",
+  "note": "tight crop of the cement-tile runner; excludes the staff member visible in salle-allee-carreaux"
  }
 ]

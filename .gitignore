@@ -49,3 +49,7 @@ next-env.d.ts
 /video/.remotion
 /video/public/plates
 /video/public/grain
+
+# Python caches
+__pycache__/
+*.pyc

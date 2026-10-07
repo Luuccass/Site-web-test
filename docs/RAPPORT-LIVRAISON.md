@@ -9,7 +9,7 @@
 
 | Page | Contenu |
 |---|---|
-| Accueil `/` | L'affiche de la porte : logo, statut ouvert/fermé en direct, Réserver / Appeler, la carte en bref, « Entrer chez Comme Avant » (la porte qui s'ouvre), la cave (9 bouteilles dans des niches qui s'allument), horaires et accès |
+| Accueil `/` | Plein écran de nuit : la porte qui s'ouvre sur la salle, photos en fondu lent, Réserver / Appeler ; bandeau défilant ; texte qui s'éclaire mot à mot ; la salle révélée dans une arche ; la carte en bref ; la cave (« 95 vins à la carte » et niches) ; galerie horizontale ; note Google ; appel à réserver sur la ruelle au crépuscule |
 | La carte `/la-carte/` | Ardoise du mois, formules du midi, entrées, plats, fromages, desserts ; navigation par rubriques ; légende des 14 allergènes ; impression et PDF A4 |
 | Les vins `/la-carte/vins/` | Au verre ou en pot (12/25/46 cl), à la coupe, 95 bouteilles par couleur et région ; PDF |
 | Le restaurant `/le-restaurant/` | Présentation, « Entrer chez Comme Avant » en trois temps (ruelle, salle, cave) avec des portes qui s'ouvrent au défilement sur ordinateur, groupes et privatisation |
@@ -18,17 +18,26 @@
 | Réserver `/reserver/` + `/reserver/merci/` | Formulaire de demande (fonctionne même sans JavaScript), règles 30 jours / 1 h, champs groupe à partir de 8 |
 | Mentions légales, Confidentialité, page 404 | Conformes LCEN et RGPD avec les informations disponibles (voir §3) |
 
+**Version 2 « Nocturne » (7 octobre au soir), sur toutes les pages :**
+- ambiance de nuit (bleu nuit, or, crème), grande typographie Cormorant Garamond ;
+- chaque page s'ouvre sur une grande photo plein écran ;
+- photos étalonnées « nuit » (lumière, contraste, grain) à partir de vos photos, sans rien y ajouter
+  ni retirer ;
+- en-tête transparent qui devient verre dépoli au défilement, menu plein écran.
+
 **Mouvement :**
-- l'affiche qui s'accroche à l'ouverture ;
-- la porte marine qui s'ouvre sur la salle ;
-- la cave qui s'allume niche par niche ;
-- le récit de défilement de « Le restaurant » ;
-- la transition entre pages ;
-- des micro-interactions.
+- la porte qui s'ouvre à la première visite ;
+- les photos d'accueil qui glissent et se fondent lentement ;
+- le texte qui s'éclaire mot à mot, l'arche qui s'agrandit, la galerie qui défile à l'horizontale ;
+- le compteur des vins, le léger décalage des photos au défilement (parallaxe) ;
+- un curseur doré sur ordinateur.
 
 Tout respecte le réglage « réduire les animations » du visiteur.
 
-**Mobile :** barre fixe Réserver / Appeler / Itinéraire, menu « Plus ».
+**Films de marque (dossier `video/`) :** animation du logo en 16:9 et 9:16, et un reel vertical de
+18 s, faits avec vos vraies photos et votre logo.
+
+**Mobile :** barre fixe Réserver / Appeler / Itinéraire, menu plein écran « Menu ».
 
 **Référencement local :**
 - données structurées `Restaurant` et `Menu` ;
@@ -38,7 +47,8 @@ Tout respecte le réglage « réduire les animations » du visiteur.
 
 ## 2. Résultats des contrôles (phase 5)
 
-Détail : `docs/qa/phase5-report.md`.
+Détail : `docs/qa/phase5-report.md`. Ces chiffres sont ceux de la version 1 ; ceux de la version 2
+sont à remesurer (performance à confirmer, objectif ≥ 95).
 
 | Contrôle | Résultat |
 |---|---|

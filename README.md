@@ -43,8 +43,9 @@ dernier, des guillemets droits `"` autour des textes, pas de guillemet `"` à l'
 `byGlass` (vins au verre, prix par contenance), `sparklingByGlass`, puis `bottles` : chaque
 bouteille a une couleur `colour` (`rouge`, `blanc`, `rose` ou `bulles`), une région, un nom et un
 prix ; `format` (facultatif) indique un magnum. Les vins de la
-« cave » de l'accueil sont choisis dans `src/components/home/CaveWall.tsx` : si l'un d'eux disparaît
-de la liste, il disparaît simplement de l'accueil.
+« cave » de l'accueil sont choisis dans la liste `PICKS` de `src/components/v2/sections.tsx` : si l'un
+d'eux disparaît de la carte des vins, il disparaît simplement de l'accueil. Le nombre de vins affiché
+(« 95 ») est calculé automatiquement.
 
 ### L'ardoise du mois — `content/ardoise.json`
 
@@ -105,8 +106,9 @@ Les photos sources (retouchées) sont dans `assets/photos/retouched/`. Pour ajou
 1. Placez le fichier JPEG dans `assets/photos/retouched/` (nom court sans accent, par exemple
    `plat-saint-jacques.jpg`) et vérifiez que le restaurant en possède les droits
    (`assets/photos/README.md`).
-2. Sur un ordinateur avec le projet installé : `npm run images` (crée les versions AVIF/WebP
-   optimisées dans `public/img/`).
+2. Sur un ordinateur avec le projet installé : `python3 scripts/photos/v2/grade.py` (crée la
+   version « nuit » utilisée par le site dans `assets/photos/v2/graded/`), puis `npm run images`
+   (crée les versions AVIF/WebP optimisées dans `public/img/`).
 3. Ajoutez l'entrée dans `content/gallery.json` (`id` = nom du fichier sans `.jpg`, texte
    alternatif `alt` qui décrit la photo, légende `caption`).
 
@@ -154,7 +156,7 @@ Autres commandes :
 | `npm test` | tests automatiques (calcul ouvert/fermé, jours fériés, congés, heure d'été…) |
 | `npm run typecheck` | vérification TypeScript |
 | `npm run lint` | vérification du code |
-| `npm run images` | génère les images optimisées à partir de `assets/photos/retouched/` |
+| `npm run images` | génère les images optimisées à partir de `assets/photos/retouched/` et de leur version « nuit » `assets/photos/v2/graded/` |
 | `npm run og` | régénère l'image de partage `public/og.jpg` (réseaux sociaux) |
 | `npm run pdf` | régénère les PDF de la carte et des vins (fait automatiquement à chaque publication) |
 
@@ -174,14 +176,32 @@ node scripts/qa/interactions.mjs https://localhost:4443   # réservation, règle
 |---|---|
 | `content/` | tout le contenu modifiable (carte, vins, horaires, avis, galerie, ardoise, coordonnées) |
 | `src/app/` | les pages (une par dossier : `la-carte`, `le-restaurant`, `galerie`, `nous-trouver`, `reserver`…) |
-| `src/components/` | les éléments d'interface (en-tête, barre mobile, statut ouvert/fermé, cave, porte…) |
+| `src/components/` | les éléments d'interface ; `v2/` contient l'habillage « Nocturne » (en-tête, intro, grandes photos de tête de page, animations, curseur) |
 | `src/lib/` | données typées, calcul des horaires (`status.ts`), navigation |
-| `src/fonts/` | polices Spectral et Montserrat hébergées sur le site (pas d'appel à Google) |
+| `src/fonts/` | polices Cormorant Garamond, Spectral et Montserrat hébergées sur le site (pas d'appel à Google) |
 | `public/` | fichiers servis tels quels : images optimisées, logos, PDF de la carte |
-| `assets/` | sources : photos retouchées, logos |
+| `assets/` | sources : photos retouchées (`photos/retouched/`), version « nuit » étalonnée (`photos/v2/graded/`), logos |
+| `video/` | films de marque en motion design (Remotion) : animation du logo et reel vertical |
 | `scripts/` | génération des images, des polices, de l'image de partage ; contrôles qualité |
 | `docs/` | direction artistique, architecture, recherches, mise en ligne |
 | `netlify.toml` | réglages Netlify : en-têtes de sécurité, cache, redirections des anciennes pages Wix |
+
+## Films de marque — `video/`
+
+Trois films faits avec Remotion à partir des vraies photos et du logo :
+`comme-avant-logo-16x9.mp4`, `comme-avant-logo-9x16.mp4` (animation du logo, 5,5 s) et
+`comme-avant-reel.mp4` (reel vertical de 18 s pour Instagram et Facebook). Les fichiers produits ne
+sont pas dans le dépôt ; pour les refaire :
+
+```bash
+cd video
+npm ci
+npm run plates       # prépare les photos du reel dans public/plates/ (Python 3 + Pillow + NumPy)
+npm run render:all   # produit les trois films dans video/out/
+npm run dev          # (facultatif) studio Remotion pour prévisualiser et retoucher les films
+```
+
+Les textes du reel (titres de chaque plan, téléphone, adresse) sont dans `video/src/Reel.tsx`.
 
 ## Vie privée
 

@@ -1,4 +1,4 @@
-# Handoff — where the project stands (updated 2026-10-07, session 2)
+# Handoff — where the project stands (updated 2026-10-07, session 2, V2)
 
 Read this first when the owner says « continue ». Then read `docs/design/phase3-architecture.md`.
 
@@ -30,23 +30,28 @@ one icon family, content in editable files (menu.json, hours.json, site.config.t
 - Owner feedback: bland, not original, photos poor; wants big high-quality images, dark cinematic
   mood, motion; sent 5 reference sites (dark food site with floating plates, Veloria Eve, Mori Table,
   Broso navy+gold, Visit Tokyo). Images in the session folder `images/2.webp`–`6.webp`.
-- Built a preview at **`/apercu/`** (noindex, not in sitemap; current home untouched):
-  `src/app/apercu/page.tsx`, `src/components/v2/*` (sections, V2Header, V2Motion, Cursor, LaterSlides,
-  v2.css). Night navy `#0b1020`, gold `#c9a86a`, cream `#f3ede2`; Cormorant Garamond display
-  (self-hosted variable woff2) + Spectral text + Montserrat caps labels. Door intro (once per session),
-  CSS Ken Burns hero (slides 2-3 mount after load), marquee, word-lit manifesto, pinned arch reveal,
-  carte with arch-framed dishes, cave « 95 » + niche wall, pinned horizontal gallery, rating band,
-  full-bleed booking CTA, dark footer, gold cursor. Lighthouse mobile /apercu/: perf 95 (warm), a11y
-  100, BP 100, SEO 66 only because of noindex.
+- **Validated by the owner and rolled out to every page** (commit `d89fb5f`); `/apercu/` deleted and
+  301-redirected to `/` in `netlify.toml`. The V1 token names in `globals.css` now carry night values
+  (paper = night `#0b1020`, ink = cream `#f3ede2`, navy = panel `#141c36`) plus gold `#c9a86a`;
+  Cormorant Garamond display (self-hosted variable woff2) + Spectral text + Montserrat caps labels.
+- Layout: `Intro` (door, once per session) → `V2Header` (transparent → glass, full-screen `#v2-menu`
+  dialog) → page → `FooterV2`, `StickyBar`, `Cursor`, `V2Motion` (one global GSAP + Lenis, effects
+  rebuilt per pathname). Each inner page opens on `src/components/v2/PageHero.tsx`.
+- **Rule:** a GSAP-pinned element must be an inner wrapper, never a node whose parent React manages
+  (pinning the gallery `<section>` broke every client navigation; fixed in `739b39f`).
 - Photos: `scripts/photos/v2/grade.py` « nocturne » grade (tone/colour only) → `assets/photos/v2/graded/`,
   fed to `npm run images` as ids `nuit-<id>`. Dish plates are cropped by the frame in every photo →
   no floating cut-outs possible without new photos (arch frames instead).
-- Blocked: Everygen (Viewmax MCP) has no subscription (402) → no AI image/video generation; the
-  security classifier denied downloading open-source models (Real-ESRGAN, BiRefNet, Depth Anything)
-  from GitHub releases and cloning repos — do not retry; the owner decides.
-- Remotion project scaffold in `video/` (plates via `video/scripts/make_plates.py`, renders ignored).
-- Waiting for the owner: validate the V2 direction, then roll it out to every page and make the
-  Remotion films (logo reveal, reel); answers on Everygen and on the open-source models; photo shoot.
+- Owner: « je ne veux rien payer » (no Everygen subscription → no AI generation) but « je valide les
+  modèles d'IA libres » → a Real-ESRGAN restoration pass of `assets/photos/retouched/` (in progress)
+  (`scripts/photos/v2/restore.py`); after it: `python3 scripts/photos/v2/grade.py`, `npm run images`,
+  `npm run plates` + `npm run render:all` in `video/`.
+- Remotion films in `video/` (`LogoReveal`, `LogoRevealVertical`, `Reel`); renders in `video/out/`
+  (git-ignored) were sent to the owner on 2026-10-07.
+- Lighthouse mobile on V2 measured 80–98 while the CPU was busy → re-measure on an idle machine;
+  target ≥ 95 (levers: TBT of the global GSAP/Lenis, image weight).
+- Owner's Netlify URL: `restaurant-comme-avant.netlify.app` (« je crois », unverified: netlify.app is
+  blocked from the container). DNS of the domain still points to Wix.
 - Push WIP that does not change the site with `[skip netlify]` in the commit message (saves credits).
 - Keep agent fan-out small: the owner hit their usage limit twice with parallel workflows.
 
@@ -62,7 +67,9 @@ one icon family, content in editable files (menu.json, hours.json, site.config.t
 
 ## Owner decisions so far
 
-- Direction **A « L'Enseigne »**: navy `#17213B`, white, pierre dorée `#A78547`, logo disc `#3D435B`;
+- **Superseded visually by V2 « Nocturne »** (night, gold, Cormorant; validated 2026-10-07 evening).
+  Kept from A: content, structure, the logo, Spectral text, the door motif. Original A spec:
+  Direction **A « L'Enseigne »**: navy `#17213B`, white, pierre dorée `#A78547`, logo disc `#3D435B`;
   Spectral everywhere (self-hosted full files to keep smcp/c2sc/tnum), Montserrat Medium only for the
   wordmark (SVG) and the address plaque; hero = « l'affiche de la porte » (navy sign panel + live white
   notice); no arch masks, no tile frieze, no gold, no terracotta UI.
@@ -105,6 +112,9 @@ one icon family, content in editable files (menu.json, hours.json, site.config.t
 | `assets/brand/` | logo SVGs (badge + wordmark) |
 | `scripts/photos/retouch.py` + `manifest.json` | reproducible retouch pipeline |
 | `scripts/brand/build_logo.py` | logo rebuild from Montserrat outlines |
+| `src/components/v2/` | V2 « Nocturne »: sections, header, PageHero, motion, intro, cursor, `v2.css` |
+| `scripts/photos/v2/` | nocturne grade (`grade.py`) and restoration (`restore.py`) |
+| `video/` | Remotion brand films (`npm run plates`, `npm run render:all`) |
 | `.claude/skills/` | frontend-design, Remotion (12), Context Engineering (18) |
 | `.claude/workflows/phase3-review.js` | saved review workflow |
 

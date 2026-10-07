@@ -1,0 +1,5 @@
+node_modules/
+# Remotion bundle cache and scratch frame dumps
+build/
+out/frames/
+out/_*/

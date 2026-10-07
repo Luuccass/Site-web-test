@@ -1,0 +1,31 @@
+{
+  "name": "comme-avant-video",
+  "version": "1.0.0",
+  "description": "Brand films for Restaurant Comme Avant (Remotion): logo reveal, website hero loop, social reel",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "dev": "remotion studio",
+    "build": "remotion bundle",
+    "plates": "python3 scripts/make_plates.py",
+    "render:all": "bash scripts/render-all.sh",
+    "typecheck": "tsc --noEmit"
+  },
+  "sideEffects": [
+    "*.css"
+  ],
+  "dependencies": {
+    "@remotion/cli": "4.0.534",
+    "@remotion/fonts": "4.0.534",
+    "@remotion/media-utils": "4.0.534",
+    "@remotion/paths": "4.0.534",
+    "@remotion/transitions": "4.0.534",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "remotion": "4.0.534"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.2",
+    "typescript": "5.9.3"
+  }
+}

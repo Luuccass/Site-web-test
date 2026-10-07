@@ -42,3 +42,8 @@ next-env.d.ts
 
 # local
 /out-preview/
+
+# Remotion project (video/): dependencies and renders stay local
+/video/node_modules
+/video/out
+/video/.remotion

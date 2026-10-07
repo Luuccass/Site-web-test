@@ -25,6 +25,31 @@ one icon family, content in editable files (menu.json, hours.json, site.config.t
 | 5 QA | **done** — `docs/qa/phase5-report.md`: Lighthouse mobile ≥ 96 / 100 / 100 / 100 on 9 pages, axe 0, no overflow at 6 widths, 18/18 interaction checks |
 | 6 Delivery | **delivered 2026-10-07** — `docs/RAPPORT-LIVRAISON.md`, `docs/DEPLOY.md`, `README.md`; waiting for the owner to connect Netlify + change DNS at Wix |
 
+## V2 « Nocturne » (2026-10-07 evening) — owner found V1 « bas de gamme », wants WOW
+
+- Owner feedback: bland, not original, photos poor; wants big high-quality images, dark cinematic
+  mood, motion; sent 5 reference sites (dark food site with floating plates, Veloria Eve, Mori Table,
+  Broso navy+gold, Visit Tokyo). Images in the session folder `images/2.webp`–`6.webp`.
+- Built a preview at **`/apercu/`** (noindex, not in sitemap; current home untouched):
+  `src/app/apercu/page.tsx`, `src/components/v2/*` (sections, V2Header, V2Motion, Cursor, LaterSlides,
+  v2.css). Night navy `#0b1020`, gold `#c9a86a`, cream `#f3ede2`; Cormorant Garamond display
+  (self-hosted variable woff2) + Spectral text + Montserrat caps labels. Door intro (once per session),
+  CSS Ken Burns hero (slides 2-3 mount after load), marquee, word-lit manifesto, pinned arch reveal,
+  carte with arch-framed dishes, cave « 95 » + niche wall, pinned horizontal gallery, rating band,
+  full-bleed booking CTA, dark footer, gold cursor. Lighthouse mobile /apercu/: perf 95 (warm), a11y
+  100, BP 100, SEO 66 only because of noindex.
+- Photos: `scripts/photos/v2/grade.py` « nocturne » grade (tone/colour only) → `assets/photos/v2/graded/`,
+  fed to `npm run images` as ids `nuit-<id>`. Dish plates are cropped by the frame in every photo →
+  no floating cut-outs possible without new photos (arch frames instead).
+- Blocked: Everygen (Viewmax MCP) has no subscription (402) → no AI image/video generation; the
+  security classifier denied downloading open-source models (Real-ESRGAN, BiRefNet, Depth Anything)
+  from GitHub releases and cloning repos — do not retry; the owner decides.
+- Remotion project scaffold in `video/` (plates via `video/scripts/make_plates.py`, renders ignored).
+- Waiting for the owner: validate the V2 direction, then roll it out to every page and make the
+  Remotion films (logo reveal, reel); answers on Everygen and on the open-source models; photo shoot.
+- Push WIP that does not change the site with `[skip netlify]` in the commit message (saves credits).
+- Keep agent fan-out small: the owner hit their usage limit twice with parallel workflows.
+
 ## Next actions, in order
 
 1. When the owner has connected Netlify (`docs/DEPLOY.md`): check the live site (both domains, HTTPS,

@@ -36,7 +36,7 @@ export function Footer() {
               {open.map((d) => (
                 <div key={d.day} className="contents">
                   <dt className="text-on-navy">{d.label}</dt>
-                  <dd className="tnum">{[d.midi, d.soir].filter(Boolean).join(" et ")}</dd>
+                  <dd className="tnum">{[d.midi, d.soir].filter(Boolean).map((r, i) => (<span key={i} className="whitespace-nowrap">{i ? " et " : ""}{r}</span>))}</dd>
                 </div>
               ))}
             </dl>

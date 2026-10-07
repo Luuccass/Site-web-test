@@ -55,7 +55,7 @@ export const reviews = reviewsJson as {
   excerpts: { id: string; text: string; author: string | null; date: string | null }[];
 };
 
-export const gallery = galleryJson as {
+export const gallery = galleryJson as unknown as {
   photos: { id: string; group: "salle" | "assiettes" | "details"; alt: string; caption: string; focal: [number, number] }[];
 };
 

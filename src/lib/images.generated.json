@@ -1,0 +1,250 @@
+{
+  "dessert-ile-flottante": {
+    "hash": "3eafdf608f86",
+    "dir": "dessert-ile-flottante-3eafdf608f86",
+    "width": 1690,
+    "height": 1724,
+    "widths": [
+      360,
+      540,
+      720,
+      960,
+      1280,
+      1600,
+      1690
+    ],
+    "blur": "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAAAwAgCdASoQABAAA4BaJaACdAYwxWZckoO3AADOK8p1vsiOfSFLf01ak4L63sC6kGcOQkFbngS91no8so3dSVSI462oeuH2NXLVIEdMg3+F98OqHeZw8Ni3+Nb1VfkBMQJcAlPEHbK1z5G+6vDR0wcAAAA="
+  },
+  "dessert-moelleux-chocolat": {
+    "hash": "158d99ef0993",
+    "dir": "dessert-moelleux-chocolat-158d99ef0993",
+    "width": 1900,
+    "height": 1908,
+    "widths": [
+      360,
+      540,
+      720,
+      960,
+      1280,
+      1600,
+      1900
+    ],
+    "blur": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAABQAgCdASoQABAAA4BaJQBOgMXw1UQBYLCL1yAA/rAEynJ1UdcwOwXElq9/pkLahC5AcvEpaopKzOPc7v2a9eDHS4KxhLKsWk6ll2ro8QWTrRLsz6B4i1pJHxbkeq0O1//Ns4ufbWqGqxb/jFcAAA=="
+  },
+  "dessert-moelleux-fruits-rouges": {
+    "hash": "d5f227cd7709",
+    "dir": "dessert-moelleux-fruits-rouges-d5f227cd7709",
+    "width": 2014,
+    "height": 1460,
+    "widths": [
+      360,
+      540,
+      720,
+      960,
+      1280,
+      1600,
+      1920
+    ],
+    "blur": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAAAQAgCdASoQAAwAA4BaJZgCdAYvrgIa3XcAAP6aiPNau2QvR71zK00oatPkPuNLItOWnfmEHit/9gPeuIijPhXY6N1luFF3zfWstKUBrv7XOd6211zPle1MVdL7YozTcsM3eaSePYAop24AAAA="
+  },
+  "dessert-pomme-pochee": {
+    "hash": "dbce6341f2c5",
+    "dir": "dessert-pomme-pochee-dbce6341f2c5",
+    "width": 1358,
+    "height": 1552,
+    "widths": [
+      360,
+      540,
+      720,
+      960,
+      1280,
+      1358
+    ],
+    "blur": "data:image/webp;base64,UklGRpwAAABXRUJQVlA4IJAAAAAwBACdASoQABIAPu1iqU2ppaOiMAgBMB2JaACdACHt6mAnNrqogdh4IwAA4gTHJBtM/8bzAtwdrH+2NyUJvnEiR2tmtl5G911rq/4FNcI1ocOOknfys/FhTpPgPPp+g7YBL3mPKU/7+SuyPcPtRTtlhC6zt9IOQk3CQQc/tD1dpgcrH/eUPn6GchEfF7YAAAA="
+  },
+  "detail-carreaux-ciment": {
+    "hash": "4f09ab82562a",
+    "dir": "detail-carreaux-ciment-4f09ab82562a",
+    "width": 780,
+    "height": 1176,
+    "widths": [
+      360,
+      540,
+      720,
+      780
+    ],
+    "blur": "data:image/webp;base64,UklGRqIAAABXRUJQVlA4IJYAAAAwBACdASoQABgAPu1iqU2ppaOiMAgBMB2JQBbZZYA1rsRXwZgUuS6ie6AA/I+4nRzeD1LsPQA/q9HkPAggGP1mvJiQ7fOY4uGZChxdKbIY6MbnbXE4SjIMkZJZz7MJQsBdsZLsEUJ3rNmgi9lKy+TRMCMzSbT8eti4wVIJna+H6ct6EgKZ3KHZIE+UbzgKPEF9I00wAAA="
+  },
+  "detail-niche-chartreuse": {
+    "hash": "60d57157eb08",
+    "dir": "detail-niche-chartreuse-60d57157eb08",
+    "width": 1712,
+    "height": 2036,
+    "widths": [
+      360,
+      540,
+      720,
+      960,
+      1280,
+      1600,
+      1712
+    ],
+    "blur": "data:image/webp;base64,UklGRpYAAABXRUJQVlA4IIoAAABQBACdASoQABMAPu1iqU2ppaOiMAgBMB2JbACdMoACAeoW/T65OnCAYCoAAPpKpc8QsS45e8lxacGtujFshSIKql7hXnBmHnNspGp5cfJye41sRiIASB4OCnQKJLc0vEIQIidB7GjyMXdAzEfqEJJy4FF0DL2OFuyVOfAby9rCCfayjE03nlzPQAA="
+  },
+  "enseigne": {
+    "hash": "ae2f79052a95",
+    "dir": "enseigne-ae2f79052a95",
+    "width": 1596,
+    "height": 768,
+    "widths": [
+      360,
+      540,
+      720,
+      960,
+      1280,
+      1596
+    ],
+    "blur": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADQAQCdASoQAAgAA4BaJQBOgB6tKuz5EADhV3Hd7hqzC6IFFl5DfiajE5Zkr7W0Tq66X2h/qSomG/2iQLaqjM//s8X1A0iQQ8ReXIiNMAA="
+  },
+  "exterieur-ruelle": {
+    "hash": "7f87d097a001",
+    "dir": "exterieur-ruelle-7f87d097a001",
+    "width": 1060,
+    "height": 1830,
+    "widths": [
+      360,
+      540,
+      720,
+      960,
+      1060
+    ],
+    "blur": "data:image/webp;base64,UklGRq4AAABXRUJQVlA4IKIAAADwAwCdASoQABwAPu1iqk4ppaQiMAgBMB2JYwCsABih1S0XytTtgiuAAPa+3+Phetl6dNsE3vhPQpEdV7fEZb+cJpdt3X1eNoAIR6mYnxluC5jGzswMjXEsI4VPU/3iY1UMcp1u7CPNgu+wbozBUvZ18DcHxC0TeKU9629x5Ri0mUb3viPLuJ3IsWQVmtn23mBJnvHYd4ex4C17W9DugE6L4AA="
+  },
+  "plat-entrecote": {
+    "hash": "c43ad778b9f0",
+    "dir": "plat-entrecote-c43ad778b9f0",
+    "width": 2004,
+    "height": 2018,
+    "widths": [
+      360,
+      540,
+      720,
+      960,
+      1280,
+      1600,
+      1920
+    ],
+    "blur": "data:image/webp;base64,UklGRpIAAABXRUJQVlA4IIYAAABQAgCdASoQABAAA4BaJbACdAYtA9c4F0MWZwAA/W6PR39TjfhDo7gdzdXZ1S+FYmwl/qAha7eXLs94vEpl+fbe0Wg1Sar9k5Z4wanwK9bqeBReFG2ArjROv6s/DgvZikvVPQl2vsdSV38X+FTidNZALl5TOkuMua7D2Dhj40DwEhEI3CgAAA=="
+  },
+  "plat-pate-en-croute": {
+    "hash": "8eadf76106ed",
+    "dir": "plat-pate-en-croute-8eadf76106ed",
+    "width": 1606,
+    "height": 2048,
+    "widths": [
+      360,
+      540,
+      720,
+      960,
+      1280,
+      1600,
+      1606
+    ],
+    "blur": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAAAwBACdASoQABQAPu1iqU2ppaOiMAgBMB2JagAAXBthIb5cVg6NbT4lRAAA/vKh9qTvMnS3p9b0Z1MtBBc26UfsWLX8hc/IoKWSYVE43UCKwIqiXSzQRJucHxssEQIk/31c2Vk6j8Z7WmeN/eukGZDz4R3JPZ86xrOkAA=="
+  },
+  "plat-poulpe": {
+    "hash": "a4efe682e5f9",
+    "dir": "plat-poulpe-a4efe682e5f9",
+    "width": 1878,
+    "height": 2334,
+    "widths": [
+      360,
+      540,
+      720,
+      960,
+      1280,
+      1600,
+      1878
+    ],
+    "blur": "data:image/webp;base64,UklGRqgAAABXRUJQVlA4IJwAAACQBACdASoQABQAPu1iqU2ppaOiMAgBMB2JZgC7AYxiyqLtzoOKdwJI/6GFuAAA/mi485nZ/l08QkZECyDkwTTHKPvlckA7Y7InDp5I8Ox656nz2fnNc8+Jp913O6JLlnJJ4R85qs7C0zMFIQtpXS9oAq6dzxKQuuzvyPcZ1lznnuMtQwbvd5/ZpGW8kAzZeBJLcG20RK7KWuyJAAA="
+  },
+  "salle-arche-bar": {
+    "hash": "f3fe07e70035",
+    "dir": "salle-arche-bar-f3fe07e70035",
+    "width": 1686,
+    "height": 2222,
+    "widths": [
+      360,
+      540,
+      720,
+      960,
+      1280,
+      1600,
+      1686
+    ],
+    "blur": "data:image/webp;base64,UklGRpwAAABXRUJQVlA4IJAAAAAQBACdASoQABUAPu1iqU2ppaOiMAgBMB2JZACdMoACkLDazmqtWwoDwADc+LDzE1X/ZntMHeXJa0rTQJHqxmOKsCGLZX3IdsLMyrmWSFFt0mrpP8pEITZeMnETzkeFQgaUd6v3nB7d+a9JBfAtit2iI36hKz8YdqB0arWYvvxKsq06dMGu49zuV4QQTqP4HgA="
+  },
+  "salle-cave-chartreuse": {
+    "hash": "7158893def9f",
+    "dir": "salle-cave-chartreuse-7158893def9f",
+    "width": 2006,
+    "height": 1960,
+    "widths": [
+      360,
+      540,
+      720,
+      960,
+      1280,
+      1600,
+      1920
+    ],
+    "blur": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAABwAgCdASoQABAAA4BaJZgCdAYw7zY3di9uwmoAAPeGuLzwAaRWyDwdUsJKqAmMn+LhC+5JGqC1Jgu1Z4F95j77b6zp6/n7FkZ3VjGmsJqT72DX2Hrw3nxDzqhj9ahNee9yxLVpaUz2AAAA"
+  },
+  "salle-mur-vins-paysage": {
+    "hash": "4699790f880b",
+    "dir": "salle-mur-vins-paysage-4699790f880b",
+    "width": 1948,
+    "height": 1276,
+    "widths": [
+      360,
+      540,
+      720,
+      960,
+      1280,
+      1600,
+      1920
+    ],
+    "blur": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADQAQCdASoQAAoAA4BaJQBOgCHc8MYKYADNolfWbs5CIx4cQDih+oMf+SKxSypTsxQS6/YWR4gqPJQsGiYsw4057zBNgAAA"
+  },
+  "salle-mur-vins-portrait": {
+    "hash": "b50049599d2d",
+    "dir": "salle-mur-vins-portrait-b50049599d2d",
+    "width": 1408,
+    "height": 1940,
+    "widths": [
+      360,
+      540,
+      720,
+      960,
+      1280,
+      1408
+    ],
+    "blur": "data:image/webp;base64,UklGRowAAABXRUJQVlA4IIAAAAAQBACdASoQABYAPu1iqU2ppaOiMAgBMB2JZQCdACILj/s7B0cXdQPBiADMJnWUh9vD0d0s/TBOjHdqCqbbld5jvMGIK5tFejq+nCh7fUbsyFmiD7zVRqsqQHizGy77uvcJXXikhnrVmFfYHYPvrjjlIOZBT8N6nTpqwwqjFvYAAA=="
+  },
+  "salle-mur-vins": {
+    "hash": "690679708bf5",
+    "dir": "salle-mur-vins-690679708bf5",
+    "width": 1940,
+    "height": 1772,
+    "widths": [
+      360,
+      540,
+      720,
+      960,
+      1280,
+      1600,
+      1920
+    ],
+    "blur": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAADwAQCdASoQAA8AA4BaJQBOgMYsxk9mdgAA+TeoeBYE/GlglLi4+PQPJkPLdL/7CVnUYmH3OI2vjXNleJVAabuAeN99HNLCKvU2hd7aVpUoDNflHEQ3FQ95gzdUEAAA"
+  }
+}

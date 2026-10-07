@@ -14,6 +14,18 @@ export function Header({ phone, address }: Props) {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const [hidden, setHidden] = useState(false);
   const [open, setOpen] = useState(false);
+  // On the home page the big sign already shows the wordmark: the header shows the rosette until it scrolls away.
+  const [heroLogoVisible, setHeroLogoVisible] = useState(false);
+  useEffect(() => {
+    const target = document.getElementById("hero-logo");
+    if (!target) {
+      setHeroLogoVisible(false);
+      return;
+    }
+    const io = new IntersectionObserver(([e]) => setHeroLogoVisible(e.isIntersecting));
+    io.observe(target);
+    return () => io.disconnect();
+  }, [pathname]);
 
   // Hide on scroll down, show on scroll up; expose the visible height for scroll-padding.
   useEffect(() => {
@@ -59,9 +71,23 @@ export function Header({ phone, address }: Props) {
       style={{ viewTransitionName: "site-header" }}
     >
       <div className="mx-auto flex max-w-[84rem] items-center gap-4 px-4 py-2.5 sm:px-8 lg:px-12">
-        <Link href="/" aria-label="Comme Avant, accueil" className="-my-1 inline-flex min-h-11 items-center">
+        <Link href="/" aria-label="Comme Avant, accueil" className="relative -my-1 inline-flex min-h-11 min-w-11 items-center">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/brand/logo-comme-avant-compact.svg" alt="" width={113} height={50} className="h-9 w-auto sm:h-11" />
+          <img
+            src="/brand/logo-comme-avant-compact.svg"
+            alt=""
+            width={113}
+            height={50}
+            className={`h-9 w-auto transition-opacity duration-300 sm:h-11 ${heroLogoVisible ? "opacity-0" : "opacity-100"}`}
+          />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/icon.svg"
+            alt=""
+            width={36}
+            height={36}
+            className={`absolute left-0 top-1/2 h-9 w-9 -translate-y-1/2 transition-opacity duration-300 ${heroLogoVisible ? "opacity-100" : "opacity-0"}`}
+          />
         </Link>
 
         <nav aria-label="Navigation principale" className="ml-auto hidden lg:block">

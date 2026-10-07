@@ -59,8 +59,8 @@ export function HoursPlaque({ headingLevel = 2, withAppleMaps = false }: { headi
                   {d.label}
                   <span className="today-label"> aujourd&apos;hui</span>
                 </th>
-                <td className="tnum py-2.5 pr-4">{d.midi ?? "Fermé"}</td>
-                <td className="tnum py-2.5">{d.soir ?? "Fermé"}</td>
+                <td className="tnum whitespace-nowrap py-2.5 pr-4">{d.midi ?? "Fermé"}</td>
+                <td className="tnum whitespace-nowrap py-2.5">{d.soir ?? "Fermé"}</td>
               </tr>
             ))}
           </tbody>

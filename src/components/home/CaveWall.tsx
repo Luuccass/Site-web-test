@@ -30,32 +30,28 @@ export function CaveWall() {
             {count} références en bouteille, surtout de la vallée du Rhône et de Bourgogne, et des vins au verre ou en pot. Quelques bouteilles de la carte&nbsp;:
           </p>
         </div>
-        <div className="wall mt-10 grid gap-x-3 gap-y-8 sm:grid-cols-3">
-          {PICKS.map((group) => (
-            <div key={group.region}>
-              <h3 className="text-[length:var(--text-h3)] font-medium">{group.region}</h3>
-              <ul className="mt-4 grid gap-3">
-                {group.names.map((n) => {
-                  const wine = wines.bottles.find((b) => b.name.includes(n));
-                  if (!wine) return null;
-                  const { label, producer } = split(wine.name);
-                  const delay = `${index++ * 60}ms`;
-                  return (
-                    <li
-                      key={wine.name}
-                      className="cell rounded-t-[999px] border border-line-navy/60 bg-navy-raised px-5 pb-5 pt-9 text-center"
-                      style={{ ["--cell-delay" as string]: delay }}
-                    >
-                      <span className="block font-medium">{label}</span>
-                      <span className="mt-1 block text-[1rem] text-on-navy-soft">{producer}</span>
-                      <span className="tnum mt-2 block">{euro(wine.price)}</span>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-          ))}
-        </div>
+        <ul className="wall mx-auto mt-10 grid max-w-[60rem] grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4">
+          {PICKS.flatMap((group) =>
+            group.names.map((n) => {
+              const wine = wines.bottles.find((b) => b.name.includes(n));
+              if (!wine) return null;
+              const { label, producer } = split(wine.name);
+              const delay = `${index++ * 60}ms`;
+              return (
+                <li
+                  key={wine.name}
+                  className="cell flex flex-col rounded-t-[999px] border border-line-navy/60 bg-navy-raised px-3 pb-4 pt-12 text-center sm:px-5 sm:pt-16"
+                  style={{ ["--cell-delay" as string]: delay }}
+                >
+                  <span className="smcp text-[0.9375rem] text-on-navy-soft">{group.region}</span>
+                  <span className="mt-2 block text-[1.0625rem] font-medium leading-snug">{label}</span>
+                  <span className="mt-1 block text-[0.9375rem] leading-snug text-on-navy-soft">{producer}</span>
+                  <span className="tnum mt-auto block pt-3">{euro(wine.price)}</span>
+                </li>
+              );
+            }),
+          )}
+        </ul>
         <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
           <Link href="/la-carte/vins/" className="btn btn-line">
             Tous les vins

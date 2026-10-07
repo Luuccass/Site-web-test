@@ -30,6 +30,7 @@
   --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+@layer base {
 /* ── Base ──────────────────────────────────────────────────────────────────────────────────── */
 :root {
   --sticky-top: 0px;
@@ -96,6 +97,9 @@ a {
   box-shadow: 0 0 0 5px var(--color-navy);
 }
 
+}
+
+@layer components {
 /* Typographic helpers */
 .tnum {
   font-variant-numeric: lining-nums tabular-nums;
@@ -179,6 +183,8 @@ a {
   .link-draw[aria-current="page"] {
     background-size: 100% 1px;
   }
+}
+
 }
 
 /* ── Motion ────────────────────────────────────────────────────────────────────────────────── */
@@ -321,16 +327,17 @@ html.js-cells .wall .cell::before {
   display: none;
 }
 
+@layer components {
 /* Status-dependent CTA order: when a service is still possible today, « Appeler » comes first. */
 html[data-primary="call"] .cta-row .cta-call {
   order: -1;
 }
-html[data-primary="call"] .cta-row:not(.on-navy *) .cta-call {
+html[data-primary="call"] .cta-row:not(.on-navy .cta-row) .cta-call {
   background: var(--color-navy);
   color: var(--color-on-navy);
   border-color: var(--color-navy);
 }
-html[data-primary="call"] .cta-row:not(.on-navy *) .cta-book {
+html[data-primary="call"] .cta-row:not(.on-navy .cta-row) .cta-book {
   background: transparent;
   color: var(--color-navy);
   border-color: var(--color-navy);
@@ -344,6 +351,8 @@ html[data-primary="call"] .on-navy .cta-row .cta-book {
   background: transparent;
   color: var(--color-on-navy);
   border-color: var(--color-on-navy);
+}
+
 }
 
 /* « Plus » sheet: native dialog sliding down from the header. */

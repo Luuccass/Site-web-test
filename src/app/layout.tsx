@@ -20,6 +20,17 @@ const spectral = localFont({
   adjustFontFallback: "Times New Roman",
 });
 
+// V2 « Nocturne » display face (variable, latin): giant headlines only.
+const cormorant = localFont({
+  src: [
+    { path: "../fonts/CormorantGaramond-Variable.woff2", weight: "300 700", style: "normal" },
+    { path: "../fonts/CormorantGaramond-Italic-Variable.woff2", weight: "300 700", style: "italic" },
+  ],
+  variable: "--font-cormorant",
+  display: "swap",
+  adjustFontFallback: "Times New Roman",
+});
+
 const montserrat = localFont({
   src: [{ path: "../fonts/Montserrat-Medium-caps.woff2", weight: "500", style: "normal" }],
   variable: "--font-montserrat",
@@ -55,7 +66,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   const address = `${site.address.street}, ${site.address.postalCode} ${site.address.city}`;
   return (
-    <html lang="fr" className={`${spectral.variable} ${montserrat.variable}`} suppressHydrationWarning>
+    <html lang="fr" className={`${spectral.variable} ${cormorant.variable} ${montserrat.variable}`} suppressHydrationWarning>
       <head>
         {/* Enables the scroll-triggered door and wall motions only when JS runs (no-JS: everything visible). */}
         <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js-doors','js-cells')" }} />

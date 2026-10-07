@@ -14,7 +14,7 @@ for (const p of pages) {
   const total = await page.evaluate(() => document.documentElement.scrollHeight);
   const slug = p === "/" ? "accueil" : p.replace(/\//g, "_").replace(/^_|_$/g, "");
   let i = 0;
-  for (let y = 0; y < total && i < 9; y += Math.round(+H * 0.9), i++) {
+  for (let y = 0; y < total && i < 16; y += Math.round(+H * 0.9), i++) {
     await page.mouse.wheel(0, i === 0 ? 0 : Math.round(+H * 0.9));
     await page.waitForTimeout(1500);
     await page.screenshot({ path: `${OUT}/${slug}-${W}-${i}.png` });

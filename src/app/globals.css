@@ -18,6 +18,15 @@
 
   --font-serif: var(--font-spectral), "Spectral", Georgia, "Times New Roman", serif;
   --font-plaque: var(--font-montserrat), "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  --font-display: var(--font-cormorant), "Cormorant Garamond", Garamond, "Times New Roman", serif;
+
+  /* V2 « Nocturne » */
+  --color-night: #0b1020;         /* page ground (cream text 16.6:1) */
+  --color-night-2: #121a33;       /* raised panels on night */
+  --color-cream: #f3ede2;         /* text on night */
+  --color-cream-soft: #c7c2b8;    /* secondary text on night (9.8:1) */
+  --color-gold: #c9a86a;          /* accents and large text on night (8.4:1) */
+  --color-gold-deep: #a78547;     /* pierre dorée: fills behind night text (5.1:1 with #0b1020) */
 
   --text-display: clamp(2.25rem, 1.55rem + 3vw, 4.25rem);
   --text-h1: clamp(2.5rem, 1.7rem + 3.4vw, 4.75rem);

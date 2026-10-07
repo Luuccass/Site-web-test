@@ -1,5 +1,7 @@
 // Generates responsive AVIF + WebP variants and blur placeholders for every retouched master.
-// Input:  assets/photos/retouched/*.jpg   Output: public/img/<id>-<hash>/<width>.{avif,webp}
+// Input:  assets/photos/retouched/*.jpg (id = file name) and assets/photos/v2/graded/*.jpg, the
+//         « nocturne » grade from scripts/photos/v2/grade.py (id = "nuit-" + file name)
+// Output: public/img/<id>-<hash>/<width>.{avif,webp}
 //         src/lib/images.generated.json (sizes + tiny blur placeholder per photo)
 // Only re-encodes a photo when its master changed (hash stored in the manifest).
 import { createHash } from "node:crypto";
@@ -9,7 +11,10 @@ import path from "node:path";
 import sharp from "sharp";
 
 const ROOT = path.resolve(import.meta.dirname, "../..");
-const SRC = path.join(ROOT, "assets/photos/retouched");
+const SOURCES = [
+  { dir: path.join(ROOT, "assets/photos/retouched"), prefix: "" },
+  { dir: path.join(ROOT, "assets/photos/v2/graded"), prefix: "nuit-" },
+];
 const OUT = path.join(ROOT, "public/img");
 const MANIFEST = path.join(ROOT, "src/lib/images.generated.json");
 const WIDTHS = [360, 540, 720, 960, 1280, 1600, 1920];
@@ -18,10 +23,14 @@ const EXCLUDED = new Set(["salle-allee-carreaux"]); // staff member visible: not
 const previous = existsSync(MANIFEST) ? JSON.parse(await readFile(MANIFEST, "utf8")) : {};
 const manifest = {};
 
-for (const file of (await readdir(SRC)).filter((f) => f.endsWith(".jpg")).sort()) {
-  const id = path.basename(file, ".jpg");
-  if (EXCLUDED.has(id)) continue;
-  const buf = await readFile(path.join(SRC, file));
+const files = [];
+for (const { dir, prefix } of SOURCES) {
+  if (!existsSync(dir)) continue;
+  for (const f of (await readdir(dir)).filter((f) => f.endsWith(".jpg")).sort()) files.push({ file: path.join(dir, f), id: prefix + path.basename(f, ".jpg"), base: path.basename(f, ".jpg") });
+}
+for (const { file, id, base } of files) {
+  if (EXCLUDED.has(base)) continue;
+  const buf = await readFile(file);
   const hash = createHash("sha1").update(buf).digest("hex").slice(0, 12);
   const meta = await sharp(buf).metadata();
   const widths = WIDTHS.filter((w) => w < meta.width);

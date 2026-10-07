@@ -246,5 +246,253 @@
       1920
     ],
     "blur": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAADwAQCdASoQAA8AA4BaJQBOgMYsxk9mdgAA+TeoeBYE/GlglLi4+PQPJkPLdL/7CVnUYmH3OI2vjXNleJVAabuAeN99HNLCKvU2hd7aVpUoDNflHEQ3FQ95gzdUEAAA"
+  },
+  "nuit-dessert-ile-flottante": {
+    "hash": "bb2a592a2ee0",
+    "dir": "nuit-dessert-ile-flottante-bb2a592a2ee0",
+    "width": 1690,
+    "height": 1724,
+    "widths": [
+      360,
+      540,
+      720,
+      960,
+      1280,
+      1600,
+      1690
+    ],
+    "blur": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAAAwAgCdASoQABAAA4BaJZACdAYvht+g/ZnAAAD+wlLytDYnPQT+tOYpqSS1d3aElVMJBPj2Ibo23UxdpiT+nHZR0zIG+qAY/KUHbtdXBxdmkflvZv+zknSPcRTKT6Df0U2dl9fYF24c1dqluZES71RosSwyfQQMPJloAA=="
+  },
+  "nuit-dessert-moelleux-chocolat": {
+    "hash": "92886645e7c2",
+    "dir": "nuit-dessert-moelleux-chocolat-92886645e7c2",
+    "width": 1900,
+    "height": 1908,
+    "widths": [
+      360,
+      540,
+      720,
+      960,
+      1280,
+      1600,
+      1900
+    ],
+    "blur": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAABQAgCdASoQABAAA4BaJYwCdAYvhqm2X3lRRVgA/bTAi01GE7Zik1dATtaNo1tkLa6k0CaENDujnpkitv42nt43ieJuWv/01Ke89+gVNG7D/m7wuqOnJqUkiTjZv/nzfzxxBPI4GEDD46JcAAA="
+  },
+  "nuit-dessert-moelleux-fruits-rouges": {
+    "hash": "ccabc458bd25",
+    "dir": "nuit-dessert-moelleux-fruits-rouges-ccabc458bd25",
+    "width": 2014,
+    "height": 1460,
+    "widths": [
+      360,
+      540,
+      720,
+      960,
+      1280,
+      1600,
+      1920
+    ],
+    "blur": "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAAAQAgCdASoQAAwAA4BaJZgCdAYs2/RSm8tAAP2/+LQpjkdng9LDleBsoveNzKezz8K42e6iI8d9Xl/rrbnGELlSdFAUG9O0/fbsf1czBpeeb12X2gslbmTpxGpWyErdT/7a2OJr7t95pJ49frOToAAA"
+  },
+  "nuit-dessert-pomme-pochee": {
+    "hash": "60c4b6b5bcf9",
+    "dir": "nuit-dessert-pomme-pochee-60c4b6b5bcf9",
+    "width": 1358,
+    "height": 1552,
+    "widths": [
+      360,
+      540,
+      720,
+      960,
+      1280,
+      1358
+    ],
+    "blur": "data:image/webp;base64,UklGRpoAAABXRUJQVlA4II4AAAAQBACdASoQABIAPu1iqU2ppaOiMAgBMB2JaAAAW3O1rwNatIWLaVRq4AD+h98LOBbXh90VJ2m1/ctcIJ/iEB3v8RBvzg9GP4gI6D+w8p4gCfiXqOkh7uHhjW2cmNp+xQtncuGv/nEEdpC1PhRSMvE/aiiBd8zsr95L24N3Dyvb9rqAL22TaTyvZ0t0wAAA"
+  },
+  "nuit-detail-carreaux-ciment": {
+    "hash": "c3253299f8e7",
+    "dir": "nuit-detail-carreaux-ciment-c3253299f8e7",
+    "width": 780,
+    "height": 1176,
+    "widths": [
+      360,
+      540,
+      720,
+      780
+    ],
+    "blur": "data:image/webp;base64,UklGRrAAAABXRUJQVlA4IKQAAABwBACdASoQABgAPu1iqU2ppaOiMAgBMB2JQBbdERwYAvVbLP18En/bwMjGAAD+hBYl/RF++7LqtiHSvPlU8scNllz0mP5rxx/gGN4Yw7LfGrAOuzq/j5ncwDo1WCbqHxwJL19YhhW14KFAUVJfznpezXOiuAHacz5mvlnEUqDCy7uKmAI3GAdCyp2sk+G4MDPWXZ200S6KAr6Ah0+UIMBkFQAAAA=="
+  },
+  "nuit-detail-niche-chartreuse": {
+    "hash": "3cfa23e5eaf1",
+    "dir": "nuit-detail-niche-chartreuse-3cfa23e5eaf1",
+    "width": 1712,
+    "height": 2036,
+    "widths": [
+      360,
+      540,
+      720,
+      960,
+      1280,
+      1600,
+      1712
+    ],
+    "blur": "data:image/webp;base64,UklGRp4AAABXRUJQVlA4IJIAAAAQBACdASoQABMAPu1iqU2ppaOiMAgBMB2JagCdMoABfcpUHHFyUuWNgAD+zcPVklRwdiwSrqTFuoCRt6NeQJckOh45EfiMJjJY2Piy+4gcp+bnLxxUeRSbvHZYi16oKCRueHvJXwDwvNIzIooNdpn4GHeJw3tHfyQGyVonJTIG+kS9A17r5bmewFLTV+tET0AAAA=="
+  },
+  "nuit-enseigne": {
+    "hash": "f6e36486d43a",
+    "dir": "nuit-enseigne-f6e36486d43a",
+    "width": 1596,
+    "height": 768,
+    "widths": [
+      360,
+      540,
+      720,
+      960,
+      1280,
+      1596
+    ],
+    "blur": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAADwAQCdASoQAAgAA4BaJQBOgB6tK3jfaAAA+/O7ULdBkhJLYjPftw39j3Dzkj2OIqF8/cmV4FvMMxQxRbkGmBbVUZn/9ni+oGbAeIvLkRGmAAAA"
+  },
+  "nuit-exterieur-ruelle": {
+    "hash": "f4c449f4ac1f",
+    "dir": "nuit-exterieur-ruelle-f4c449f4ac1f",
+    "width": 1060,
+    "height": 1830,
+    "widths": [
+      360,
+      540,
+      720,
+      960,
+      1060
+    ],
+    "blur": "data:image/webp;base64,UklGRsAAAABXRUJQVlA4ILQAAACQBACdASoQABwAPu1iqU2ppaOiMAgBMB2JYwC7AYxEtk/q8ojp8w6jWAlTnoAA/uY5g7t+RGpdlW8GG7Ibej9G/FZ3b2uJkiulqp965VjlSZl5v0yTKGckwYp7r0fJErmnB0DNP2YbpkZbsil8AACGvjmgGz9DAsPpNJ3097n8fWu0ytpLzh1e6nvx3aCYvD5xrdh4ce0UtMDaowaMnFXnc2HIEHbxbjkIlxcH7MkqOBlIgAA="
+  },
+  "nuit-plat-entrecote": {
+    "hash": "957e86229cde",
+    "dir": "nuit-plat-entrecote-957e86229cde",
+    "width": 2004,
+    "height": 2018,
+    "widths": [
+      360,
+      540,
+      720,
+      960,
+      1280,
+      1600,
+      1920
+    ],
+    "blur": "data:image/webp;base64,UklGRpgAAABXRUJQVlA4IIwAAACwAgCdASoQABAAA4BaJbACdH8Agmyq/JbgcFQv6fgA/tp7C1/UpImp1Hve7l5VOlA9bwXd8WHGOTYZbLMuKh1XgRYrmrQJ5hswg38Db98j8jgp7Cynh4k0Y7mBDofCh463uOvZ/jyO9j2FerXRVU3gDKv6i+SW3q1up+6mCql3V0SzSckcp4Zu1YAAAA=="
+  },
+  "nuit-plat-pate-en-croute": {
+    "hash": "c975c470c2a1",
+    "dir": "nuit-plat-pate-en-croute-c975c470c2a1",
+    "width": 1606,
+    "height": 2048,
+    "widths": [
+      360,
+      540,
+      720,
+      960,
+      1280,
+      1600,
+      1606
+    ],
+    "blur": "data:image/webp;base64,UklGRo4AAABXRUJQVlA4IIIAAACQBACdASoQABQAPu1iqU2ppaOiMAgBMB2JagBUftwEt/ehbqnCml0Mty1FE4AA/vQoqvA6WqZjXIdEL/jLfhz+LmSuPJwyqPn9AIJMuGP/akhE+rdn/uHfAGQOgXRaV/2tIHUfe+J1Kni7y4ffX7slaYhJisiGC7WeVly4ckP7QAAA"
+  },
+  "nuit-plat-poulpe": {
+    "hash": "ceb23af62820",
+    "dir": "nuit-plat-poulpe-ceb23af62820",
+    "width": 1878,
+    "height": 2334,
+    "widths": [
+      360,
+      540,
+      720,
+      960,
+      1280,
+      1600,
+      1878
+    ],
+    "blur": "data:image/webp;base64,UklGRqAAAABXRUJQVlA4IJQAAABQBACdASoQABQAPu1iqU2ppaOiMAgBMB2JYgC7AYx2mfIwv2SCLAsjNcugAP4mZwv/bdbJSwFxJ0Yzk8NWpY4rlxjuzC6yJxr4Tjci/XCfWypMlw/ed9OKp6oVi38GKYJ1iVls1Lp1mvMFIQtpc7/0wA1lQ/fYHBtsaYMaIYsVusIViEq5FwSWLfx/hY8jwT4H1R4A"
+  },
+  "nuit-salle-arche-bar": {
+    "hash": "3dded51fdb19",
+    "dir": "nuit-salle-arche-bar-3dded51fdb19",
+    "width": 1686,
+    "height": 2222,
+    "widths": [
+      360,
+      540,
+      720,
+      960,
+      1280,
+      1600,
+      1686
+    ],
+    "blur": "data:image/webp;base64,UklGRpwAAABXRUJQVlA4IJAAAAAQBACdASoQABUAPu1iqU2ppaOiMAgBMB2JQBOmUABJ7iunDgFhGzS0AAD+2qbjGg6fbeKJymR+RrQ5Ig25qWZEWAfCx7o+3PtIwxB6lgOw93v9+xUs5Qxpd6mQQt6gRYmRzx/A7pPIPBKjgFaZLIBMaTPdS2hlKJG22RqEV26X8XzWwUUMgwnwHmkXKbUCsAA="
+  },
+  "nuit-salle-cave-chartreuse": {
+    "hash": "2dbf6bc4371e",
+    "dir": "nuit-salle-cave-chartreuse-2dbf6bc4371e",
+    "width": 2006,
+    "height": 1960,
+    "widths": [
+      360,
+      540,
+      720,
+      960,
+      1280,
+      1600,
+      1920
+    ],
+    "blur": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAABQAgCdASoQABAAA4BaJZACdAYv/kojsLuer4AA/tzv7K+LGpDV9+9mgUJZKxmDgJfjOQkljPCZID1xs+0yxNPReOlaQ4tILNECVvWaP7sOfdVEz+VWbvrLi9Q0TpadTSsiZLCNFpP3YAAA"
+  },
+  "nuit-salle-mur-vins-paysage": {
+    "hash": "2c9ac5ae3ff5",
+    "dir": "nuit-salle-mur-vins-paysage-2c9ac5ae3ff5",
+    "width": 1948,
+    "height": 1276,
+    "widths": [
+      360,
+      540,
+      720,
+      960,
+      1280,
+      1600,
+      1920
+    ],
+    "blur": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAAAwAgCdASoQAAoAA4BaJYwCdB3gGxUSjd+ZYAD+3PL/3NUM4MalQ2TEk8xJ/jcfGF3IibYOskKPcyPkRk8Fjg+tiu4u4hjigvDlFTdsMfcj9Ra1BAAAAA=="
+  },
+  "nuit-salle-mur-vins-portrait": {
+    "hash": "e55a591e7295",
+    "dir": "nuit-salle-mur-vins-portrait-e55a591e7295",
+    "width": 1408,
+    "height": 1940,
+    "widths": [
+      360,
+      540,
+      720,
+      960,
+      1280,
+      1408
+    ],
+    "blur": "data:image/webp;base64,UklGRooAAABXRUJQVlA4IH4AAADwAwCdASoQABYAPu1iqU2ppaOiMAgBMB2JZQC7ACHobQMnmW1yHndgAP7kYtxgmyj7Merg7NX0IASblxT/rfS/tP7u5sJ7UM4x3HIpFXekZMne4m5mKjvG5DzjPoRyCD0xoXcyWmdeNpyCL8IHNZLQ2gKLUjclQUbNDBrgAAA="
+  },
+  "nuit-salle-mur-vins": {
+    "hash": "e36f81d17259",
+    "dir": "nuit-salle-mur-vins-e36f81d17259",
+    "width": 1940,
+    "height": 1772,
+    "widths": [
+      360,
+      540,
+      720,
+      960,
+      1280,
+      1600,
+      1920
+    ],
+    "blur": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAABQAgCdASoQAA8AA4BaJYwCdAYv/lbgvak+6AAA/uo2WJvXcWpG7lpkI1nx9NdNUddzuwIWX2Dt7F+LKltsdr2NJKJqBe4A9SkQoHQX+pkNfihO2XX3KJz4gb7+XzEqbMRRvVHoQAA="
   }
 }

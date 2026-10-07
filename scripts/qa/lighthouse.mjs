@@ -1,10 +1,12 @@
 // Lighthouse (mobile preset) on every page; writes a summary table and fails if a score < 95.
-// Usage: node scripts/qa/lighthouse.mjs http://localhost:4173 OUT_DIR
-import { mkdir, writeFile } from "node:fs/promises";
+// Measure against the HTTP/2 + Brotli server (production-like), not `npx serve`:
+//   node scripts/qa/serve-h2.mjs 4443 out &
+//   node scripts/qa/lighthouse.mjs https://localhost:4443 OUT_DIR
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { execFileSync } from "node:child_process";
 
-const [, , BASE = "http://localhost:4173", OUT = "qa-output"] = process.argv;
+const [, , BASE = "https://localhost:4443", OUT = "qa-output"] = process.argv;
 const PAGES = ["/", "/la-carte/", "/la-carte/vins/", "/le-restaurant/", "/galerie/", "/nous-trouver/", "/reserver/", "/mentions-legales/", "/confidentialite/"];
 const CHROME = process.env.CHROME_PATH || "/opt/pw-browsers/chromium-1194/chrome-linux/chrome";
 await mkdir(path.join(OUT, "lighthouse"), { recursive: true });
@@ -14,10 +16,10 @@ for (const p of PAGES) {
   const file = path.join(OUT, "lighthouse", (p === "/" ? "accueil" : p.replace(/\//g, "_").replace(/^_|_$/g, "")) + ".json");
   execFileSync(
     "npx",
-    ["lighthouse", BASE + p, "--quiet", "--only-categories=performance,accessibility,best-practices,seo", "--output=json", `--output-path=${file}`, "--chrome-flags=--headless=new --no-sandbox"],
+    ["-y", "lighthouse@13", BASE + p, "--quiet", "--only-categories=performance,accessibility,best-practices,seo", "--output=json", `--output-path=${file}`, "--chrome-flags=--headless=new --no-sandbox --ignore-certificate-errors"],
     { env: { ...process.env, CHROME_PATH: CHROME }, stdio: "ignore" },
   );
-  const r = JSON.parse(await (await import("node:fs/promises")).readFile(file, "utf8"));
+  const r = JSON.parse(await readFile(file, "utf8"));
   const c = r.categories;
   const a = r.audits;
   rows.push({

@@ -1,4 +1,4 @@
-# Handoff — where the project stands (updated 2026-10-06, end of session 1)
+# Handoff — where the project stands (updated 2026-10-07, session 2)
 
 Read this first when the owner says « continue ». Then read `docs/design/phase3-architecture.md`.
 
@@ -20,19 +20,21 @@ one icon family, content in editable files (menu.json, hours.json, site.config.t
 | 0 Audit | done (see chat; key limits below) |
 | 1 Questions | done; answers in `docs/content/owner-input-2026-10-06.md` |
 | 2 Direction | **done — owner chose A « L'Enseigne »** (`docs/design/directions.md`, boards on the canvas) |
-| 3 Architecture | **v2 written after adversarial review** (`docs/design/phase3-architecture.md`, review in `docs/research/phase3-review.md`); **presented to the owner 2026-10-07 — waiting for validation + the 3 pre-build answers (§8)** |
-| 4–6 | not started |
+| 3 Architecture | **validated by the owner 2026-10-07** (`docs/design/phase3-architecture.md` v2) |
+| 4 Build | **in progress**: foundation + home page + motions M1/M2m/M3 done (commit `1bdf1d7`, preview videos sent); remaining pages built by workflow `build-pages` (carte, vins + PDF, restaurant + galerie, nous-trouver, réserver, légal, 404) |
+| 5 QA | scripts ready: `scripts/qa/run-qa.mjs` (screenshots ×6 widths, axe, acceptance) and `scripts/qa/lighthouse.mjs` |
+| 6 Delivery | not started (README, Netlify setup, DNS at Wix, final report) |
 
 ## Next actions, in order
 
-1. ~~Re-run the Phase 3 review~~ (done 2026-10-07) and ~~apply it~~ (v2 done, presented).
-2. **Wait for the owner's validation of Phase 3** and the 3 pre-build answers (hosting, booking e-mail
-   and rules, who updates / ardoise yes-no).
-3. Phase 4: scaffold Next.js 16; content files first (menu.json, wines.json, hours.json, reviews.json,
-   site.config.ts, gallery.json); self-hosted Spectral subsets; prototype motions M1, M2/M2m, M3 and
-   share a protected preview link before building every page (promised to the owner).
-4. Also prepared on 2026-10-07: `docs/content/allergens-draft.md` (to validate), photo
-   `detail-carreaux-ciment` (staff member excluded; `salle-allee-carreaux` not publishable).
+1. Finish the remaining pages (check `src/app/*` against the sitemap in phase3 §2); apply the
+   "shared changes" the page agents reported (npm `pdf` script, CSS, layout); `npm run typecheck`,
+   `npm test`, `npx next build`; commit + push.
+2. Phase 5: `npx serve out -l 4173` then `node scripts/qa/run-qa.mjs http://localhost:4173 <scratch>/qa`
+   and `node scripts/qa/lighthouse.mjs http://localhost:4173 <scratch>/qa`; art-director critique of
+   every screenshot; fix; re-run until axe = 0 and Lighthouse ≥ 95 ×4 on every page.
+3. Phase 6: README (local launch, editing `content/*` on GitHub, monthly ardoise, scripts, deploy),
+   Netlify setup guide, DNS change at Wix (keep OVH MX/SPF), final report with placeholders.
 
 ## Owner decisions so far
 
@@ -46,8 +48,17 @@ one icon family, content in editable files (menu.json, hours.json, site.config.t
 - No original logo file → `assets/brand/logo-comme-avant*.svg` (reconstruction) is the logo.
 - Lunch formulas 21 € / 25 € (Tue–Fri) confirmed. Booking = phone + form with manual confirmation.
   Parking on site. French only.
-- Still unanswered: hosting (Vercel Pro vs Netlify/Cloudflare free), e-mail receiving bookings,
-  domain registrar, allergens per dish, group capacity, team bio/history (owner: « fais avec ce que tu as »).
+- 2026-10-07 answers: free hosting wanted, owner wants it handled → **Netlify free** (Vercel Hobby
+  forbids commercial use) static export + Netlify Forms. Bookings to contact@restaurant-comme-avant.com,
+  phone 04 78 66 19 57; bookable up to 30 days ahead, same day accepted until 1 h before if there is
+  room (form flags same-day requests and recommends calling). Ardoise changes **monthly**, the site
+  manager (owner) updates `content/ardoise.json`. Other open questions: « fais sans ». Allergens:
+  owner trusts us → per-dish allergens stay unpublished until the kitchen validates
+  `docs/content/allergens-draft.md`; legend + mandatory sentence shown.
+- Deploy blocker: the container cannot reach api.netlify.com; the owner must connect the GitHub repo
+  in Netlify once and change DNS at Wix (records in `docs/content/owner-input-2026-10-06.md`).
+- Still unknown (listed in the final report): mediator, share capital, review authors/dates, last
+  orders, holiday policy, congés dates, team bio/history.
 
 ## Where things are
 
@@ -59,7 +70,11 @@ one icon family, content in editable files (menu.json, hours.json, site.config.t
 | `docs/research/photo-triage.md` | per-photo crops, alt texts, identity colours, rejects, shoot gaps |
 | `docs/research/phase2-critique.md` | critique synthesis behind directions v2 |
 | `docs/design/directions.md` | art direction spec v2 (A chosen) |
-| `docs/design/phase3-architecture.md` | Phase 3 draft |
+| `docs/design/phase3-architecture.md` | Phase 3 (validated) |
+| `docs/dev/BUILD-BRIEF.md` | binding brief for page-building agents |
+| `content/*` | site content: menu, wines, hours, reviews, gallery, ardoise, `site.config.ts` |
+| `src/` | Next.js 16 app (static export), see `src/lib/status.ts` for the live open/closed logic |
+| `scripts/images/`, `scripts/fonts/`, `scripts/qa/` | image variants + OG, font subsets, QA |
 | `docs/design/boards/` | sources of the 10 canvas artboards + `blob-map.json` |
 | `assets/photos/retouched/` + `README.md` | 16 retouched masters (EDSR ×2) + rights inventory |
 | `assets/brand/` | logo SVGs (badge + wordmark) |

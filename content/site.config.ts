@@ -44,6 +44,9 @@ export const site = {
     host: {
       name: "Netlify, Inc.",
       address: "101 2nd Street, San Francisco, CA 94105, États-Unis",
+      // LCEN: the host's phone number. Copy it from Netlify's official contact page, then it shows in the
+      // mentions légales automatically.
+      phone: null as string | null,
       url: "https://www.netlify.com",
     },
     credits: [

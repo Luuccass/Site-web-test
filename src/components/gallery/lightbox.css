@@ -1,5 +1,11 @@
 /* Galerie lightbox: a full-screen native <dialog> on navy. Layout only; buttons use .btn. */
 
+/* Without JavaScript the thumbnails stay plain photos with their captions: no dead buttons.
+   (html.js-doors is set by the inline script in the root layout as soon as JS runs.) */
+html:not(.js-doors) [data-lightbox-index] {
+  display: none;
+}
+
 .lb {
   position: fixed;
   inset: 0;

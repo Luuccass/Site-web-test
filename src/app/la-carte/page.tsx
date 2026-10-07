@@ -17,7 +17,7 @@ const formulesPrices = menu.formules.items.map((f) => euro(f.price)).join(" et "
 
 export const metadata: Metadata = {
   title: "La carte",
-  description: `La carte du Restaurant Comme Avant à Dardilly : formules du midi à ${formulesPrices}, entrées, plats, fromages et desserts du moment, avec leurs prix.`,
+  description: `La carte du Restaurant Comme Avant à Dardilly : formules du midi à ${formulesPrices}, entrées, plats, fromages et desserts du moment, avec leurs prix.`,
   alternates: { canonical: "/la-carte/" },
 };
 
@@ -27,7 +27,7 @@ const column = "mx-auto max-w-[50rem]";
 
 function Actions({ className = "" }: { className?: string }) {
   return (
-    <div className={`no-print flex flex-wrap gap-3 ${className}`}>
+    <div className={`no-print flex-wrap gap-3 ${className}`}>
       <PrintButton label="Imprimer la carte" />
       <DownloadLink href={PDF_HREF} label="Télécharger la carte (PDF)" />
     </div>
@@ -50,7 +50,7 @@ export default function CartePage() {
           <PrintMasthead />
           <div className="flex flex-wrap items-end justify-between gap-x-10 gap-y-6 print:justify-center">
             <div>
-              <h1 className="text-[length:var(--text-h1)] print:text-[28pt]">La carte</h1>
+              <h1 className="text-[length:var(--text-h1)] print:text-[28pt] print:text-navy">La carte</h1>
               <p className="mt-3 text-ink-soft print:mt-[1mm] print:text-[10pt]">Carte en vigueur au {frenchDate(menu.updatedAt)}</p>
             </div>
             <Actions className="hidden lg:flex" />
@@ -78,7 +78,7 @@ export default function CartePage() {
               L&apos;ardoise
             </h2>
             <ArdoiseLine className="mt-2 text-[1.1875rem] leading-snug print:text-[11pt]" />
-            <p className="mt-3 text-[1rem] text-on-navy-soft print:text-[9.5pt] print:text-ink-soft">Allergènes : demandez-nous.</p>
+            <p className="mt-3 text-[1rem] text-on-navy-soft print:text-[9.5pt] print:text-ink-soft">Allergènes : demandez-nous.</p>
           </section>
 
           <section
@@ -132,7 +132,7 @@ export default function CartePage() {
             <p>{menu.pricesNote}</p>
           </div>
 
-          <Actions className="mt-8 lg:hidden" />
+          <Actions className="mt-8 flex lg:hidden" />
 
           <div className="no-print mt-12 flex flex-wrap items-center gap-x-8 gap-y-4 border-t border-line pt-10">
             <Link href="/reserver/" className="btn btn-solid">

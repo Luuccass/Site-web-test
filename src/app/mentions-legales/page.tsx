@@ -1,7 +1,17 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { site } from "@/lib/data";
-import { Facts, LegalPage, LegalSection, LegalSubheading, RuledList, frTypo, type TocEntry } from "./_legal/LegalPage";
+import {
+  ContactEmail as Email,
+  ContactPhone as Phone,
+  Facts,
+  LegalPage,
+  LegalSection,
+  LegalSubheading,
+  RuledList,
+  frTypo,
+  type TocEntry,
+} from "@/components/legal/LegalPage";
 
 const UPDATED = "2026-10-07";
 const description =
@@ -25,22 +35,8 @@ export const metadata: Metadata = {
 const legal = site.legal;
 const domain = site.url.replace(/^https?:\/\//, "");
 const hostDomain = legal.host.url.replace(/^https?:\/\//, "").replace(/\/$/, "");
-
-function Phone() {
-  return (
-    <a href={`tel:${site.phone.e164}`} className="tnum whitespace-nowrap underline">
-      {site.phone.display}
-    </a>
-  );
-}
-
-function Email() {
-  return (
-    <a href={`mailto:${site.email}`} className="underline [overflow-wrap:anywhere]">
-      {site.email}
-    </a>
-  );
-}
+// LCEN also asks for the host's phone number: shown as soon as `legal.host.phone` is filled in site.config.ts.
+const hostPhone = legal.host.phone;
 
 export default function MentionsLegalesPage() {
   const mediator = legal.mediator;
@@ -74,9 +70,16 @@ export default function MentionsLegalesPage() {
             },
             { label: "Enseigne", value: site.name },
             { label: "Siège social", value: legal.headOffice },
-            { label: "Immatriculation", value: <span className="tnum">{`${legal.rcs} ${legal.siren}`}</span> },
-            { label: "SIRET", value: <span className="tnum">{legal.siret}</span> },
-            { label: "TVA intracommunautaire", value: <span className="tnum">{legal.vat}</span> },
+            {
+              label: "Immatriculation",
+              value: (
+                <>
+                  {legal.rcs} <span className="tnum whitespace-nowrap">{legal.siren}</span>
+                </>
+              ),
+            },
+            { label: "SIRET", value: <span className="tnum whitespace-nowrap">{legal.siret}</span> },
+            { label: "TVA intracommunautaire", value: <span className="tnum whitespace-nowrap">{legal.vat}</span> },
             { label: "Directeur de la publication", value: legal.publicationDirector },
             { label: "Téléphone", value: <Phone /> },
             { label: "E-mail", value: <Email /> },
@@ -89,13 +92,22 @@ export default function MentionsLegalesPage() {
       </LegalSection>
 
       <LegalSection id="hebergement" title="Hébergement">
-        <p>
-          Le site est hébergé par {legal.host.name}, {legal.host.address} (
-          <a href={legal.host.url} className="underline" rel="noopener">
-            {hostDomain}
-          </a>
-          ).
-        </p>
+        <p>Le site et son formulaire de réservation sont hébergés par&#8239;:</p>
+        <Facts
+          rows={[
+            { label: "Hébergeur", value: legal.host.name },
+            { label: "Adresse", value: legal.host.address },
+            ...(hostPhone ? [{ label: "Téléphone", value: <span className="tnum whitespace-nowrap">{hostPhone}</span> }] : []),
+            {
+              label: "Site",
+              value: (
+                <a href={legal.host.url} className="underline" rel="noopener">
+                  {hostDomain}
+                </a>
+              ),
+            },
+          ]}
+        />
       </LegalSection>
 
       {mediator ? (
@@ -129,7 +141,7 @@ export default function MentionsLegalesPage() {
       <LegalSection id="propriete" title="Propriété intellectuelle">
         <p>
           Les textes, les photographies et le logo de ce site sont protégés par le droit d&apos;auteur. Ils ne
-          peuvent pas être reproduits ni réutilisés, en tout ou en partie, sans l&apos;accord écrit du {site.name}.
+          peuvent pas être reproduits ni réutilisés, en tout ou en partie, sans notre accord écrit.
         </p>
         <p>Vous pouvez bien sûr imprimer ou télécharger la carte et la carte des vins pour votre usage personnel.</p>
       </LegalSection>
@@ -143,8 +155,8 @@ export default function MentionsLegalesPage() {
 
         <LegalSubheading>Vérifications</LegalSubheading>
         <p>
-          En octobre 2026, le site a été contrôlé avec des outils automatiques (axe et Lighthouse) et parcouru
-          entièrement au clavier. Il n&apos;a pas fait l&apos;objet d&apos;un audit complet&#8239;: nous ne déclarons
+          En octobre 2026, le site a été contrôlé avec des outils automatiques (axe et Lighthouse) et vérifié
+          à la navigation au clavier. Il n&apos;a pas fait l&apos;objet d&apos;un audit complet&#8239;: nous ne déclarons
           donc aucun niveau de conformité.
         </p>
 

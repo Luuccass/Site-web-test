@@ -27,7 +27,7 @@ export default function GaleriePage() {
           Galerie
         </h1>
         <p className="measure mt-6 text-[1.3125rem] leading-[1.5] sm:text-[1.5rem]">
-          La maison de la ruelle de l&apos;église, sa salle, sa cave, et quelques assiettes des derniers mois.
+          La maison à côté de l&apos;église de Dardilly-le-Bas, et quelques assiettes des derniers mois.
         </p>
       </section>
       <Gallery />

@@ -91,7 +91,7 @@ export function Gallery() {
                               sizes={sizes[i]}
                               ratio={FRAME_VALUE[item.frame]}
                               focal={FRAME_FOCAL[item.id] ?? item.focal}
-                              imgClassName="transition-transform duration-700 ease-out-soft group-hover:scale-[1.03] motion-reduce:transition-none"
+                              imgClassName="transition-transform duration-700 ease-out-soft group-hover:scale-[1.03] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
                             />
                             <button
                               type="button"

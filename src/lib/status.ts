@@ -1,3 +1,4 @@
+/* eslint-disable no-var -- stringified into the pre-paint inline script (see StatusScript): plain ES5-style declarations on purpose */
 // Live opening status, computed in Europe/Paris time.
 //
 // `computeStatus` is deliberately self-contained (no imports, no closures, ES2017 syntax): its source

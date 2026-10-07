@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { frenchDate } from "@/lib/data";
+import { frenchDate, site } from "@/lib/data";
 
 // Shared frame of the two legal pages (/mentions-legales and /confidentialite): a quiet reading page.
 // The section index stays in view on large screens; the facts are set like the carte, one line per
@@ -105,5 +105,23 @@ export function RuledList({ items }: { items: ReactNode[] }) {
         </li>
       ))}
     </ul>
+  );
+}
+
+/** The restaurant's phone number as an in-text link (never wraps). */
+export function ContactPhone() {
+  return (
+    <a href={`tel:${site.phone.e164}`} className="tnum whitespace-nowrap underline">
+      {site.phone.display}
+    </a>
+  );
+}
+
+/** The restaurant's e-mail address as an in-text link (may break anywhere on narrow screens). */
+export function ContactEmail() {
+  return (
+    <a href={`mailto:${site.email}`} className="underline [overflow-wrap:anywhere]">
+      {site.email}
+    </a>
   );
 }

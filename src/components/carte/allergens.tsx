@@ -30,7 +30,7 @@ export const ALLERGENS: { key: AllergenKey; name: string; detail: string }[] = [
   { key: "celeri", name: "Céleri", detail: "" },
   { key: "moutarde", name: "Moutarde", detail: "" },
   { key: "sesame", name: "Sésame", detail: "graines de sésame" },
-  { key: "sulfites", name: "Sulfites", detail: "anhydride sulfureux, au-delà de 10 mg/kg ou 10 mg/l" },
+  { key: "sulfites", name: "Sulfites", detail: "anhydride sulfureux, au-delà de 10 mg/kg ou 10 mg/l" },
   { key: "lupin", name: "Lupin", detail: "" },
   { key: "mollusques", name: "Mollusques", detail: "moules, huîtres, calmars, escargots…" },
 ];

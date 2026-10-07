@@ -2,7 +2,7 @@
 
 /** Fixed allergen wording (French allergen information rules); U+202F before « ? ». */
 export const ALLERGEN_NOTE =
-  "Le tableau des 14 allergènes de chaque plat est consultable librement au restaurant. Une allergie\u202F? Signalez-la par téléphone ou à votre arrivée. Cuisine non exempte de traces.";
+  "Le tableau des 14\u00A0allergènes de chaque plat est consultable librement au restaurant. Une allergie\u202F? Signalez-la par téléphone ou à votre arrivée. Cuisine non exempte de traces.";
 
 /** Same wording as components/ui/AlcoholNotice (Loi Évin). */
 export const ALCOHOL_NOTICE = "L'abus d'alcool est dangereux pour la santé, à consommer avec modération.";

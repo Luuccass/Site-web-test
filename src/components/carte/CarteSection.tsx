@@ -12,7 +12,7 @@ function AllergenLine({ item }: { item: MenuItem }) {
       {item.allergensValidatedAt ? (
         keys.length ? (
           <>
-            <p className="sr-only">Allergènes :</p>
+            <p className="sr-only">Allergènes :</p>
             <ul className="flex flex-wrap gap-x-4 gap-y-1">
               {ALLERGENS.filter((a) => keys.includes(a.key)).map((a) => (
                 <li key={a.key} className="inline-flex items-center gap-1.5">
@@ -29,7 +29,7 @@ function AllergenLine({ item }: { item: MenuItem }) {
           </p>
         )
       ) : (
-        <p>Allergènes : demandez-nous</p>
+        <p>Allergènes : demandez-nous</p>
       )}
     </div>
   );
@@ -47,7 +47,12 @@ export function DishRow({ item, withAllergens }: { item: MenuItem; withAllergens
       <p className="tnum whitespace-nowrap text-right">
         {item.price !== null ? euro(item.price) : <span className="sr-only">prix sur l&apos;ardoise</span>}
       </p>
-      {withAllergens ? <AllergenLine item={item} /> : null}
+      {item.askAllergens ? (
+        // Ardoise and broche change with arrivals: allergens are given on request (spec 4.3).
+        <p className="col-span-2 mt-0.5 text-[1rem] text-ink-soft print:mt-0 print:text-[9pt]">Allergènes : demandez-nous.</p>
+      ) : withAllergens ? (
+        <AllergenLine item={item} />
+      ) : null}
     </li>
   );
 }

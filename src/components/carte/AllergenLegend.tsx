@@ -5,7 +5,7 @@ export function AllergenLegend({ className = "" }: { className?: string }) {
   return (
     <details className={`group border-y border-line print:hidden ${className}`}>
       <summary className="flex min-h-12 cursor-pointer list-none items-center justify-between gap-4 py-2 font-medium [&::-webkit-details-marker]:hidden">
-        Les 14 allergènes réglementaires
+        Les 14&nbsp;allergènes réglementaires
         <svg
           aria-hidden="true"
           viewBox="0 0 24 24"

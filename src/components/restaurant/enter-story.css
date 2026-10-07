@@ -49,6 +49,12 @@
     position: sticky;
     top: 0;
     height: 100svh;
+    container-type: inline-size;
+  }
+  /* Never wider than its column (a tall, narrow desktop window would push it into the text column):
+     the width left for the frame is the column minus its 0.75rem outline offset on each side. */
+  html.js-doors .ca-story:not([data-static]) .ca-story__frame {
+    height: min(78svh, 42.5rem, calc((100cqw - 1.75rem) * 1.25));
   }
 }
 

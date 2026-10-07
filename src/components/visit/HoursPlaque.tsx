@@ -4,15 +4,26 @@ import { appleMapsUrl, directionsUrl, site, weekTable } from "@/lib/data";
 
 // « Horaires et accès »: the address as a street plaque (Montserrat capitals, like the sign) and the
 // week with today highlighted (set before paint by the status script: html[data-today]).
-export function HoursPlaque({ headingLevel = 2, withAppleMaps = false }: { headingLevel?: 2 | 3; withAppleMaps?: boolean }) {
+export function HoursPlaque({
+  headingLevel = 2,
+  withAppleMaps = false,
+  showHeading = true,
+}: {
+  headingLevel?: 2 | 3;
+  withAppleMaps?: boolean;
+  /** false when the page h1 already says « Horaires et accès » */
+  showHeading?: boolean;
+}) {
   const H = headingLevel === 2 ? "h2" : "h3";
   return (
     <div className="grid gap-12 md:grid-cols-2 md:gap-16">
       <div>
-        <H id="horaires-acces" className="text-[length:var(--text-h2)]">
-          Horaires et accès
-        </H>
-        <div className="on-navy mt-8 inline-block bg-navy px-6 py-5 text-on-navy">
+        {showHeading ? (
+          <H id="horaires-acces" className="text-[length:var(--text-h2)]">
+            Horaires et accès
+          </H>
+        ) : null}
+        <div className={`on-navy inline-block bg-navy px-6 py-5 text-on-navy ${showHeading ? "mt-8" : ""}`}>
           <p className="font-[family-name:var(--font-plaque)] text-[1.0625rem] font-medium uppercase leading-snug tracking-[0.12em]">
             {site.address.street}
             <br />

@@ -10,7 +10,7 @@ import { frenchDate, wines } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Les vins",
-  description: `Les vins du Restaurant Comme Avant à Dardilly : au verre, en pot et ${wines.bottles.length} références en bouteille, surtout de la vallée du Rhône et de Bourgogne.`,
+  description: `Les vins du Restaurant Comme Avant à Dardilly : au verre, en pot et ${wines.bottles.length} références en bouteille, surtout de la vallée du Rhône et de Bourgogne.`,
   alternates: { canonical: "/la-carte/vins/" },
 };
 
@@ -22,7 +22,7 @@ function Actions({ className = "" }: { className?: string }) {
   return (
     <div className={`no-print flex flex-wrap gap-3 ${className}`}>
       <DownloadLink href={PDF_HREF} label="Télécharger la carte des vins (PDF)" />
-      <PrintButton label="Imprimer" expandDetails />
+      <PrintButton label="Imprimer la carte des vins" expandDetails />
     </div>
   );
 }
@@ -33,7 +33,7 @@ export default function VinsPage() {
       <div className={`${column} pb-20 pt-12 sm:pb-28 sm:pt-16 print:p-0`}>
         <header className="print:text-center">
           <PrintMasthead />
-          <h1 className="text-[length:var(--text-h1)] print:text-[30pt]">Les vins</h1>
+          <h1 className="text-[length:var(--text-h1)] print:text-[30pt] print:text-navy">Les vins</h1>
           <p className="mt-4 text-[1.1875rem] print:mt-[1mm] print:text-[10.5pt]">{wines.note}</p>
           <p className="mt-1 text-ink-soft print:text-[9.5pt]">Carte des vins en vigueur au {frenchDate(wines.updatedAt)}</p>
           <AlcoholNotice className="mt-4 text-ink-soft print:mt-[1mm] print:text-[9pt]" />

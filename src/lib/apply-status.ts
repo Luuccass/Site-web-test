@@ -1,3 +1,4 @@
+/* eslint-disable no-var -- stringified into the pre-paint inline script (see StatusScript): plain ES5-style declarations on purpose */
 import type { Status } from "./status";
 
 // Writes a computed status into every element that displays it. Self-contained (stringified into the

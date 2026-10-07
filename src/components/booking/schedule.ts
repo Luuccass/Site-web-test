@@ -155,7 +155,7 @@ export function buildCalendar(input: CalendarInput, nowMs: number): BookingCalen
       const row = rows.find((r) => r.service === name);
       const closure = row && closureFor(input.closures, iso, name);
       if (!row) {
-        services[name] = { available: false, reason: `Pas de service le ${name} le ${DAYS[wd]}.` };
+        services[name] = { available: false, reason: `Pas de service le ${DAYS[wd]} ${name}.` };
       } else if (closure) {
         services[name] = { available: false, reason: closedReason(closure.kind, name) };
       } else {
@@ -163,7 +163,7 @@ export function buildCalendar(input: CalendarInput, nowMs: number): BookingCalen
         const slots = offset === 0 ? all.filter((t) => toMinutes(t) > now.minutes) : all;
         services[name] = slots.length
           ? { available: true, open: row.open, close: row.close, slots }
-          : { available: false, reason: `Plus d'arrivée possible ce ${name} aujourd'hui.` };
+          : { available: false, reason: `Plus d'arrivée possible ce ${name}.` };
       }
     }
     if (!SERVICES.some((s) => services[s].available)) continue;
@@ -195,4 +195,14 @@ export function serviceWindows(services: ServiceRow[], step: number): { service:
     const close = fromMinutes(Math.max(...rows.map((r) => toMinutes(r.close))));
     return [{ service: name, open, close, slots: slotsBetween(open, close, step) }];
   });
+}
+
+/** « du mardi au samedi », « le mardi et le jeudi », « le samedi »: the days a service runs, for hints. */
+export function weekdaysPhrase(services: ServiceRow[], service: ServiceName): string {
+  const days = [...new Set(services.filter((s) => s.service === service).map((s) => s.day))].sort((a, b) => a - b);
+  if (!days.length) return "";
+  const contiguous = days.every((d, i) => i === 0 || d === days[i - 1] + 1);
+  if (days.length >= 3 && contiguous) return `du ${DAYS[days[0]]} au ${DAYS[days[days.length - 1]]}`;
+  const list = days.map((d) => `le ${DAYS[d]}`);
+  return list.length === 1 ? list[0] : `${list.slice(0, -1).join(", ")} et ${list[list.length - 1]}`;
 }

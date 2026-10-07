@@ -14,6 +14,14 @@ import "./enter-story.css";
 
 const ROOT_ID = "entrer-chez-comme-avant";
 
+/** The wine list leans on the Rhône and Burgundy: say so only while wines.json still shows it. */
+function rhoneAndBurgundyLead() {
+  const count = new Map<string, number>();
+  for (const bottle of wines.bottles) count.set(bottle.region, (count.get(bottle.region) ?? 0) + 1);
+  const top = [...count.entries()].sort((a, b) => b[1] - a[1]).slice(0, 2).map(([region]) => region);
+  return top.includes("Vallée du Rhône") && top.includes("Bourgogne");
+}
+
 type Step = {
   id: string;
   title: string;
@@ -63,8 +71,9 @@ const STEPS: Step[] = [
       <>
         <p>Une cave vitrée en arc de cercle sur un mur en terre cuite, et le coin Chartreuse sous une affiche ancienne.</p>
         <p>
-          La carte compte {wines.bottles.length} références en bouteille, surtout de la vallée du Rhône et de
-          Bourgogne, et des vins au verre ou en pot.
+          La carte compte {wines.bottles.length} références en bouteille
+          {rhoneAndBurgundyLead() ? ", surtout de la vallée du Rhône et de Bourgogne," : ""} et des vins au verre ou en
+          pot.
         </p>
         <p>
           <Link href="/la-carte/vins/" className="link-draw inline-flex min-h-11 items-center text-on-navy [background-position:0_calc(100%-0.55rem)]">

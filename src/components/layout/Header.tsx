@@ -15,14 +15,12 @@ export function Header({ phone, address }: Props) {
   const [hidden, setHidden] = useState(false);
   const [open, setOpen] = useState(false);
   // On the home page the big sign already shows the wordmark: the header shows the rosette until it scrolls away.
-  const [heroLogoVisible, setHeroLogoVisible] = useState(false);
+  const [heroLogo, setHeroLogo] = useState({ path: "", visible: false });
+  const heroLogoVisible = heroLogo.path === pathname && heroLogo.visible;
   useEffect(() => {
     const target = document.getElementById("hero-logo");
-    if (!target) {
-      setHeroLogoVisible(false);
-      return;
-    }
-    const io = new IntersectionObserver(([e]) => setHeroLogoVisible(e.isIntersecting));
+    if (!target) return;
+    const io = new IntersectionObserver(([e]) => setHeroLogo({ path: pathname, visible: e.isIntersecting }));
     io.observe(target);
     return () => io.disconnect();
   }, [pathname]);

@@ -8,18 +8,17 @@ import { useEffect, useRef, useState } from "react";
 // buttons leave the screen; elsewhere it is always there. Hidden on /reserver and while typing.
 export function StickyBar({ phone, directionsUrl }: { phone: { display: string; e164: string }; directionsUrl: string }) {
   const pathname = usePathname();
-  const barRef = useRef<HTMLDivElement>(null);
-  const [heroVisible, setHeroVisible] = useState(false);
+  const barRef = useRef<HTMLElement>(null);
+  // Which page the observation belongs to: a value left over from the previous page is ignored.
+  const [hero, setHero] = useState({ path: "", visible: false });
+  const heroVisible = hero.path === pathname && hero.visible;
   const [typing, setTyping] = useState(false);
   const onBookingPage = pathname.startsWith("/reserver");
 
   useEffect(() => {
     const target = document.getElementById("hero-cta");
-    if (!target) {
-      setHeroVisible(false);
-      return;
-    }
-    const io = new IntersectionObserver(([entry]) => setHeroVisible(entry.isIntersecting), { threshold: 0.2 });
+    if (!target) return;
+    const io = new IntersectionObserver(([entry]) => setHero({ path: pathname, visible: entry.isIntersecting }), { threshold: 0.2 });
     io.observe(target);
     return () => io.disconnect();
   }, [pathname]);
@@ -44,8 +43,9 @@ export function StickyBar({ phone, directionsUrl }: { phone: { display: string; 
   }, [shown]);
 
   return (
-    <div
+    <nav
       ref={barRef}
+      aria-label="Réserver, appeler, itinéraire"
       aria-hidden={!shown}
       inert={!shown}
       className={`sticky-bar on-navy fixed inset-x-0 bottom-0 z-30 border-t border-line-navy/50 bg-navy px-3 pb-[calc(0.5rem+env(safe-area-inset-bottom))] pt-2 text-on-navy transition-transform duration-300 md:hidden ${shown ? "" : "translate-y-full"}`}
@@ -62,6 +62,6 @@ export function StickyBar({ phone, directionsUrl }: { phone: { display: string; 
           Itinéraire
         </a>
       </div>
-    </div>
+    </nav>
   );
 }

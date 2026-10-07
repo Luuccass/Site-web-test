@@ -124,6 +124,7 @@ function Dish({ item }: { item: MenuItem }) {
         <Text style={s.medium}>{lead}</Text>
         {rest}
         {item.detail ? <Text style={s.soft}>, {item.detail}</Text> : null}
+        {item.askAllergens ? <Text style={[s.soft, s.small]}>{"\n"}Allergènes : demandez-nous.</Text> : null}
       </Text>
       <Text style={s.price}>{item.price !== null ? euro(item.price) : ""}</Text>
     </View>
@@ -157,7 +158,7 @@ function CarteDocument({ logo }: { logo: Buffer }) {
           <View style={[s.box, { flex: 1, marginRight: 9 }]}>
             <Text style={s.boxTitle}>L&apos;ardoise</Text>
             <Text>Suggestions et broche du jour selon arrivage, sur l&apos;ardoise au restaurant.</Text>
-            <Text style={[s.soft, s.small, { marginTop: 4 }]}>Allergènes : demandez-nous.</Text>
+            <Text style={[s.soft, s.small, { marginTop: 4 }]}>Allergènes : demandez-nous.</Text>
           </View>
           <View style={[s.box, { flex: 1, marginLeft: 9 }]}>
             <Text style={s.boxTitle}>Formules du midi</Text>
@@ -225,7 +226,7 @@ function WinesDocument({ logo }: { logo: Buffer }) {
           <Text style={s.rowName} />
           {sizes.map((cl) => (
             <Text key={cl} style={[s.price, s.medium, { width: 48 }]}>
-              {cl} cl
+              {cl} cl
             </Text>
           ))}
         </View>

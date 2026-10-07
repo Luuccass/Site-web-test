@@ -43,7 +43,8 @@ one icon family, content in editable files (menu.json, hours.json, site.config.t
   fed to `npm run images` as ids `nuit-<id>`. Dish plates are cropped by the frame in every photo →
   no floating cut-outs possible without new photos (arch frames instead).
 - Owner: « je ne veux rien payer » (no Everygen subscription → no AI generation) but « je valide les
-  modèles d'IA libres » → a Real-ESRGAN restoration pass of `assets/photos/retouched/` (in progress)
+  modèles d'IA libres » → a Real-ESRGAN restoration pass of `assets/photos/retouched/` was
+  **started but stopped unfinished** when the owner ended the session (see « Stopped here » below)
   (`scripts/photos/v2/restore.py`); after it: `python3 scripts/photos/v2/grade.py`, `npm run images`,
   `npm run plates` + `npm run render:all` in `video/`.
 - Remotion films in `video/` (`LogoReveal`, `LogoRevealVertical`, `Reel`); renders in `video/out/`
@@ -54,6 +55,26 @@ one icon family, content in editable files (menu.json, hours.json, site.config.t
   blocked from the container). DNS of the domain still points to Wix.
 - Push WIP that does not change the site with `[skip netlify]` in the commit message (saves credits).
 - Keep agent fan-out small: the owner hit their usage limit twice with parallel workflows.
+
+## Stopped here (2026-10-07, 21:30) — owner: « stop la session, on continue demain »
+
+- Done today: V2 on every page (pushed), the 3 Remotion films rendered and sent to the owner, docs
+  updated for V2 (`3291d68`).
+- **Real-ESRGAN restoration: unfinished, nothing applied.** `assets/photos/retouched/` is unchanged;
+  only `scripts/photos/v2/restore.py` (work in progress) is committed. Its venv, weights, cache and
+  comparison sheets lived in the scratchpad and are lost. To redo: venv with torch CPU + the
+  Real-ESRGAN weights from GitHub releases (allowed by the owner), compare denoise strengths
+  0.25 / 0.5 / 0.8 against the current EDSR masters on `plat-poulpe`, `dessert-moelleux-chocolat`,
+  `detail-niche-chartreuse`, `dessert-pomme-pochee`.
+- **Catch from that run:** on `detail-niche-chartreuse` the model turns the crate lettering « CHAR »
+  into garbled invented glyphs. Any restored photo must be checked region by region for text
+  (crates, labels, the chocolate plaque, the sign) and keep the original pixels there; never ship
+  invented details.
+- Then: `python3 scripts/photos/v2/grade.py` → `npm run images` → build → Lighthouse on an idle CPU
+  (target ≥ 95 mobile on every page) → `npm run plates` + `npm run render:all` in `video/` if the
+  photos clearly improved → commit and push.
+- Still waiting on the owner: exact Netlify URL (`restaurant-comme-avant.netlify.app`?), DNS change
+  at Wix, the items in `docs/RAPPORT-LIVRAISON.md` §3, their reaction to the 3 films.
 
 ## Next actions, in order
 

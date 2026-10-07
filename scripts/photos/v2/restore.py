@@ -186,11 +186,19 @@ def model_tag(model, dn):
     return f"general-dn{dn:.2f}" if model == "general" else model
 
 
-def finish(x4, entry, long_side=LONG, sharpen=SHARPEN):
-    """Area-downscale the x4 result to the target size, then the unchanged colour stage of retouch.py."""
+def finish(x4, entry, long_side=LONG, sharpen=SHARPEN, blend=1.0, raw_dir=None):
+    """Area-downscale the x4 result to the target size, then the unchanged colour stage of retouch.py.
+
+    blend < 1 mixes the AI result with a plain Lanczos upscale of the same source pixels
+    (blend * AI + (1 - blend) * Lanczos): a "detail strength" knob that tones down GAN texture.
+    """
     h, w = x4.shape[:2]
     s = min(1.0, long_side / max(h, w))
-    img = cv2.resize(x4, (round(w * s), round(h * s)), interpolation=cv2.INTER_AREA) if s < 1 else x4
+    size = (round(w * s), round(h * s))
+    img = cv2.resize(x4, size, interpolation=cv2.INTER_AREA) if s < 1 else x4
+    if blend < 1:
+        base = cv2.resize(geometry(entry, raw_dir), size, interpolation=cv2.INTER_LANCZOS4)
+        img = cv2.addWeighted(img, blend, base, 1 - blend, 0)
     e = copy.deepcopy(entry)
     e.setdefault("tweaks", {}).setdefault("sharpen", sharpen)
     retouch.MAX_EDGE = max(img.shape[:2])  # no further downscale inside color()
@@ -213,6 +221,7 @@ def main():
     ap.add_argument("--pad", type=int, default=24)
     ap.add_argument("--long", type=int, default=LONG)
     ap.add_argument("--sharpen", type=float, default=SHARPEN)
+    ap.add_argument("--blend", type=float, default=1.0, help="AI share vs a Lanczos upscale (1 = pure AI)")
     ap.add_argument("--out", help="output folder for candidate masters (finish)")
     ap.add_argument("--only", default="")
     args = ap.parse_args()
@@ -236,7 +245,7 @@ def main():
         tag = model_tag(args.model, args.dn)
         for e in entries(args.only):
             x4 = cv2.imread(str(cache / tag / f"{e['id']}.png"))
-            img = finish(x4, e, args.long, args.sharpen)
+            img = finish(x4, e, args.long, args.sharpen, args.blend, args.raw)
             write_jpg(out / f"{e['id']}.jpg", img)
             print(f"{e['id']}: {tag} -> {img.shape[1]}x{img.shape[0]}", flush=True)
 
@@ -245,7 +254,7 @@ def main():
         for pid, c in CHOSEN.items():
             tag = model_tag(c["model"], c.get("dn", 0.5))
             x4 = cv2.imread(str(cache / tag / f"{pid}.png"))
-            img = finish(x4, by_id[pid], c.get("long", LONG), c.get("sharpen", SHARPEN))
+            img = finish(x4, by_id[pid], c.get("long", LONG), c.get("sharpen", SHARPEN), c.get("blend", 1.0), args.raw)
             write_jpg(MASTERS / f"{pid}.jpg", img)
             print(f"{pid}: {tag} -> {img.shape[1]}x{img.shape[0]} -> {MASTERS / (pid + '.jpg')}", flush=True)
 

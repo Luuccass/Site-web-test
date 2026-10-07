@@ -2,6 +2,10 @@
 [build]
   command = "npm run build"
   publish = "out"
+  # Each production deploy costs 15 of the 300 monthly free credits: skip builds when a push only
+  # touches docs, QA scripts or photo masters. Always build when there is no previous build to compare
+  # with (first deploy, manual "Trigger deploy").
+  ignore = "[ \"$CACHED_COMMIT_REF\" != \"$COMMIT_REF\" ] && git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- src content public package.json package-lock.json netlify.toml next.config.ts tsconfig.json scripts/pdf"
 
 [build.environment]
   NODE_VERSION = "22"

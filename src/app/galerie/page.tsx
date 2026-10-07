@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Gallery } from "@/components/gallery/Gallery";
+import { PageHero } from "@/components/v2/PageHero";
 
 const description =
   "Photos du restaurant Comme Avant à Dardilly : la ruelle, la salle sous l'arche, le mur des vins, la cave et des assiettes des derniers mois.";
@@ -22,14 +23,14 @@ export const metadata: Metadata = {
 export default function GaleriePage() {
   return (
     <>
-      <section aria-labelledby="page-titre" className="mx-auto max-w-[84rem] px-4 pb-12 pt-12 sm:px-8 sm:pb-16 sm:pt-16 lg:px-12">
-        <h1 id="page-titre" className="text-[length:var(--text-h1)]">
-          Galerie
-        </h1>
-        <p className="measure mt-6 text-[1.3125rem] leading-[1.5] sm:text-[1.5rem]">
-          La maison à côté de l&apos;église de Dardilly-le-Bas, et quelques assiettes des derniers mois.
-        </p>
-      </section>
+      <PageHero
+        photo="nuit-salle-cave-chartreuse"
+        alt="Table ronde dressée devant la cave vitrée en arc de cercle et l'affiche ancienne de Chartreuse"
+        focal={[0.5, 0.55]}
+        label="En images"
+        title={<em className="italic text-gold">Galerie</em>}
+        intro="La maison à côté de l'église de Dardilly-le-Bas, et quelques assiettes des derniers mois."
+      />
       <Gallery />
     </>
   );

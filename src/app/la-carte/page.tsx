@@ -11,6 +11,7 @@ import { ALLERGEN_NOTE, capitalize } from "@/components/carte/typography";
 import { ArdoiseLine } from "@/components/menu/ArdoiseLine";
 import { MenuJsonLd } from "@/components/seo/JsonLd";
 import { AlcoholNotice } from "@/components/ui/AlcoholNotice";
+import { PageHero } from "@/components/v2/PageHero";
 import { euro, frenchDate, menu, site } from "@/lib/data";
 
 const formulesPrices = menu.formules.items.map((f) => euro(f.price)).join(" et ");
@@ -45,23 +46,27 @@ export default function CartePage() {
 
   return (
     <>
-      <div className={container}>
-        <header className={`${column} pb-10 pt-12 sm:pt-16 print:pb-[4mm] print:pt-0 print:text-center`}>
-          <PrintMasthead />
-          <div className="flex flex-wrap items-end justify-between gap-x-10 gap-y-6 print:justify-center">
-            <div>
-              <h1 className="text-[length:var(--text-h1)] print:text-[28pt] print:text-navy">La carte</h1>
-              <p className="mt-3 text-ink-soft print:mt-[1mm] print:text-[10pt]">Carte en vigueur au {frenchDate(menu.updatedAt)}</p>
-            </div>
-            <Actions className="hidden lg:flex" />
-          </div>
-          {anyValidated ? (
-            <div className="no-print mt-8">
-              <AllergenToggle target="carte" />
-            </div>
-          ) : null}
-        </header>
+      <div className={`${container} print-only`}>
+        <PrintMasthead />
       </div>
+      <PageHero
+        photo="nuit-plat-poulpe"
+        alt="Poulpe, pommes de terre et herbes hachées dans une assiette noire"
+        focal={[0.5, 0.45]}
+        caption="Une assiette des derniers mois"
+        label={`Carte en vigueur au ${frenchDate(menu.updatedAt)}`}
+        title={
+          <>
+            La <em className="italic text-gold">carte</em>
+          </>
+        }
+        intro="Cuisine française de saison : formules du midi, entrées, plats, fromages et desserts, et l'ardoise selon arrivage."
+      >
+        <div className="flex flex-wrap items-center gap-3">
+          <Actions className="flex" />
+          {anyValidated ? <AllergenToggle target="carte" /> : null}
+        </div>
+      </PageHero>
 
       <CarteChips chips={chips} more={{ href: "/la-carte/vins/", label: "Vins" }} />
 

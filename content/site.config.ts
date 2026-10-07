@@ -52,7 +52,7 @@ export const site = {
     credits: [
       "Photographies : Restaurant Comme Avant.",
       "Logo : redessin vectoriel d'après le logo du restaurant.",
-      "Polices : Spectral (Production Type) et Montserrat (Julieta Ulanovsky), licence SIL Open Font License 1.1.",
+      "Polices : Cormorant Garamond (Christian Thalmann), Spectral (Production Type) et Montserrat (Julieta Ulanovsky), licence SIL Open Font License 1.1.",
     ],
   },
 } as const;

@@ -18,7 +18,7 @@ export function StickyBar({ phone, directionsUrl }: { phone: { display: string; 
   useEffect(() => {
     const target = document.getElementById("hero-cta");
     if (!target) return;
-    const io = new IntersectionObserver(([entry]) => setHero({ path: pathname, visible: entry.isIntersecting }), { threshold: 0.2 });
+    const io = new IntersectionObserver(([entry]) => setHero({ path: pathname, visible: entry.intersectionRatio >= 0.99 }), { threshold: [0, 0.99] });
     io.observe(target);
     return () => io.disconnect();
   }, [pathname]);

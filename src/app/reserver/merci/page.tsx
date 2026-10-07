@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 export default function MerciPage() {
   return (
-    <div className="mx-auto max-w-[84rem] px-4 pb-16 pt-12 sm:px-8 sm:pb-24 sm:pt-16 lg:px-12">
+    <div className="mx-auto max-w-[84rem] px-4 pb-16 pt-32 sm:px-8 sm:pb-24 sm:pt-40 lg:px-12">
       <div className="max-w-[50rem]">
         <Sent as="h1" phone={site.phone} />
         <p className="measure mt-8 text-ink-soft">{ALLERGY_LINE}</p>

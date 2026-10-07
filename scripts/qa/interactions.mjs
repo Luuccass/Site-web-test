@@ -117,17 +117,18 @@ async function newPage({ width = 390, height = 844, at } = {}) {
   await ctx.close();
 }
 
-// 4. Mobile « Plus » sheet and client-side navigation (M6 transition must not break anything).
+// 4. Mobile menu sheet and client-side navigation (page transition and motion must not break anything).
 {
   const { ctx, page, errors } = await newPage();
   await page.goto(BASE + "/", { waitUntil: "networkidle" });
-  await page.getByRole("button", { name: "Plus" }).click();
+  await page.waitForTimeout(1800); // door intro
+  await page.getByRole("button", { name: "Menu" }).click();
   await page.waitForTimeout(400);
-  check("Plus sheet opens as a modal dialog", await page.evaluate(() => document.querySelector("#plus-sheet")?.open));
-  await page.locator("#plus-sheet").getByRole("link", { name: "Galerie" }).click();
+  check("menu sheet opens as a modal dialog", await page.evaluate(() => document.querySelector("#v2-menu")?.open));
+  await page.locator("#v2-menu").getByRole("link", { name: /Galerie/ }).click();
   await page.waitForURL("**/galerie/");
   await page.waitForTimeout(800);
-  const after = await page.evaluate(() => ({ sheetClosed: !document.querySelector("#plus-sheet")?.open, h1: document.querySelector("h1")?.textContent, focus: document.activeElement?.tagName }));
+  const after = await page.evaluate(() => ({ sheetClosed: !document.querySelector("#v2-menu")?.open, h1: document.querySelector("h1")?.textContent, focus: document.activeElement?.tagName }));
   check("navigating from the sheet closes it and lands on the new page", after.sheetClosed && after.h1 === "Galerie", after);
   await page.goBack();
   await page.waitForURL(BASE + "/");

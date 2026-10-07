@@ -1,12 +1,15 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
-import { Footer } from "@/components/layout/Footer";
-import { Header } from "@/components/layout/Header";
 import { StickyBar } from "@/components/layout/StickyBar";
 import { MotionObserver } from "@/components/motion/MotionObserver";
 import { StatusUpdater } from "@/components/status/StatusUpdater";
+import { Cursor } from "@/components/v2/Cursor";
+import { FooterV2, Intro } from "@/components/v2/sections";
+import { V2Header } from "@/components/v2/V2Header";
+import { V2Motion } from "@/components/v2/V2Motion";
 import { directionsUrl, site, statusData } from "@/lib/data";
 import "./globals.css";
+import "@/components/v2/v2.css";
 
 const spectral = localFont({
   src: [
@@ -59,17 +62,20 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#17213b",
+  themeColor: "#0b1020",
   viewportFit: "cover",
 };
 
+const INTRO = `try{if(!sessionStorage.getItem("v2-intro")&&!matchMedia("(prefers-reduced-motion: reduce)").matches){document.documentElement.classList.add("v2-intro-on");sessionStorage.setItem("v2-intro","1")}}catch(e){}`;
+
 export default function RootLayout({ children }: LayoutProps<"/">) {
-  const address = `${site.address.street}, ${site.address.postalCode} ${site.address.city}`;
   return (
     <html lang="fr" className={`${spectral.variable} ${cormorant.variable} ${montserrat.variable}`} suppressHydrationWarning>
       <head>
         {/* Enables the scroll-triggered door and wall motions only when JS runs (no-JS: everything visible). */}
         <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js-doors','js-cells')" }} />
+        {/* « La porte s'ouvre »: the door intro plays on the first page of a visit only, never with reduced motion. */}
+        <script dangerouslySetInnerHTML={{ __html: INTRO }} />
       </head>
       <body>
         <a
@@ -78,14 +84,17 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         >
           Aller au contenu
         </a>
-        <Header phone={site.phone} address={address} />
+        <Intro />
+        <V2Header phone={site.phone} />
         <main id="contenu" tabIndex={-1} className="outline-none">
           {children}
         </main>
-        <Footer />
+        <FooterV2 />
         <StickyBar phone={site.phone} directionsUrl={directionsUrl} />
         <StatusUpdater data={statusData} />
         <MotionObserver />
+        <Cursor />
+        <V2Motion />
       </body>
     </html>
   );

@@ -34,7 +34,7 @@ export function LegalPage({
 }) {
   return (
     <div className={container}>
-      <header className={`pb-10 pt-12 sm:pb-14 sm:pt-16 ${columns}`}>
+      <header className={`pb-10 pt-32 sm:pb-14 sm:pt-40 ${columns}`}>
         <div className="lg:col-start-2">
           <h1 className="text-[length:var(--text-h1)]">{title}</h1>
           <p className="measure mt-6 text-[1.3125rem] leading-[1.5] sm:text-[1.5rem]">{intro}</p>

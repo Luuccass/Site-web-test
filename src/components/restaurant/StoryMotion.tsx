@@ -2,15 +2,13 @@
 
 import { useEffect } from "react";
 
-// M2 « Entrer chez Comme Avant » + M8 smooth scroll, desktop only.
-// GSAP, ScrollTrigger and Lenis are fetched with import() after mount, and only when this query
+// M2 « Entrer chez Comme Avant », desktop only (smooth scroll comes from the site-wide V2Motion).
+// GSAP and ScrollTrigger are fetched with import() after mount, and only when this query
 // matches (keep it identical to the media query in enter-story.css). Otherwise nothing is downloaded
 // and the CSS keeps the stacked layout with the M2m doors.
 const STORY_QUERY = "(min-width: 1024px) and (pointer: fine) and (prefers-reduced-motion: no-preference)";
 
 type Gsap = (typeof import("gsap"))["gsap"];
-type ScrollTriggerStatic = (typeof import("gsap/ScrollTrigger"))["ScrollTrigger"];
-type LenisClass = (typeof import("lenis"))["default"];
 
 export function StoryMotion({ targetId }: { targetId: string }) {
   useEffect(() => {
@@ -25,15 +23,11 @@ export function StoryMotion({ targetId }: { targetId: string }) {
       if (disposed || loading || revert || !mq.matches) return;
       loading = true;
       try {
-        const [{ gsap }, { ScrollTrigger }, { default: Lenis }] = await Promise.all([
-          import("gsap"),
-          import("gsap/ScrollTrigger"),
-          import("lenis"),
-        ]);
+        const [{ gsap }, { ScrollTrigger }] = await Promise.all([import("gsap"), import("gsap/ScrollTrigger")]);
         if (disposed) return;
         gsap.registerPlugin(ScrollTrigger);
         const mm = gsap.matchMedia();
-        mm.add(STORY_QUERY, () => setup(root, gsap, ScrollTrigger, Lenis));
+        mm.add(STORY_QUERY, () => setup(root, gsap));
         revert = () => mm.revert();
         document.fonts?.ready.then(() => {
           if (!disposed) ScrollTrigger.refresh();
@@ -59,20 +53,13 @@ export function StoryMotion({ targetId }: { targetId: string }) {
 }
 
 /** Runs inside gsap.matchMedia(): every tween and ScrollTrigger made here is reverted with it. */
-function setup(root: HTMLElement, gsap: Gsap, ScrollTrigger: ScrollTriggerStatic, Lenis: LenisClass) {
-  const html = document.documentElement;
+function setup(root: HTMLElement, gsap: Gsap) {
   const grid = root.querySelector<HTMLElement>("[data-story-grid]");
   const steps = gsap.utils.toArray<HTMLElement>("[data-step]", root);
   const part = (name: string, i: number) => root.querySelector<HTMLElement>(`[data-${name}="${i}"]`);
   if (!grid || steps.length === 0) return;
 
-  // M8: gentle smooth wheel scrolling, driven by GSAP's ticker so ScrollTrigger stays in sync.
-  const lenis = new Lenis({ autoRaf: false, lerp: 0.12, smoothWheel: true, syncTouch: false });
-  html.classList.add("lenis");
-  lenis.on("scroll", ScrollTrigger.update);
-  const raf = (time: number) => lenis.raf(time * 1000);
-  gsap.ticker.add(raf);
-  gsap.ticker.lagSmoothing(0);
+  // Smooth scrolling now comes from the site-wide V2Motion (one Lenis for every page).
 
   const ease = "power1.inOut";
 
@@ -110,10 +97,5 @@ function setup(root: HTMLElement, gsap: Gsap, ScrollTrigger: ScrollTriggerStatic
       .to(right, { xPercent: 101, duration: 0.5, ease }, 0.5);
   });
 
-  return () => {
-    gsap.ticker.remove(raf);
-    gsap.ticker.lagSmoothing(500, 33);
-    lenis.destroy();
-    html.classList.remove("lenis");
-  };
+  return () => {};
 }

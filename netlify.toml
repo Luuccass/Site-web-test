@@ -62,3 +62,8 @@
   from = "/politique-en-mati%C3%A8re-de-cookies"
   to = "/confidentialite/"
   status = 301
+# The V2 preview became the home page.
+[[redirects]]
+  from = "/apercu/*"
+  to = "/"
+  status = 301

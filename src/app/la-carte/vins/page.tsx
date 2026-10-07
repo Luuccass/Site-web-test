@@ -6,6 +6,7 @@ import { PrintMasthead } from "@/components/carte/PrintMasthead";
 import { BottleSections, ByGlassTable, SparklingByGlass } from "@/components/carte/Wines";
 import { WineMenuJsonLd } from "@/components/seo/JsonLd";
 import { AlcoholNotice } from "@/components/ui/AlcoholNotice";
+import { PageHero } from "@/components/v2/PageHero";
 import { frenchDate, wines } from "@/lib/data";
 
 export const metadata: Metadata = {
@@ -29,16 +30,31 @@ function Actions({ className = "" }: { className?: string }) {
 
 export default function VinsPage() {
   return (
+    <>
+    <div className={`${container} print-only`}>
+      <PrintMasthead />
+    </div>
+    <PageHero
+      photo="nuit-salle-mur-vins"
+      alt="Mur de bouteilles rétroéclairé en niches arrondies sous les suspensions en rotin"
+      focal={[0.5, 0.42]}
+      label={`Carte des vins en vigueur au ${frenchDate(wines.updatedAt)}`}
+      title={
+        <>
+          Les <em className="italic text-gold">vins</em>
+        </>
+      }
+      intro={
+        <>
+          <p>{wines.note} Au verre, en pot ou en bouteille, surtout du Rhône et de Bourgogne.</p>
+          <AlcoholNotice className="mt-3 !text-[1rem] text-cream/70" />
+        </>
+      }
+    >
+      <Actions className="flex" />
+    </PageHero>
     <div className={container}>
-      <div className={`${column} pb-20 pt-12 sm:pb-28 sm:pt-16 print:p-0`}>
-        <header className="print:text-center">
-          <PrintMasthead />
-          <h1 className="text-[length:var(--text-h1)] print:text-[30pt] print:text-navy">Les vins</h1>
-          <p className="mt-4 text-[1.1875rem] print:mt-[1mm] print:text-[10.5pt]">{wines.note}</p>
-          <p className="mt-1 text-ink-soft print:text-[9.5pt]">Carte des vins en vigueur au {frenchDate(wines.updatedAt)}</p>
-          <AlcoholNotice className="mt-4 text-ink-soft print:mt-[1mm] print:text-[9pt]" />
-          <Actions className="mt-8" />
-        </header>
+      <div className={`${column} pb-20 pt-6 sm:pb-28 print:p-0`}>
 
         <section aria-labelledby="au-verre" className="mt-14 sm:mt-20 print:mt-[6mm]">
           <h2 id="au-verre" className="text-[length:var(--text-h2)] print:text-[17pt]">
@@ -76,5 +92,6 @@ export default function VinsPage() {
       </div>
       <WineMenuJsonLd />
     </div>
+    </>
   );
 }

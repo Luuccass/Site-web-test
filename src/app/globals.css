@@ -1,20 +1,20 @@
 @import "tailwindcss";
 
-/* ── Design tokens: direction A « L'Enseigne » ─────────────────────────────────────────────── */
+/* ── Design tokens: V2 « Nocturne » (the V1 names now carry night values site-wide) ────────── */
 @theme {
-  --color-navy: #17213b;          /* the sign at the door: grounds, buttons on white (white text 15.9:1) */
-  --color-navy-raised: #1f2b4d;   /* cells and panels on navy */
-  --color-paper: #ffffff;         /* reading surfaces: carte, hours, booking (navy text 15.9:1) */
-  --color-ink: #17213b;
-  --color-ink-soft: #4a5168;      /* secondary text on white (7.9:1) */
-  --color-on-navy: #ffffff;
-  --color-on-navy-soft: #c9cdd9;  /* secondary text on navy (10:1) */
-  --color-stone: #a78547;         /* pierre dorée: hero frame and footer field only */
+  --color-navy: #141c36;          /* raised night panels (cream text 15.4:1) */
+  --color-navy-raised: #1b2444;   /* cells inside panels */
+  --color-paper: #0b1020;         /* page ground, night navy (cream text 16.6:1) */
+  --color-ink: #f3ede2;           /* text: warm cream */
+  --color-ink-soft: #c7c2b8;      /* secondary text (10.7:1 on paper) */
+  --color-on-navy: #f3ede2;
+  --color-on-navy-soft: #c7c2b8;  /* secondary text on panels (9.9:1) */
+  --color-stone: #a78547;         /* pierre dorée */
   --color-disc: #3d435b;          /* logo disc only */
-  --color-line: #d5d8e0;          /* decorative rules on white */
-  --color-field: #7a8196;         /* form field borders on white (3.9:1) */
-  --color-line-navy: #8c93a8;     /* rules and borders on navy (5.2:1) */
-  --color-error: #a3302a;         /* form errors on white (7:1) */
+  --color-line: #2a3352;          /* decorative rules on night */
+  --color-field: #707a99;         /* form field borders (4.4:1 on paper) */
+  --color-line-navy: #3a4466;     /* rules and borders on panels */
+  --color-error: #ff9b8f;         /* form errors on night (8.6:1) */
 
   --font-serif: var(--font-spectral), "Spectral", Georgia, "Times New Roman", serif;
   --font-plaque: var(--font-montserrat), "Montserrat", "Helvetica Neue", Arial, sans-serif;
@@ -28,10 +28,10 @@
   --color-gold: #c9a86a;          /* accents and large text on night (8.4:1) */
   --color-gold-deep: #a78547;     /* pierre dorée: fills behind night text (5.1:1 with #0b1020) */
 
-  --text-display: clamp(2.25rem, 1.55rem + 3vw, 4.25rem);
-  --text-h1: clamp(2.5rem, 1.7rem + 3.4vw, 4.75rem);
-  --text-h2: clamp(1.9rem, 1.45rem + 1.9vw, 3rem);
-  --text-h3: clamp(1.3rem, 1.18rem + 0.5vw, 1.625rem);
+  --text-display: clamp(2.5rem, 1.6rem + 3.6vw, 5rem);
+  --text-h1: clamp(3.4rem, 1.9rem + 7vw, 9rem);
+  --text-h2: clamp(2.4rem, 1.6rem + 3.2vw, 4.75rem);
+  --text-h3: clamp(1.6rem, 1.35rem + 0.9vw, 2.25rem);
   --text-body: 1.125rem;
   --text-small: 1rem;
 
@@ -44,7 +44,7 @@
 :root {
   --sticky-top: 0px;
   --bar-h: 0px;
-  color-scheme: light;
+  color-scheme: dark;
 }
 html {
   -webkit-text-size-adjust: 100%;
@@ -72,10 +72,15 @@ body {
 h1,
 h2,
 h3 {
+  font-family: var(--font-display);
   font-weight: 300;
-  line-height: 1.08;
-  letter-spacing: -0.01em;
+  line-height: 0.98;
+  letter-spacing: -0.015em;
   text-wrap: balance;
+}
+h3 {
+  font-weight: 400;
+  line-height: 1.1;
 }
 p,
 li {
@@ -88,22 +93,18 @@ a {
   text-underline-offset: 0.2em;
 }
 ::selection {
-  background: var(--color-navy);
-  color: var(--color-on-navy);
+  background: var(--color-gold);
+  color: var(--color-night);
 }
 
 /* Focus: 2 px outline, 3 px offset, colour per surface (works in forced-colors). */
 :focus-visible {
-  outline: 2px solid var(--color-navy);
+  outline: 2px solid var(--color-gold);
   outline-offset: 3px;
 }
-.on-navy :focus-visible,
-.on-navy:focus-visible {
-  outline-color: var(--color-on-navy);
-}
 .on-photo :focus-visible {
-  outline: 2px solid var(--color-on-navy);
-  box-shadow: 0 0 0 5px var(--color-navy);
+  outline: 2px solid var(--color-gold);
+  box-shadow: 0 0 0 5px var(--color-paper);
 }
 
 }
@@ -121,56 +122,50 @@ a {
   max-width: 36em;
 }
 
-/* Buttons: the sign on white (navy fill) and the sign in reverse on navy (white fill). */
+/* Buttons: gold pill (primary) and cream outline pill, the same on every night surface. */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  min-height: 3rem;
-  padding: 0.65rem 1.35rem;
-  border-radius: 2px;
+  gap: 0.6rem;
+  min-height: 3.25rem;
+  padding: 0.65rem 1.6rem;
+  border-radius: 999px;
+  font-family: var(--font-plaque);
   font-weight: 500;
-  font-size: 1.0625rem;
+  font-size: 0.8125rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
   line-height: 1.2;
   text-decoration: none;
-  transition: transform 120ms var(--ease-out-soft), background-color 160ms ease, color 160ms ease;
+  transition:
+    transform 160ms var(--ease-out-soft),
+    background-color 200ms ease,
+    color 200ms ease,
+    border-color 200ms ease;
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
 }
 .btn:active {
-  transform: scale(0.98);
+  transform: scale(0.97);
 }
 .btn-solid {
-  background: var(--color-navy);
-  color: var(--color-on-navy);
-  border: 1px solid var(--color-navy);
+  background: var(--color-gold);
+  color: var(--color-night);
+  border: 1px solid var(--color-gold);
 }
 .btn-solid:hover {
-  background: #0f1730;
+  background: var(--color-cream);
+  border-color: var(--color-cream);
 }
 .btn-line {
   background: transparent;
-  color: var(--color-navy);
-  border: 1px solid var(--color-navy);
+  color: var(--color-cream);
+  border: 1px solid color-mix(in srgb, var(--color-cream) 55%, transparent);
 }
 .btn-line:hover {
-  background: rgba(23, 33, 59, 0.06);
-}
-.on-navy .btn-solid {
-  background: var(--color-on-navy);
-  color: var(--color-navy);
-  border-color: var(--color-on-navy);
-}
-.on-navy .btn-solid:hover {
-  background: #e9ebf1;
-}
-.on-navy .btn-line {
-  color: var(--color-on-navy);
-  border-color: var(--color-on-navy);
-}
-.on-navy .btn-line:hover {
-  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--color-gold);
+  color: var(--color-gold);
 }
 
 /* Standalone links: underline draws in on hover (in-text links keep a permanent underline). */
@@ -324,10 +319,20 @@ html.js-cells .wall .cell::before {
   @page {
     margin: 16mm 14mm;
   }
+  html,
+  body {
+    background: #fff !important;
+    color: #000 !important;
+  }
   body {
     font-size: 11pt;
     padding: 0 !important;
-    color: #000;
+  }
+  .print-light,
+  .print-light * {
+    background: transparent !important;
+    color: #000 !important;
+    border-color: #999 !important;
   }
   .no-print,
   .site-header,
@@ -357,25 +362,15 @@ html.js-cells .wall .cell::before {
 html[data-primary="call"] .cta-row .cta-call {
   order: -1;
 }
-html[data-primary="call"] .cta-row:not(.on-navy .cta-row) .cta-call {
-  background: var(--color-navy);
-  color: var(--color-on-navy);
-  border-color: var(--color-navy);
+html[data-primary="call"] .cta-row .cta-call {
+  background: var(--color-gold);
+  color: var(--color-night);
+  border-color: var(--color-gold);
 }
-html[data-primary="call"] .cta-row:not(.on-navy .cta-row) .cta-book {
+html[data-primary="call"] .cta-row .cta-book {
   background: transparent;
-  color: var(--color-navy);
-  border-color: var(--color-navy);
-}
-html[data-primary="call"] .on-navy .cta-row .cta-call {
-  background: var(--color-on-navy);
-  color: var(--color-navy);
-  border-color: var(--color-on-navy);
-}
-html[data-primary="call"] .on-navy .cta-row .cta-book {
-  background: transparent;
-  color: var(--color-on-navy);
-  border-color: var(--color-on-navy);
+  color: var(--color-cream);
+  border-color: color-mix(in srgb, var(--color-cream) 55%, transparent);
 }
 
 }

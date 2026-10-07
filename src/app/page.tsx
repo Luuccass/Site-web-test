@@ -1,24 +1,21 @@
-import { CarteTeaser } from "@/components/home/CarteTeaser";
-import { CaveWall } from "@/components/home/CaveWall";
-import { DoorTeaser } from "@/components/home/DoorTeaser";
-import { Hero } from "@/components/home/Hero";
-import { Reviews } from "@/components/reviews/Reviews";
 import { RestaurantJsonLd } from "@/components/seo/JsonLd";
-import { HoursPlaque } from "@/components/visit/HoursPlaque";
+import { ArchReveal, CarteV2, CaveV2, GalleryRail, Hero, Manifesto, Marquee, RatingBand, ReserveV2 } from "@/components/v2/sections";
 
+// Home, V2 « Nocturne »: the door opens on the dining room, then the house, the carte, the cave and
+// the booking call over the ruelle at dusk.
 export default function Home() {
   return (
-    <>
+    <div className="v2">
       <Hero />
-      <Reviews compact />
-      <CarteTeaser />
-      <DoorTeaser />
-      <CaveWall />
-      <Reviews />
-      <section aria-labelledby="horaires-acces" className="mx-auto max-w-[84rem] px-4 py-16 sm:px-8 sm:py-24 lg:px-12">
-        <HoursPlaque />
-      </section>
+      <Marquee />
+      <Manifesto />
+      <ArchReveal />
+      <CarteV2 />
+      <CaveV2 />
+      <GalleryRail />
+      <RatingBand />
+      <ReserveV2 />
       <RestaurantJsonLd />
-    </>
+    </div>
   );
 }

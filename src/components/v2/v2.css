@@ -3,21 +3,6 @@
    everything here is the resting state, so the page is complete without JavaScript. */
 
 @layer components {
-  /* While the preview lives next to the current site, it brings its own header and footer. */
-  html:has(.v2) .site-header,
-  html:has(.v2) .site-footer,
-  html:has(.v2) .sticky-bar {
-    display: none !important;
-  }
-  html:has(.v2),
-  html:has(.v2) body {
-    background: var(--color-night);
-  }
-  html:has(.v2) {
-    color-scheme: dark;
-    scroll-padding-top: 5rem;
-  }
-
   .v2 {
     background: var(--color-night);
     color: var(--color-cream);
@@ -162,6 +147,7 @@
   html.v2-intro-on .v2-intro {
     position: fixed;
     inset: 0;
+    overflow: hidden;
     z-index: 100;
     display: grid;
     place-items: center;

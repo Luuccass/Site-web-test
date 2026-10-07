@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Photo } from "@/components/media/Photo";
 import { StatusScript } from "@/components/status/StatusScript";
 import { menu, site } from "@/lib/data";
 
@@ -28,24 +29,18 @@ const PAGES = [
 
 export default function NotFound() {
   return (
-    <section
-      aria-labelledby="introuvable-titre"
-      className="bg-stone p-2.5 sm:p-6 lg:flex lg:min-h-[calc(100svh-4.25rem)] lg:items-center lg:justify-center lg:p-12 xl:p-16"
-    >
-      <div className="mx-auto w-full max-w-[38rem] bg-navy px-4 pb-4 pt-6 text-on-navy sm:px-8 sm:pb-8 sm:pt-10">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/brand/logo-comme-avant-stacked.svg"
-          alt=""
-          width={678}
-          height={486}
-          className="mx-auto h-auto w-[8.5rem] sm:w-[11rem]"
-        />
-        <div className="m1-notice mt-6 bg-paper px-4 py-6 text-ink sm:mt-9 sm:px-8 sm:py-8">
-          <h1 id="introuvable-titre" className="text-[length:var(--text-display)] leading-[1.05]">
-            Cette page n&apos;est plus à la carte.
+    <section aria-labelledby="introuvable-titre" className="v2-grain relative flex min-h-[100svh] items-end overflow-hidden">
+      <div className="absolute inset-0">
+        <Photo id="nuit-exterieur-ruelle" alt="" sizes="100vw" focal={[0.5, 0.4]} className="!absolute inset-0 h-full !aspect-auto" />
+      </div>
+      <div aria-hidden="true" className="absolute inset-0 bg-[linear-gradient(180deg,rgba(11,16,32,0.75)_0%,rgba(11,16,32,0.55)_40%,rgba(11,16,32,0.96)_80%)]" />
+      <div className="relative z-[3] mx-auto w-full max-w-[96rem] px-5 pb-14 pt-32 sm:px-10">
+        <div className="max-w-[44rem]">
+          <p className="v2-label">Erreur 404</p>
+          <h1 id="introuvable-titre" className="v2-display mt-5 text-[clamp(3.2rem,9vw,7.5rem)] !leading-[0.95]">
+            Cette page n&apos;est plus <em className="italic text-gold">à la carte</em>.
           </h1>
-          <p className="mt-4 text-ink-soft">
+          <p className="mt-6 text-ink-soft">
             Le lien que vous avez suivi est peut-être ancien, ou l&apos;adresse a été mal recopiée.
           </p>
 

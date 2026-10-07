@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
 const LINKS = [
@@ -14,8 +15,25 @@ const LINKS = [
 // Transparent over the hero, night-blue glass once the page scrolls. On phones the menu is a
 // full-screen sheet with very large links.
 export function V2Header({ phone }: { phone: { display: string; e164: string } }) {
+  const pathname = usePathname();
   const [solid, setSolid] = useState(false);
   const dialogRef = useRef<HTMLDialogElement>(null);
+  const headerRef = useRef<HTMLElement>(null);
+
+  // The header is fixed: sticky bars below it (carte chips, sidebars) and anchors offset by its height.
+  useEffect(() => {
+    const set = () => document.documentElement.style.setProperty("--sticky-top", `${headerRef.current?.offsetHeight ?? 0}px`);
+    set();
+    window.addEventListener("resize", set);
+    return () => window.removeEventListener("resize", set);
+  }, []);
+
+  // Close the menu after a navigation.
+  useEffect(() => {
+    dialogRef.current?.close();
+  }, [pathname]);
+
+  const current = (href: string) => (href === "/la-carte/" ? pathname === href : pathname.startsWith(href));
 
   useEffect(() => {
     const onScroll = () => setSolid(window.scrollY > 40);
@@ -26,12 +44,13 @@ export function V2Header({ phone }: { phone: { display: string; e164: string } }
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-[background-color,backdrop-filter,border-color] duration-500 ${
+      ref={headerRef}
+      className={`site-header-v2 fixed inset-x-0 top-0 z-50 transition-[background-color,backdrop-filter,border-color] duration-500 ${
         solid ? "border-b border-gold/15 bg-night/80 backdrop-blur-md" : "border-b border-transparent"
       }`}
     >
       <div className="mx-auto flex h-16 max-w-[96rem] items-center gap-6 px-5 sm:h-20 sm:px-10">
-        <Link href="/apercu/" aria-label="Comme Avant, accueil" className="inline-flex min-h-11 items-center" data-cursor="">
+        <Link href="/" aria-label="Comme Avant, accueil" className="inline-flex min-h-11 items-center" data-cursor="">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/brand/logo-comme-avant-compact.svg" alt="" width={113} height={50} className="h-9 w-auto sm:h-10" />
         </Link>
@@ -39,7 +58,11 @@ export function V2Header({ phone }: { phone: { display: string; e164: string } }
           <ul className="flex items-center gap-8">
             {LINKS.map((l) => (
               <li key={l.href}>
-                <Link href={l.href} className="v2-label inline-flex min-h-11 items-center !tracking-[0.24em] !text-cream transition-colors hover:!text-gold">
+                <Link
+                  href={l.href}
+                  aria-current={current(l.href) ? "page" : undefined}
+                  className="v2-label inline-flex min-h-11 items-center !tracking-[0.24em] !text-cream transition-colors hover:!text-gold aria-[current=page]:!text-gold"
+                >
                   {l.label}
                 </Link>
               </li>
@@ -79,10 +102,11 @@ export function V2Header({ phone }: { phone: { display: string; e164: string } }
           </div>
           <nav aria-label="Rubriques" className="mt-12">
             <ul className="space-y-1">
-              {[{ href: "/apercu/", label: "Accueil" }, ...LINKS].map((l, i) => (
+              {[{ href: "/", label: "Accueil" }, ...LINKS].map((l, i) => (
                 <li key={l.href}>
                   <Link
                     href={l.href}
+                    aria-current={pathname === l.href ? "page" : undefined}
                     onClick={() => dialogRef.current?.close()}
                     className="v2-display flex min-h-14 items-baseline gap-4 text-[clamp(2.75rem,13vw,4.5rem)]"
                   >

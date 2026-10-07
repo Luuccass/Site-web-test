@@ -557,6 +557,9 @@ export function GalleryRail() {
         <div
           className="v2-rail mt-12 overflow-x-auto data-[pinned]:overflow-hidden"
           data-rail
+          tabIndex={0}
+          role="region"
+          aria-label="Photos de la maison, défilement horizontal"
         >
           <div
             className="flex w-max gap-5 px-5 sm:gap-8 sm:px-10"

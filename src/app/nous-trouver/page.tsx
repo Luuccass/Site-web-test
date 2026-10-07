@@ -5,6 +5,7 @@ import { weekdaysPhrase } from "@/components/booking/schedule";
 import { RestaurantJsonLd } from "@/components/seo/JsonLd";
 import { HoursPlaque } from "@/components/visit/HoursPlaque";
 import { MapClickToLoad } from "@/components/visit/MapClickToLoad";
+import { PageHero } from "@/components/v2/PageHero";
 import { frenchDate, hours, site } from "@/lib/data";
 
 const description = `Horaires et accès du Restaurant Comme Avant à Dardilly : le midi ${weekdaysPhrase(hours.services, "midi")}, le soir ${weekdaysPhrase(hours.services, "soir")}. Adresse, parking, itinéraire, contact.`;
@@ -46,10 +47,20 @@ export default function NousTrouverPage() {
 
   return (
     <>
-      <div className={container}>
-        <header className="pb-10 pt-12 sm:pb-14 sm:pt-16">
-          <h1 className="text-[length:var(--text-h1)]">Horaires et accès</h1>
-        </header>
+      <PageHero
+        photo="nuit-exterieur-ruelle"
+        alt="Ruelle piétonne de Dardilly-le-Bas, façade en pierre dorée et lanterne allumée du restaurant"
+        focal={[0.5, 0.4]}
+        label={`${site.address.street}, ${site.address.postalCode} ${site.address.city}`}
+        title={
+          <>
+            Horaires <em className="italic text-gold">et accès</em>
+          </>
+        }
+        titleClassName="!text-[clamp(3.4rem,11vw,10rem)]"
+        intro={site.address.access}
+      />
+      <div className={`${container} pt-14 sm:pt-20`}>
         {/* The page title already says « Horaires et accès »: the plaque's own heading is hidden here. */}
         <section aria-label="Adresse et horaires" className="pb-16 sm:pb-24">
           <HoursPlaque withAppleMaps showHeading={false} />

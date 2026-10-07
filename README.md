@@ -116,6 +116,18 @@ Nom, adresse, téléphone, e-mail, réseaux sociaux, informations légales (soci
 la consommation, hébergeur). Les champs `null` ne sont pas affichés : par exemple, renseigner
 `mediator` ajoute automatiquement le médiateur dans les mentions légales.
 
+## Routine d'entretien
+
+| Quand | Quoi |
+|---|---|
+| Chaque mois | Mettre à jour `content/ardoise.json` (mois + plats). |
+| Chaque mois | Supprimer les demandes de réservation dont la date est passée depuis plus de 3 mois : dans Netlify (**Forms → reservation**, cocher puis supprimer) **et** dans la boîte contact@. C'est l'engagement pris dans la page Confidentialité. |
+| Chaque mois | Coup d'œil à la consommation : **Netlify → Team → Usage** (300 crédits par mois). |
+| À chaque changement de carte | `content/menu.json` (et `updatedAt`) ; les PDF se régénèrent tout seuls. |
+| Avant des congés ou une fermeture | Ajouter la période dans `closures` (`content/hours.json`). |
+| Chaque décembre | Repousser `verifiedThrough` d'un an dans `content/hours.json`, après avoir saisi les congés. |
+| De temps en temps | Recopier la note et le nombre d'avis Google dans `content/reviews.json` (avec la date). |
+
 ## Lancer le site sur un ordinateur
 
 Prérequis : [Node.js 22](https://nodejs.org/) et Git.

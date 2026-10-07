@@ -19,22 +19,21 @@ one icon family, content in editable files (menu.json, hours.json, site.config.t
 |---|---|
 | 0 Audit | done (see chat; key limits below) |
 | 1 Questions | done; answers in `docs/content/owner-input-2026-10-06.md` |
-| 2 Direction | **done — owner chose A « L'Enseigne »** (`docs/design/directions.md`, boards on the canvas) |
-| 3 Architecture | **validated by the owner 2026-10-07** (`docs/design/phase3-architecture.md` v2) |
-| 4 Build | **in progress**: foundation + home page + motions M1/M2m/M3 done (commit `1bdf1d7`, preview videos sent); remaining pages built by workflow `build-pages` (carte, vins + PDF, restaurant + galerie, nous-trouver, réserver, légal, 404) |
-| 5 QA | scripts ready: `scripts/qa/run-qa.mjs` (screenshots ×6 widths, axe, acceptance) and `scripts/qa/lighthouse.mjs` |
-| 6 Delivery | not started (README, Netlify setup, DNS at Wix, final report) |
+| 2 Direction | done — owner chose A « L'Enseigne » (`docs/design/directions.md`) |
+| 3 Architecture | validated by the owner 2026-10-07 (`docs/design/phase3-architecture.md` v2) |
+| 4 Build | **done** — 11 pages, static export, Netlify Forms, PDFs (`npm run pdf`, prebuild) |
+| 5 QA | **done** — `docs/qa/phase5-report.md`: Lighthouse mobile ≥ 96 / 100 / 100 / 100 on 9 pages, axe 0, no overflow at 6 widths, 18/18 interaction checks |
+| 6 Delivery | **delivered 2026-10-07** — `docs/RAPPORT-LIVRAISON.md`, `docs/DEPLOY.md`, `README.md`; waiting for the owner to connect Netlify + change DNS at Wix |
 
 ## Next actions, in order
 
-1. Finish the remaining pages (check `src/app/*` against the sitemap in phase3 §2); apply the
-   "shared changes" the page agents reported (npm `pdf` script, CSS, layout); `npm run typecheck`,
-   `npm test`, `npx next build`; commit + push.
-2. Phase 5: `npx serve out -l 4173` then `node scripts/qa/run-qa.mjs http://localhost:4173 <scratch>/qa`
-   and `node scripts/qa/lighthouse.mjs http://localhost:4173 <scratch>/qa`; art-director critique of
-   every screenshot; fix; re-run until axe = 0 and Lighthouse ≥ 95 ×4 on every page.
-3. Phase 6: README (local launch, editing `content/*` on GitHub, monthly ardoise, scripts, deploy),
-   Netlify setup guide, DNS change at Wix (keep OVH MX/SPF), final report with placeholders.
+1. When the owner has connected Netlify (`docs/DEPLOY.md`): check the live site (both domains, HTTPS,
+   old Wix URLs redirect), make a real test booking, run Lighthouse against production.
+2. Fill in what the owner sends (list in `docs/RAPPORT-LIVRAISON.md` §3): mediator, capital, host
+   phone, validated allergens, review authors/dates, last orders, congés, group details, GPS point
+   (then set `MAP_POINT` in `src/app/nous-trouver/page.tsx` and add `geo` to the JSON-LD).
+3. After any change: `npm run typecheck && npm run lint && npm test && npm run build`, then the QA
+   scripts (README « Contrôles qualité »).
 
 ## Owner decisions so far
 
@@ -74,7 +73,8 @@ one icon family, content in editable files (menu.json, hours.json, site.config.t
 | `docs/dev/BUILD-BRIEF.md` | binding brief for page-building agents |
 | `content/*` | site content: menu, wines, hours, reviews, gallery, ardoise, `site.config.ts` |
 | `src/` | Next.js 16 app (static export), see `src/lib/status.ts` for the live open/closed logic |
-| `scripts/images/`, `scripts/fonts/`, `scripts/qa/` | image variants + OG, font subsets, QA |
+| `scripts/images/`, `scripts/fonts/`, `scripts/pdf/`, `scripts/qa/` | image variants + OG, font subsets, carte/vins PDFs, QA (serve-h2, run-qa, lighthouse, interactions, viewports) |
+| `docs/RAPPORT-LIVRAISON.md`, `docs/DEPLOY.md`, `docs/qa/phase5-report.md` | delivery report, go-live guide, QA results |
 | `docs/design/boards/` | sources of the 10 canvas artboards + `blob-map.json` |
 | `assets/photos/retouched/` + `README.md` | 16 retouched masters (EDSR ×2) + rights inventory |
 | `assets/brand/` | logo SVGs (badge + wordmark) |
@@ -100,7 +100,10 @@ https://claude.ai/artifact/2TKe6e249NpaExp4YWW1w4
 - UI UX Pro Max skill ships without its data: clone `https://github.com/nextlevelbuilder/ui-ux-pro-max-skill`
   and run `src/ui-ux-pro-max/scripts/search.py`.
 - QA: Playwright with `/opt/pw-browsers/chromium-1194/chrome-linux/chrome`; `npx lighthouse@13` with
-  `CHROME_PATH` set and `--chrome-flags="--headless=new --no-sandbox"`; `@axe-core/playwright`.
+  `CHROME_PATH` set and `--chrome-flags="--headless=new --no-sandbox --ignore-certificate-errors"`;
+  `@axe-core/playwright`. Measure on `scripts/qa/serve-h2.mjs` (HTTP/2 + Brotli): `npx serve` (HTTP/1.1)
+  under-scores performance by 5–15 points. Background servers die after their time limit: restart them.
+- api.netlify.com, api.vercel.com, nominatim.openstreetmap.org are blocked from the container.
 
 ## Working method to keep (rigour)
 

@@ -18,8 +18,9 @@ const CURATED: Record<string, Frame> = {
   "salle-arche-bar": "4/5",
   "detail-carreaux-ciment": "4/5",
   "salle-cave-chartreuse": "1/1",
-  "detail-niche-chartreuse": "4/5",
+  // The wide sign leads its row of three: on phones it takes the full width over two portraits.
   enseigne: "3/2",
+  "detail-niche-chartreuse": "4/5",
   "salle-mur-vins-portrait": "4/5",
   // Assiettes des derniers mois: plats first, the house chocolate last.
   "plat-poulpe": "4/5",

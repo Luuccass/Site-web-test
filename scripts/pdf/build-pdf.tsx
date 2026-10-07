@@ -13,6 +13,9 @@ import sharp from "sharp";
 import { ALCOHOL_NOTICE, ALLERGEN_NOTE, capitalize, frenchSpaces, splitDish, splitWine } from "../../src/components/carte/typography";
 import { euro, frenchDate, menu, type MenuItem, site, type Wine, wines } from "../../src/lib/data";
 
+// Dates taken from the content (not the clock), so rebuilding unchanged content gives byte-identical PDFs.
+const stableDate = (isoDay: string) => new Date(`${isoDay}T12:00:00Z`);
+
 const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, "..", "..");
 const outDir = join(root, "public", "pdf");
@@ -149,7 +152,7 @@ function CarteDocument({ logo }: { logo: Buffer }) {
   const columns = [menu.sections.slice(0, split), menu.sections.slice(split)];
 
   return (
-    <Document title={`La carte, ${site.name}, ${site.address.city}`} author={site.name} subject={`Carte en vigueur au ${frenchDate(menu.updatedAt)}`} language="fr-FR">
+    <Document title={`La carte, ${site.name}, ${site.address.city}`} author={site.name} subject={`Carte en vigueur au ${frenchDate(menu.updatedAt)}`} language="fr-FR" creationDate={stableDate(menu.updatedAt)} modificationDate={stableDate(menu.updatedAt)}>
       <Page size="A4" style={s.page}>
         <Footer />
         <Masthead logo={logo} title="La carte" lines={[`Carte en vigueur au ${frenchDate(menu.updatedAt)}`]} />
@@ -215,7 +218,7 @@ function WinesDocument({ logo }: { logo: Buffer }) {
   const sizes = [...new Set(wines.byGlass.flatMap((w) => w.sizes.map((x) => x.cl)))].sort((a, b) => a - b);
   const glassOrder = [...new Set(wines.byGlass.map((w) => w.colour))];
   return (
-    <Document title={`Les vins, ${site.name}, ${site.address.city}`} author={site.name} subject={`Carte des vins en vigueur au ${frenchDate(wines.updatedAt)}`} language="fr-FR">
+    <Document title={`Les vins, ${site.name}, ${site.address.city}`} author={site.name} subject={`Carte des vins en vigueur au ${frenchDate(wines.updatedAt)}`} language="fr-FR" creationDate={stableDate(wines.updatedAt)} modificationDate={stableDate(wines.updatedAt)}>
       <Page size="A4" style={s.page}>
         <Footer notice={ALCOHOL_NOTICE} />
         <Masthead logo={logo} title="Les vins" lines={[wines.note, `Carte des vins en vigueur au ${frenchDate(wines.updatedAt)}`]} />

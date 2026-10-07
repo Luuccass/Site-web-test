@@ -183,6 +183,22 @@ a {
   .link-draw[aria-current="page"] {
     background-size: 100% 1px;
   }
+  /* Outside navigation menus a link must look like a link at rest: a faint underline, drawn in full
+     on hover. */
+  .link-draw:not(nav .link-draw) {
+    background-image:
+      linear-gradient(currentColor, currentColor),
+      linear-gradient(color-mix(in srgb, currentColor 40%, transparent), color-mix(in srgb, currentColor 40%, transparent));
+    background-size:
+      0% 1px,
+      100% 1px;
+  }
+  .link-draw:not(nav .link-draw):hover,
+  .link-draw:not(nav .link-draw):focus-visible {
+    background-size:
+      100% 1px,
+      100% 1px;
+  }
 }
 
 }

@@ -144,6 +144,7 @@ Autres commandes :
 | `npm run lint` | vérification du code |
 | `npm run images` | génère les images optimisées à partir de `assets/photos/retouched/` |
 | `npm run og` | régénère l'image de partage `public/og.jpg` (réseaux sociaux) |
+| `npm run pdf` | régénère les PDF de la carte et des vins (fait automatiquement à chaque publication) |
 
 Contrôles qualité complets (captures d'écran aux six largeurs, accessibilité, Lighthouse), après
 `npm run build` :
@@ -152,6 +153,7 @@ Contrôles qualité complets (captures d'écran aux six largeurs, accessibilité
 node scripts/qa/serve-h2.mjs 4443 out &   # sert out/ en HTTP/2 + Brotli, comme Netlify
 node scripts/qa/run-qa.mjs https://localhost:4443 qa-output
 node scripts/qa/lighthouse.mjs https://localhost:4443 qa-output
+node scripts/qa/interactions.mjs https://localhost:4443   # réservation, règle d'1 h, galerie, menu mobile
 ```
 
 ## Organisation du code

@@ -1,13 +1,14 @@
 {
   "dessert-ile-flottante": {
-    "hash": "3eafdf608f86",
-    "dir": "dessert-ile-flottante-3eafdf608f86",
+    "hash": "f95cecbddd54",
+    "dir": "dessert-ile-flottante-f95cecbddd54",
     "width": 1690,
     "height": 1724,
     "widths": [
       360,
       540,
       720,
+      800,
       960,
       1280,
       1600,
@@ -16,14 +17,15 @@
     "blur": "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAAAwAgCdASoQABAAA4BaJaACdAYwxWZckoO3AADOK8p1vsiOfSFLf01ak4L63sC6kGcOQkFbngS91no8so3dSVSI462oeuH2NXLVIEdMg3+F98OqHeZw8Ni3+Nb1VfkBMQJcAlPEHbK1z5G+6vDR0wcAAAA="
   },
   "dessert-moelleux-chocolat": {
-    "hash": "158d99ef0993",
-    "dir": "dessert-moelleux-chocolat-158d99ef0993",
+    "hash": "4e26aed35a9f",
+    "dir": "dessert-moelleux-chocolat-4e26aed35a9f",
     "width": 1900,
     "height": 1908,
     "widths": [
       360,
       540,
       720,
+      800,
       960,
       1280,
       1600,
@@ -32,14 +34,15 @@
     "blur": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAABQAgCdASoQABAAA4BaJQBOgMXw1UQBYLCL1yAA/rAEynJ1UdcwOwXElq9/pkLahC5AcvEpaopKzOPc7v2a9eDHS4KxhLKsWk6ll2ro8QWTrRLsz6B4i1pJHxbkeq0O1//Ns4ufbWqGqxb/jFcAAA=="
   },
   "dessert-moelleux-fruits-rouges": {
-    "hash": "d5f227cd7709",
-    "dir": "dessert-moelleux-fruits-rouges-d5f227cd7709",
+    "hash": "51eab9d7995a",
+    "dir": "dessert-moelleux-fruits-rouges-51eab9d7995a",
     "width": 2014,
     "height": 1460,
     "widths": [
       360,
       540,
       720,
+      800,
       960,
       1280,
       1600,
@@ -48,14 +51,15 @@
     "blur": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAAAQAgCdASoQAAwAA4BaJZgCdAYvrgIa3XcAAP6aiPNau2QvR71zK00oatPkPuNLItOWnfmEHit/9gPeuIijPhXY6N1luFF3zfWstKUBrv7XOd6211zPle1MVdL7YozTcsM3eaSePYAop24AAAA="
   },
   "dessert-pomme-pochee": {
-    "hash": "dbce6341f2c5",
-    "dir": "dessert-pomme-pochee-dbce6341f2c5",
+    "hash": "3727ff60dfd2",
+    "dir": "dessert-pomme-pochee-3727ff60dfd2",
     "width": 1358,
     "height": 1552,
     "widths": [
       360,
       540,
       720,
+      800,
       960,
       1280,
       1358
@@ -63,8 +67,8 @@
     "blur": "data:image/webp;base64,UklGRpwAAABXRUJQVlA4IJAAAAAwBACdASoQABIAPu1iqU2ppaOiMAgBMB2JaACdACHt6mAnNrqogdh4IwAA4gTHJBtM/8bzAtwdrH+2NyUJvnEiR2tmtl5G911rq/4FNcI1ocOOknfys/FhTpPgPPp+g7YBL3mPKU/7+SuyPcPtRTtlhC6zt9IOQk3CQQc/tD1dpgcrH/eUPn6GchEfF7YAAAA="
   },
   "detail-carreaux-ciment": {
-    "hash": "4f09ab82562a",
-    "dir": "detail-carreaux-ciment-4f09ab82562a",
+    "hash": "1b93dea734f7",
+    "dir": "detail-carreaux-ciment-1b93dea734f7",
     "width": 780,
     "height": 1176,
     "widths": [
@@ -76,14 +80,15 @@
     "blur": "data:image/webp;base64,UklGRqIAAABXRUJQVlA4IJYAAAAwBACdASoQABgAPu1iqU2ppaOiMAgBMB2JQBbZZYA1rsRXwZgUuS6ie6AA/I+4nRzeD1LsPQA/q9HkPAggGP1mvJiQ7fOY4uGZChxdKbIY6MbnbXE4SjIMkZJZz7MJQsBdsZLsEUJ3rNmgi9lKy+TRMCMzSbT8eti4wVIJna+H6ct6EgKZ3KHZIE+UbzgKPEF9I00wAAA="
   },
   "detail-niche-chartreuse": {
-    "hash": "60d57157eb08",
-    "dir": "detail-niche-chartreuse-60d57157eb08",
+    "hash": "a07b086a2424",
+    "dir": "detail-niche-chartreuse-a07b086a2424",
     "width": 1712,
     "height": 2036,
     "widths": [
       360,
       540,
       720,
+      800,
       960,
       1280,
       1600,
@@ -92,170 +97,49 @@
     "blur": "data:image/webp;base64,UklGRpYAAABXRUJQVlA4IIoAAABQBACdASoQABMAPu1iqU2ppaOiMAgBMB2JbACdMoACAeoW/T65OnCAYCoAAPpKpc8QsS45e8lxacGtujFshSIKql7hXnBmHnNspGp5cfJye41sRiIASB4OCnQKJLc0vEIQIidB7GjyMXdAzEfqEJJy4FF0DL2OFuyVOfAby9rCCfayjE03nlzPQAA="
   },
   "enseigne": {
-    "hash": "ae2f79052a95",
-    "dir": "enseigne-ae2f79052a95",
-    "width": 1596,
-    "height": 768,
+    "hash": "1eb7869db2d3",
+    "dir": "enseigne-1eb7869db2d3",
+    "width": 2800,
+    "height": 1347,
     "widths": [
       360,
       540,
       720,
+      800,
       960,
       1280,
-      1596
+      1600,
+      1920
     ],
-    "blur": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADQAQCdASoQAAgAA4BaJQBOgB6tKuz5EADhV3Hd7hqzC6IFFl5DfiajE5Zkr7W0Tq66X2h/qSomG/2iQLaqjM//s8X1A0iQQ8ReXIiNMAA="
+    "blur": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADwAQCdASoQAAgAA4BaJQBOgB6tRS3NhgAA4VfTbmlAyfEV20xKjoI++V2LeLgcWcc9bBpmOcY5pgxIEg79cZ3IkGD4p4M0rlGAAA=="
   },
   "exterieur-ruelle": {
-    "hash": "7f87d097a001",
-    "dir": "exterieur-ruelle-7f87d097a001",
-    "width": 1060,
-    "height": 1830,
+    "hash": "2ed0588f9920",
+    "dir": "exterieur-ruelle-2ed0588f9920",
+    "width": 1622,
+    "height": 2800,
     "widths": [
       360,
       540,
       720,
-      960,
-      1060
-    ],
-    "blur": "data:image/webp;base64,UklGRq4AAABXRUJQVlA4IKIAAADwAwCdASoQABwAPu1iqk4ppaQiMAgBMB2JYwCsABih1S0XytTtgiuAAPa+3+Phetl6dNsE3vhPQpEdV7fEZb+cJpdt3X1eNoAIR6mYnxluC5jGzswMjXEsI4VPU/3iY1UMcp1u7CPNgu+wbozBUvZ18DcHxC0TeKU9629x5Ri0mUb3viPLuJ3IsWQVmtn23mBJnvHYd4ex4C17W9DugE6L4AA="
-  },
-  "plat-entrecote": {
-    "hash": "c43ad778b9f0",
-    "dir": "plat-entrecote-c43ad778b9f0",
-    "width": 2004,
-    "height": 2018,
-    "widths": [
-      360,
-      540,
-      720,
+      800,
       960,
       1280,
       1600,
-      1920
+      1622
     ],
-    "blur": "data:image/webp;base64,UklGRpIAAABXRUJQVlA4IIYAAABQAgCdASoQABAAA4BaJbACdAYtA9c4F0MWZwAA/W6PR39TjfhDo7gdzdXZ1S+FYmwl/qAha7eXLs94vEpl+fbe0Wg1Sar9k5Z4wanwK9bqeBReFG2ArjROv6s/DgvZikvVPQl2vsdSV38X+FTidNZALl5TOkuMua7D2Dhj40DwEhEI3CgAAA=="
-  },
-  "plat-pate-en-croute": {
-    "hash": "8eadf76106ed",
-    "dir": "plat-pate-en-croute-8eadf76106ed",
-    "width": 1606,
-    "height": 2048,
-    "widths": [
-      360,
-      540,
-      720,
-      960,
-      1280,
-      1600,
-      1606
-    ],
-    "blur": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAAAwBACdASoQABQAPu1iqU2ppaOiMAgBMB2JagAAXBthIb5cVg6NbT4lRAAA/vKh9qTvMnS3p9b0Z1MtBBc26UfsWLX8hc/IoKWSYVE43UCKwIqiXSzQRJucHxssEQIk/31c2Vk6j8Z7WmeN/eukGZDz4R3JPZ86xrOkAA=="
-  },
-  "plat-poulpe": {
-    "hash": "a4efe682e5f9",
-    "dir": "plat-poulpe-a4efe682e5f9",
-    "width": 1878,
-    "height": 2334,
-    "widths": [
-      360,
-      540,
-      720,
-      960,
-      1280,
-      1600,
-      1878
-    ],
-    "blur": "data:image/webp;base64,UklGRqgAAABXRUJQVlA4IJwAAACQBACdASoQABQAPu1iqU2ppaOiMAgBMB2JZgC7AYxiyqLtzoOKdwJI/6GFuAAA/mi485nZ/l08QkZECyDkwTTHKPvlckA7Y7InDp5I8Ox656nz2fnNc8+Jp913O6JLlnJJ4R85qs7C0zMFIQtpXS9oAq6dzxKQuuzvyPcZ1lznnuMtQwbvd5/ZpGW8kAzZeBJLcG20RK7KWuyJAAA="
-  },
-  "salle-arche-bar": {
-    "hash": "f3fe07e70035",
-    "dir": "salle-arche-bar-f3fe07e70035",
-    "width": 1686,
-    "height": 2222,
-    "widths": [
-      360,
-      540,
-      720,
-      960,
-      1280,
-      1600,
-      1686
-    ],
-    "blur": "data:image/webp;base64,UklGRpwAAABXRUJQVlA4IJAAAAAQBACdASoQABUAPu1iqU2ppaOiMAgBMB2JZACdMoACkLDazmqtWwoDwADc+LDzE1X/ZntMHeXJa0rTQJHqxmOKsCGLZX3IdsLMyrmWSFFt0mrpP8pEITZeMnETzkeFQgaUd6v3nB7d+a9JBfAtit2iI36hKz8YdqB0arWYvvxKsq06dMGu49zuV4QQTqP4HgA="
-  },
-  "salle-cave-chartreuse": {
-    "hash": "7158893def9f",
-    "dir": "salle-cave-chartreuse-7158893def9f",
-    "width": 2006,
-    "height": 1960,
-    "widths": [
-      360,
-      540,
-      720,
-      960,
-      1280,
-      1600,
-      1920
-    ],
-    "blur": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAABwAgCdASoQABAAA4BaJZgCdAYw7zY3di9uwmoAAPeGuLzwAaRWyDwdUsJKqAmMn+LhC+5JGqC1Jgu1Z4F95j77b6zp6/n7FkZ3VjGmsJqT72DX2Hrw3nxDzqhj9ahNee9yxLVpaUz2AAAA"
-  },
-  "salle-mur-vins-paysage": {
-    "hash": "4699790f880b",
-    "dir": "salle-mur-vins-paysage-4699790f880b",
-    "width": 1948,
-    "height": 1276,
-    "widths": [
-      360,
-      540,
-      720,
-      960,
-      1280,
-      1600,
-      1920
-    ],
-    "blur": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADQAQCdASoQAAoAA4BaJQBOgCHc8MYKYADNolfWbs5CIx4cQDih+oMf+SKxSypTsxQS6/YWR4gqPJQsGiYsw4057zBNgAAA"
-  },
-  "salle-mur-vins-portrait": {
-    "hash": "b50049599d2d",
-    "dir": "salle-mur-vins-portrait-b50049599d2d",
-    "width": 1408,
-    "height": 1940,
-    "widths": [
-      360,
-      540,
-      720,
-      960,
-      1280,
-      1408
-    ],
-    "blur": "data:image/webp;base64,UklGRowAAABXRUJQVlA4IIAAAAAQBACdASoQABYAPu1iqU2ppaOiMAgBMB2JZQCdACILj/s7B0cXdQPBiADMJnWUh9vD0d0s/TBOjHdqCqbbld5jvMGIK5tFejq+nCh7fUbsyFmiD7zVRqsqQHizGy77uvcJXXikhnrVmFfYHYPvrjjlIOZBT8N6nTpqwwqjFvYAAA=="
-  },
-  "salle-mur-vins": {
-    "hash": "690679708bf5",
-    "dir": "salle-mur-vins-690679708bf5",
-    "width": 1940,
-    "height": 1772,
-    "widths": [
-      360,
-      540,
-      720,
-      960,
-      1280,
-      1600,
-      1920
-    ],
-    "blur": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAADwAQCdASoQAA8AA4BaJQBOgMYsxk9mdgAA+TeoeBYE/GlglLi4+PQPJkPLdL/7CVnUYmH3OI2vjXNleJVAabuAeN99HNLCKvU2hd7aVpUoDNflHEQ3FQ95gzdUEAAA"
+    "blur": "data:image/webp;base64,UklGRrQAAABXRUJQVlA4IKgAAAAQBACdASoQABwAPu1iqU2ppaOiMAgBMB2JZQCdABwwfY3DsN8VtWECAAD2vt/j4XrZeoQhwjFaJzf6tW3s6WFBnWuRa0Lj1346a3AWNTwvPYbFqdBom2MT7CU7VBJxIZn6RN6gK/O8y7O+tcDA/2HdTeqEMmVJ83NSVq9QE3g6JUFAEUD3zWg/N9BZwbqmesM4t8OxHEVe2bA8fn18kPBz5pqfAMAAAAA="
   },
   "nuit-dessert-ile-flottante": {
-    "hash": "bb2a592a2ee0",
-    "dir": "nuit-dessert-ile-flottante-bb2a592a2ee0",
+    "hash": "90b145b309b0",
+    "dir": "nuit-dessert-ile-flottante-90b145b309b0",
     "width": 1690,
     "height": 1724,
     "widths": [
       360,
       540,
       720,
+      800,
       960,
       1280,
       1600,
@@ -264,14 +148,15 @@
     "blur": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAAAwAgCdASoQABAAA4BaJZACdAYvht+g/ZnAAAD+wlLytDYnPQT+tOYpqSS1d3aElVMJBPj2Ibo23UxdpiT+nHZR0zIG+qAY/KUHbtdXBxdmkflvZv+zknSPcRTKT6Df0U2dl9fYF24c1dqluZES71RosSwyfQQMPJloAA=="
   },
   "nuit-dessert-moelleux-chocolat": {
-    "hash": "92886645e7c2",
-    "dir": "nuit-dessert-moelleux-chocolat-92886645e7c2",
+    "hash": "02f5ae0a28c6",
+    "dir": "nuit-dessert-moelleux-chocolat-02f5ae0a28c6",
     "width": 1900,
     "height": 1908,
     "widths": [
       360,
       540,
       720,
+      800,
       960,
       1280,
       1600,
@@ -280,14 +165,15 @@
     "blur": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAABQAgCdASoQABAAA4BaJYwCdAYvhqm2X3lRRVgA/bTAi01GE7Zik1dATtaNo1tkLa6k0CaENDujnpkitv42nt43ieJuWv/01Ke89+gVNG7D/m7wuqOnJqUkiTjZv/nzfzxxBPI4GEDD46JcAAA="
   },
   "nuit-dessert-moelleux-fruits-rouges": {
-    "hash": "ccabc458bd25",
-    "dir": "nuit-dessert-moelleux-fruits-rouges-ccabc458bd25",
+    "hash": "af5365bc6e31",
+    "dir": "nuit-dessert-moelleux-fruits-rouges-af5365bc6e31",
     "width": 2014,
     "height": 1460,
     "widths": [
       360,
       540,
       720,
+      800,
       960,
       1280,
       1600,
@@ -296,14 +182,15 @@
     "blur": "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAAAQAgCdASoQAAwAA4BaJZgCdAYs2/RSm8tAAP2/+LQpjkdng9LDleBsoveNzKezz8K42e6iI8d9Xl/rrbnGELlSdFAUG9O0/fbsf1czBpeeb12X2gslbmTpxGpWyErdT/7a2OJr7t95pJ49frOToAAA"
   },
   "nuit-dessert-pomme-pochee": {
-    "hash": "60c4b6b5bcf9",
-    "dir": "nuit-dessert-pomme-pochee-60c4b6b5bcf9",
+    "hash": "1c4902a92efa",
+    "dir": "nuit-dessert-pomme-pochee-1c4902a92efa",
     "width": 1358,
     "height": 1552,
     "widths": [
       360,
       540,
       720,
+      800,
       960,
       1280,
       1358
@@ -311,8 +198,8 @@
     "blur": "data:image/webp;base64,UklGRpoAAABXRUJQVlA4II4AAAAQBACdASoQABIAPu1iqU2ppaOiMAgBMB2JaAAAW3O1rwNatIWLaVRq4AD+h98LOBbXh90VJ2m1/ctcIJ/iEB3v8RBvzg9GP4gI6D+w8p4gCfiXqOkh7uHhjW2cmNp+xQtncuGv/nEEdpC1PhRSMvE/aiiBd8zsr95L24N3Dyvb9rqAL22TaTyvZ0t0wAAA"
   },
   "nuit-detail-carreaux-ciment": {
-    "hash": "c3253299f8e7",
-    "dir": "nuit-detail-carreaux-ciment-c3253299f8e7",
+    "hash": "dd3ca85cd38d",
+    "dir": "nuit-detail-carreaux-ciment-dd3ca85cd38d",
     "width": 780,
     "height": 1176,
     "widths": [
@@ -324,14 +211,15 @@
     "blur": "data:image/webp;base64,UklGRrAAAABXRUJQVlA4IKQAAABwBACdASoQABgAPu1iqU2ppaOiMAgBMB2JQBbdERwYAvVbLP18En/bwMjGAAD+hBYl/RF++7LqtiHSvPlU8scNllz0mP5rxx/gGN4Yw7LfGrAOuzq/j5ncwDo1WCbqHxwJL19YhhW14KFAUVJfznpezXOiuAHacz5mvlnEUqDCy7uKmAI3GAdCyp2sk+G4MDPWXZ200S6KAr6Ah0+UIMBkFQAAAA=="
   },
   "nuit-detail-niche-chartreuse": {
-    "hash": "3cfa23e5eaf1",
-    "dir": "nuit-detail-niche-chartreuse-3cfa23e5eaf1",
+    "hash": "31172482e22d",
+    "dir": "nuit-detail-niche-chartreuse-31172482e22d",
     "width": 1712,
     "height": 2036,
     "widths": [
       360,
       540,
       720,
+      800,
       960,
       1280,
       1600,
@@ -340,43 +228,49 @@
     "blur": "data:image/webp;base64,UklGRp4AAABXRUJQVlA4IJIAAAAQBACdASoQABMAPu1iqU2ppaOiMAgBMB2JagCdMoABfcpUHHFyUuWNgAD+zcPVklRwdiwSrqTFuoCRt6NeQJckOh45EfiMJjJY2Piy+4gcp+bnLxxUeRSbvHZYi16oKCRueHvJXwDwvNIzIooNdpn4GHeJw3tHfyQGyVonJTIG+kS9A17r5bmewFLTV+tET0AAAA=="
   },
   "nuit-enseigne": {
-    "hash": "f6e36486d43a",
-    "dir": "nuit-enseigne-f6e36486d43a",
-    "width": 1596,
-    "height": 768,
+    "hash": "a30a0b87e82f",
+    "dir": "nuit-enseigne-a30a0b87e82f",
+    "width": 2800,
+    "height": 1347,
     "widths": [
       360,
       540,
       720,
+      800,
       960,
       1280,
-      1596
+      1600,
+      1920
     ],
-    "blur": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAADwAQCdASoQAAgAA4BaJQBOgB6tK3jfaAAA+/O7ULdBkhJLYjPftw39j3Dzkj2OIqF8/cmV4FvMMxQxRbkGmBbVUZn/9ni+oGbAeIvLkRGmAAAA"
+    "blur": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADQAQCdASoQAAgAA4BaJQBOgB6pux0psAD787tQt0GSAGDCYIJt42e3uKqli/PWDCmL6cbMgXOUd+AEVlly4hlw92zFnWn26ZYAAA=="
   },
   "nuit-exterieur-ruelle": {
-    "hash": "f4c449f4ac1f",
-    "dir": "nuit-exterieur-ruelle-f4c449f4ac1f",
-    "width": 1060,
-    "height": 1830,
+    "hash": "6ade989403e9",
+    "dir": "nuit-exterieur-ruelle-6ade989403e9",
+    "width": 1622,
+    "height": 2800,
     "widths": [
       360,
       540,
       720,
+      800,
       960,
-      1060
+      1280,
+      1600,
+      1622
     ],
-    "blur": "data:image/webp;base64,UklGRsAAAABXRUJQVlA4ILQAAACQBACdASoQABwAPu1iqU2ppaOiMAgBMB2JYwC7AYxEtk/q8ojp8w6jWAlTnoAA/uY5g7t+RGpdlW8GG7Ibej9G/FZ3b2uJkiulqp965VjlSZl5v0yTKGckwYp7r0fJErmnB0DNP2YbpkZbsil8AACGvjmgGz9DAsPpNJ3097n8fWu0ytpLzh1e6nvx3aCYvD5xrdh4ce0UtMDaowaMnFXnc2HIEHbxbjkIlxcH7MkqOBlIgAA="
+    "blur": "data:image/webp;base64,UklGRsYAAABXRUJQVlA4ILoAAAAwBACdASoQABwAPu1iqU2ppaQiMAgBMB2JYwC7AYw6wPUErVoKUXtOe8AA/uY5g7t+RGpvTpG5mO+yVabRSoilfkIZIeit+8OiC9OZRom/mnbF5FlkqZ//Jy+nqpBhP6zB3j3IWWNutJyh56Obek8Vvu9cRhU1D92PxuZLpfrZRAG7yUXrLlIbEKV+DNvbnu2tI50r3Fjr1KdZStgopGGhSPL6vKIpliDilDlUttikL/qK/YAZTDIAAAA="
   },
   "nuit-plat-entrecote": {
-    "hash": "957e86229cde",
-    "dir": "nuit-plat-entrecote-957e86229cde",
+    "hash": "0942ae1a0c97",
+    "dir": "nuit-plat-entrecote-0942ae1a0c97",
     "width": 2004,
     "height": 2018,
     "widths": [
       360,
       540,
       720,
+      800,
       960,
       1280,
       1600,
@@ -385,14 +279,15 @@
     "blur": "data:image/webp;base64,UklGRpgAAABXRUJQVlA4IIwAAACwAgCdASoQABAAA4BaJbACdH8Agmyq/JbgcFQv6fgA/tp7C1/UpImp1Hve7l5VOlA9bwXd8WHGOTYZbLMuKh1XgRYrmrQJ5hswg38Db98j8jgp7Cynh4k0Y7mBDofCh463uOvZ/jyO9j2FerXRVU3gDKv6i+SW3q1up+6mCql3V0SzSckcp4Zu1YAAAA=="
   },
   "nuit-plat-pate-en-croute": {
-    "hash": "c975c470c2a1",
-    "dir": "nuit-plat-pate-en-croute-c975c470c2a1",
+    "hash": "53aaa783dab6",
+    "dir": "nuit-plat-pate-en-croute-53aaa783dab6",
     "width": 1606,
     "height": 2048,
     "widths": [
       360,
       540,
       720,
+      800,
       960,
       1280,
       1600,
@@ -401,14 +296,15 @@
     "blur": "data:image/webp;base64,UklGRo4AAABXRUJQVlA4IIIAAACQBACdASoQABQAPu1iqU2ppaOiMAgBMB2JagBUftwEt/ehbqnCml0Mty1FE4AA/vQoqvA6WqZjXIdEL/jLfhz+LmSuPJwyqPn9AIJMuGP/akhE+rdn/uHfAGQOgXRaV/2tIHUfe+J1Kni7y4ffX7slaYhJisiGC7WeVly4ckP7QAAA"
   },
   "nuit-plat-poulpe": {
-    "hash": "ceb23af62820",
-    "dir": "nuit-plat-poulpe-ceb23af62820",
+    "hash": "4cd41d923bfa",
+    "dir": "nuit-plat-poulpe-4cd41d923bfa",
     "width": 1878,
     "height": 2334,
     "widths": [
       360,
       540,
       720,
+      800,
       960,
       1280,
       1600,
@@ -417,14 +313,15 @@
     "blur": "data:image/webp;base64,UklGRqAAAABXRUJQVlA4IJQAAABQBACdASoQABQAPu1iqU2ppaOiMAgBMB2JYgC7AYx2mfIwv2SCLAsjNcugAP4mZwv/bdbJSwFxJ0Yzk8NWpY4rlxjuzC6yJxr4Tjci/XCfWypMlw/ed9OKp6oVi38GKYJ1iVls1Lp1mvMFIQtpc7/0wA1lQ/fYHBtsaYMaIYsVusIViEq5FwSWLfx/hY8jwT4H1R4A"
   },
   "nuit-salle-arche-bar": {
-    "hash": "3dded51fdb19",
-    "dir": "nuit-salle-arche-bar-3dded51fdb19",
+    "hash": "f73bb96f04d1",
+    "dir": "nuit-salle-arche-bar-f73bb96f04d1",
     "width": 1686,
     "height": 2222,
     "widths": [
       360,
       540,
       720,
+      800,
       960,
       1280,
       1600,
@@ -433,14 +330,15 @@
     "blur": "data:image/webp;base64,UklGRpwAAABXRUJQVlA4IJAAAAAQBACdASoQABUAPu1iqU2ppaOiMAgBMB2JQBOmUABJ7iunDgFhGzS0AAD+2qbjGg6fbeKJymR+RrQ5Ig25qWZEWAfCx7o+3PtIwxB6lgOw93v9+xUs5Qxpd6mQQt6gRYmRzx/A7pPIPBKjgFaZLIBMaTPdS2hlKJG22RqEV26X8XzWwUUMgwnwHmkXKbUCsAA="
   },
   "nuit-salle-cave-chartreuse": {
-    "hash": "2dbf6bc4371e",
-    "dir": "nuit-salle-cave-chartreuse-2dbf6bc4371e",
+    "hash": "d79aa1d109b3",
+    "dir": "nuit-salle-cave-chartreuse-d79aa1d109b3",
     "width": 2006,
     "height": 1960,
     "widths": [
       360,
       540,
       720,
+      800,
       960,
       1280,
       1600,
@@ -448,15 +346,33 @@
     ],
     "blur": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAABQAgCdASoQABAAA4BaJZACdAYv/kojsLuer4AA/tzv7K+LGpDV9+9mgUJZKxmDgJfjOQkljPCZID1xs+0yxNPReOlaQ4tILNECVvWaP7sOfdVEz+VWbvrLi9Q0TpadTSsiZLCNFpP3YAAA"
   },
+  "nuit-salle-mur-vins": {
+    "hash": "321729bb19a8",
+    "dir": "nuit-salle-mur-vins-321729bb19a8",
+    "width": 1940,
+    "height": 1772,
+    "widths": [
+      360,
+      540,
+      720,
+      800,
+      960,
+      1280,
+      1600,
+      1920
+    ],
+    "blur": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAABQAgCdASoQAA8AA4BaJYwCdAYv/lbgvak+6AAA/uo2WJvXcWpG7lpkI1nx9NdNUddzuwIWX2Dt7F+LKltsdr2NJKJqBe4A9SkQoHQX+pkNfihO2XX3KJz4gb7+XzEqbMRRvVHoQAA="
+  },
   "nuit-salle-mur-vins-paysage": {
-    "hash": "2c9ac5ae3ff5",
-    "dir": "nuit-salle-mur-vins-paysage-2c9ac5ae3ff5",
+    "hash": "1e1aa14da480",
+    "dir": "nuit-salle-mur-vins-paysage-1e1aa14da480",
     "width": 1948,
     "height": 1276,
     "widths": [
       360,
       540,
       720,
+      800,
       960,
       1280,
       1600,
@@ -465,34 +381,154 @@
     "blur": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAAAwAgCdASoQAAoAA4BaJYwCdB3gGxUSjd+ZYAD+3PL/3NUM4MalQ2TEk8xJ/jcfGF3IibYOskKPcyPkRk8Fjg+tiu4u4hjigvDlFTdsMfcj9Ra1BAAAAA=="
   },
   "nuit-salle-mur-vins-portrait": {
-    "hash": "e55a591e7295",
-    "dir": "nuit-salle-mur-vins-portrait-e55a591e7295",
+    "hash": "88cc5e9fe254",
+    "dir": "nuit-salle-mur-vins-portrait-88cc5e9fe254",
     "width": 1408,
     "height": 1940,
     "widths": [
       360,
       540,
       720,
+      800,
       960,
       1280,
       1408
     ],
     "blur": "data:image/webp;base64,UklGRooAAABXRUJQVlA4IH4AAADwAwCdASoQABYAPu1iqU2ppaOiMAgBMB2JZQC7ACHobQMnmW1yHndgAP7kYtxgmyj7Merg7NX0IASblxT/rfS/tP7u5sJ7UM4x3HIpFXekZMne4m5mKjvG5DzjPoRyCD0xoXcyWmdeNpyCL8IHNZLQ2gKLUjclQUbNDBrgAAA="
   },
-  "nuit-salle-mur-vins": {
-    "hash": "e36f81d17259",
-    "dir": "nuit-salle-mur-vins-e36f81d17259",
+  "plat-entrecote": {
+    "hash": "8a7562156194",
+    "dir": "plat-entrecote-8a7562156194",
+    "width": 2004,
+    "height": 2018,
+    "widths": [
+      360,
+      540,
+      720,
+      800,
+      960,
+      1280,
+      1600,
+      1920
+    ],
+    "blur": "data:image/webp;base64,UklGRpIAAABXRUJQVlA4IIYAAABQAgCdASoQABAAA4BaJbACdAYtA9c4F0MWZwAA/W6PR39TjfhDo7gdzdXZ1S+FYmwl/qAha7eXLs94vEpl+fbe0Wg1Sar9k5Z4wanwK9bqeBReFG2ArjROv6s/DgvZikvVPQl2vsdSV38X+FTidNZALl5TOkuMua7D2Dhj40DwEhEI3CgAAA=="
+  },
+  "plat-pate-en-croute": {
+    "hash": "12a5dec82adc",
+    "dir": "plat-pate-en-croute-12a5dec82adc",
+    "width": 1606,
+    "height": 2048,
+    "widths": [
+      360,
+      540,
+      720,
+      800,
+      960,
+      1280,
+      1600,
+      1606
+    ],
+    "blur": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAAAwBACdASoQABQAPu1iqU2ppaOiMAgBMB2JagAAXBthIb5cVg6NbT4lRAAA/vKh9qTvMnS3p9b0Z1MtBBc26UfsWLX8hc/IoKWSYVE43UCKwIqiXSzQRJucHxssEQIk/31c2Vk6j8Z7WmeN/eukGZDz4R3JPZ86xrOkAA=="
+  },
+  "plat-poulpe": {
+    "hash": "23081e522b03",
+    "dir": "plat-poulpe-23081e522b03",
+    "width": 1878,
+    "height": 2334,
+    "widths": [
+      360,
+      540,
+      720,
+      800,
+      960,
+      1280,
+      1600,
+      1878
+    ],
+    "blur": "data:image/webp;base64,UklGRqgAAABXRUJQVlA4IJwAAACQBACdASoQABQAPu1iqU2ppaOiMAgBMB2JZgC7AYxiyqLtzoOKdwJI/6GFuAAA/mi485nZ/l08QkZECyDkwTTHKPvlckA7Y7InDp5I8Ox656nz2fnNc8+Jp913O6JLlnJJ4R85qs7C0zMFIQtpXS9oAq6dzxKQuuzvyPcZ1lznnuMtQwbvd5/ZpGW8kAzZeBJLcG20RK7KWuyJAAA="
+  },
+  "salle-arche-bar": {
+    "hash": "356fd979ad73",
+    "dir": "salle-arche-bar-356fd979ad73",
+    "width": 1686,
+    "height": 2222,
+    "widths": [
+      360,
+      540,
+      720,
+      800,
+      960,
+      1280,
+      1600,
+      1686
+    ],
+    "blur": "data:image/webp;base64,UklGRpwAAABXRUJQVlA4IJAAAAAQBACdASoQABUAPu1iqU2ppaOiMAgBMB2JZACdMoACkLDazmqtWwoDwADc+LDzE1X/ZntMHeXJa0rTQJHqxmOKsCGLZX3IdsLMyrmWSFFt0mrpP8pEITZeMnETzkeFQgaUd6v3nB7d+a9JBfAtit2iI36hKz8YdqB0arWYvvxKsq06dMGu49zuV4QQTqP4HgA="
+  },
+  "salle-cave-chartreuse": {
+    "hash": "66a747d9d56a",
+    "dir": "salle-cave-chartreuse-66a747d9d56a",
+    "width": 2006,
+    "height": 1960,
+    "widths": [
+      360,
+      540,
+      720,
+      800,
+      960,
+      1280,
+      1600,
+      1920
+    ],
+    "blur": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAABwAgCdASoQABAAA4BaJZgCdAYw7zY3di9uwmoAAPeGuLzwAaRWyDwdUsJKqAmMn+LhC+5JGqC1Jgu1Z4F95j77b6zp6/n7FkZ3VjGmsJqT72DX2Hrw3nxDzqhj9ahNee9yxLVpaUz2AAAA"
+  },
+  "salle-mur-vins": {
+    "hash": "467b2e6c86f4",
+    "dir": "salle-mur-vins-467b2e6c86f4",
     "width": 1940,
     "height": 1772,
     "widths": [
       360,
       540,
       720,
+      800,
       960,
       1280,
       1600,
       1920
     ],
-    "blur": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAABQAgCdASoQAA8AA4BaJYwCdAYv/lbgvak+6AAA/uo2WJvXcWpG7lpkI1nx9NdNUddzuwIWX2Dt7F+LKltsdr2NJKJqBe4A9SkQoHQX+pkNfihO2XX3KJz4gb7+XzEqbMRRvVHoQAA="
+    "blur": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAADwAQCdASoQAA8AA4BaJQBOgMYsxk9mdgAA+TeoeBYE/GlglLi4+PQPJkPLdL/7CVnUYmH3OI2vjXNleJVAabuAeN99HNLCKvU2hd7aVpUoDNflHEQ3FQ95gzdUEAAA"
+  },
+  "salle-mur-vins-paysage": {
+    "hash": "772062751d5e",
+    "dir": "salle-mur-vins-paysage-772062751d5e",
+    "width": 1948,
+    "height": 1276,
+    "widths": [
+      360,
+      540,
+      720,
+      800,
+      960,
+      1280,
+      1600,
+      1920
+    ],
+    "blur": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADQAQCdASoQAAoAA4BaJQBOgCHc8MYKYADNolfWbs5CIx4cQDih+oMf+SKxSypTsxQS6/YWR4gqPJQsGiYsw4057zBNgAAA"
+  },
+  "salle-mur-vins-portrait": {
+    "hash": "18355cbf56ef",
+    "dir": "salle-mur-vins-portrait-18355cbf56ef",
+    "width": 1408,
+    "height": 1940,
+    "widths": [
+      360,
+      540,
+      720,
+      800,
+      960,
+      1280,
+      1408
+    ],
+    "blur": "data:image/webp;base64,UklGRowAAABXRUJQVlA4IIAAAAAQBACdASoQABYAPu1iqU2ppaOiMAgBMB2JZQCdACILj/s7B0cXdQPBiADMJnWUh9vD0d0s/TBOjHdqCqbbld5jvMGIK5tFejq+nCh7fUbsyFmiD7zVRqsqQHizGy77uvcJXXikhnrVmFfYHYPvrjjlIOZBT8N6nTpqwwqjFvYAAA=="
   }
 }

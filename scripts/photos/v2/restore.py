@@ -47,8 +47,8 @@ SKIP = {"salle-allee-carreaux", "detail-chartreuse-etagere"}  # not publishable
 LONG = 2800      # target long side of a restored master (px)
 SHARPEN = 0.15   # output sharpening amount for AI-upscaled masters (radius 0.8, as retouch.py)
 
-# Per-photo decision after comparing with the old EDSR masters at display size and at 3x zoom (see
-# assets/photos/README.md). The GAN invents detail wherever the source is too small to resolve it:
+# Per-photo decision after comparing with the old EDSR masters at display size and at 3x zoom, then an
+# independent cell-by-cell audit of both photos against the raw sources (see assets/photos/README.md). The GAN invents detail wherever the source is too small to resolve it:
 # wicker weave of the lamps, label art on the bottles, the sign's rosette, letter-like glyphs on worn
 # plaques, the knife's engraved text (erased). So it is used only on the two softest full-bleed photos,
 # toned down (blend) and with every mark or ornament protected: inside each `protect` box (x0, y0, x1,
@@ -59,13 +59,16 @@ CHOSEN = {
         "model": "general", "dn": 0.5, "blend": 0.6,
         "protect": [
             (0.48, 0.35, 0.56, 0.42),    # worn wall plaque under the drainpipe (the GAN draws a glyph)
-            (0.055, 0.80, 0.095, 0.86),  # green house plaque and notice by the door (icon redrawn)
+            (0.13, 0.795, 0.175, 0.85),  # green house plaque and notice by the door (icon redrawn)
+            (0.24, 0.645, 0.28, 0.68),   # stain on the pillar by the doorway (the GAN draws an « R »)
+            (0.055, 0.80, 0.095, 0.86),  # far figure in the alley (reshaped)
         ],
     },
     "enseigne": {
         "model": "general", "dn": 0.5, "blend": 1.0,  # flat navy plate: full denoise removes the JPEG blocks
         "protect": [
             (0.31, 0.55, 0.45, 0.85),    # rosette of the logo around the « O » (the GAN breaks it apart)
+            (0.615, 0.90, 0.66, 0.955),  # small mark on the plate under the last « T » (redrawn)
         ],
     },
 }

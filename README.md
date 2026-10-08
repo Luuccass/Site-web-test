@@ -166,7 +166,7 @@ Contrôles qualité complets (captures d'écran aux six largeurs, accessibilité
 ```bash
 node scripts/qa/serve-h2.mjs 4443 out &   # sert out/ en HTTP/2 + Brotli, comme Netlify
 node scripts/qa/run-qa.mjs https://localhost:4443 qa-output
-node scripts/qa/lighthouse.mjs https://localhost:4443 qa-output
+node scripts/qa/lighthouse.mjs https://localhost:4443 qa-output   # 3 fois : retenir la médiane
 node scripts/qa/interactions.mjs https://localhost:4443   # réservation, règle d'1 h, galerie, menu mobile
 ```
 

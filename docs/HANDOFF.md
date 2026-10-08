@@ -1,4 +1,4 @@
-# Handoff — where the project stands (updated 2026-10-07, session 2, V2)
+# Handoff — where the project stands (updated 2026-10-08, session 3, V2)
 
 Read this first when the owner says « continue ». Then read `docs/design/phase3-architecture.md`.
 
@@ -43,38 +43,37 @@ one icon family, content in editable files (menu.json, hours.json, site.config.t
   fed to `npm run images` as ids `nuit-<id>`. Dish plates are cropped by the frame in every photo →
   no floating cut-outs possible without new photos (arch frames instead).
 - Owner: « je ne veux rien payer » (no Everygen subscription → no AI generation) but « je valide les
-  modèles d'IA libres » → a Real-ESRGAN restoration pass of `assets/photos/retouched/` was
-  **started but stopped unfinished** when the owner ended the session (see « Stopped here » below)
-  (`scripts/photos/v2/restore.py`); after it: `python3 scripts/photos/v2/grade.py`, `npm run images`,
+  modèles d'IA libres » → Real-ESRGAN restoration done 2026-10-08 on two photos (see Session 3);
+  after any master change: `python3 scripts/photos/v2/grade.py <ids>`, `npm run images`,
   `npm run plates` + `npm run render:all` in `video/`.
 - Remotion films in `video/` (`LogoReveal`, `LogoRevealVertical`, `Reel`); renders in `video/out/`
   (git-ignored) were sent to the owner on 2026-10-07.
-- Lighthouse mobile on V2 measured 80–98 while the CPU was busy → re-measure on an idle machine;
-  target ≥ 95 (levers: TBT of the global GSAP/Lenis, image weight).
 - Owner's Netlify URL: `restaurant-comme-avant.netlify.app` (« je crois », unverified: netlify.app is
   blocked from the container). DNS of the domain still points to Wix.
 - Push WIP that does not change the site with `[skip netlify]` in the commit message (saves credits).
 - Keep agent fan-out small: the owner hit their usage limit twice with parallel workflows.
 
-## Stopped here (2026-10-07, 21:30) — owner: « stop la session, on continue demain »
+## Session 3 (2026-10-08) — photos restored where safe, performance back to ≥ 95
 
-- Done today: V2 on every page (pushed), the 3 Remotion films rendered and sent to the owner, docs
-  updated for V2 (`3291d68`).
-- **Real-ESRGAN restoration: unfinished, nothing applied.** `assets/photos/retouched/` is unchanged;
-  only `scripts/photos/v2/restore.py` (work in progress) is committed. Its venv, weights, cache and
-  comparison sheets lived in the scratchpad and are lost. To redo: venv with torch CPU + the
-  Real-ESRGAN weights from GitHub releases (allowed by the owner), compare denoise strengths
-  0.25 / 0.5 / 0.8 against the current EDSR masters on `plat-poulpe`, `dessert-moelleux-chocolat`,
-  `detail-niche-chartreuse`, `dessert-pomme-pochee`.
-- **Catch from that run:** on `detail-niche-chartreuse` the model turns the crate lettering « CHAR »
-  into garbled invented glyphs. Any restored photo must be checked region by region for text
-  (crates, labels, the chocolate plaque, the sign) and keep the original pixels there; never ship
-  invented details.
-- Then: `python3 scripts/photos/v2/grade.py` → `npm run images` → build → Lighthouse on an idle CPU
-  (target ≥ 95 mobile on every page) → `npm run plates` + `npm run render:all` in `video/` if the
-  photos clearly improved → commit and push.
-- Still waiting on the owner: exact Netlify URL (`restaurant-comme-avant.netlify.app`?), DNS change
-  at Wix, the items in `docs/RAPPORT-LIVRAISON.md` §3, their reaction to the 3 films.
+- **Real-ESRGAN finished** (`scripts/photos/v2/restore.py`, CHOSEN): used only on `exterieur-ruelle`
+  (blend 0.6) and `enseigne` (full strength); protect boxes keep the source pixels on every plaque, mark
+  and the logo rosette. The GAN invents detail elsewhere (lamp weave, bottle labels, rosette, a glyph on
+  the wall plaque, an « R » on a pillar, the knife engraving erased): every other photo keeps its EDSR
+  master. An independent cell-by-cell audit agent found two misses (pillar « R », house-plaque icon),
+  now protected. Weights + venv were in the scratchpad (lost with the container); the x4 cache is
+  needed to re-publish: re-run `restore.py sr` then `publish` (see its docstring).
+- **Performance**: medians of 3 runs, every page 95–98 (`docs/qa/phase5-report.md`, V2 section).
+  Single runs vary by up to 10 points and the first run after a server start is always low: always
+  measure three times. Levers used: Cormorant cut to upright 300–400 + italic 300 (`build_fonts.py`,
+  sources from google/fonts), 800w variant + AVIF 46 for `nuit-*` (`scripts/images/build.mjs`, now
+  parallel, settings in the hash), pins created first and no global `ScrollTrigger.refresh()`.
+- Reel re-rendered with the restored ruelle (`video/out/`, git-ignored).
+- ESLint now ignores `.claude/**` (skill example code made `npm run lint` fail).
+- Design follow-up to propose: on `/le-restaurant/` the title « Le restaurant » sits on the sign's own
+  letters (now sharper) — consider a stronger scrim or another focal point.
+- Still waiting on the owner: exact Netlify URL, DNS change at Wix, the items in
+  `docs/RAPPORT-LIVRAISON.md` §3 — above all **the original photo files** (the sources are Google Maps
+  screenshots), their opinion of the 3 films.
 
 ## Next actions, in order
 
@@ -129,7 +128,7 @@ one icon family, content in editable files (menu.json, hours.json, site.config.t
 | `scripts/images/`, `scripts/fonts/`, `scripts/pdf/`, `scripts/qa/` | image variants + OG, font subsets, carte/vins PDFs, QA (serve-h2, run-qa, lighthouse, interactions, viewports) |
 | `docs/RAPPORT-LIVRAISON.md`, `docs/DEPLOY.md`, `docs/qa/phase5-report.md` | delivery report, go-live guide, QA results |
 | `docs/design/boards/` | sources of the 10 canvas artboards + `blob-map.json` |
-| `assets/photos/retouched/` + `README.md` | 16 retouched masters (EDSR ×2) + rights inventory |
+| `assets/photos/retouched/` + `README.md` | 16 retouched masters (EDSR ×2; ruelle and sign Real-ESRGAN) + rights inventory |
 | `assets/brand/` | logo SVGs (badge + wordmark) |
 | `scripts/photos/retouch.py` + `manifest.json` | reproducible retouch pipeline |
 | `scripts/brand/build_logo.py` | logo rebuild from Montserrat outlines |

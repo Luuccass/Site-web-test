@@ -1,7 +1,36 @@
-# Phase 5 — QA report (7 October 2026)
+# Phase 5 — QA report (7 October 2026, V2 re-run 8 October 2026)
 
 All measurements on the static export served by `scripts/qa/serve-h2.mjs` (HTTP/2 + Brotli, like
 Netlify's CDN). Re-run everything with the commands in the README.
+
+## V2 « Nocturne » — re-run of 8 October 2026
+
+Lighthouse 13, mobile preset, **median of three runs per page** on an idle machine (single runs vary by
+up to 10 points; the first page measured after a server start is always low).
+
+| Page | Perf. | Access. | Best pr. | SEO | LCP | CLS | TBT |
+|---|---|---|---|---|---|---|---|
+| `/` | 98 | 100 | 100 | 100 | 2.4 s | 0 | 104 ms |
+| `/la-carte/` | 95 | 100 | 100 | 100 | 2.9 s | 0.022 | 79 ms |
+| `/la-carte/vins/` | 98 | 100 | 100 | 100 | 2.5 s | 0.006 | 70 ms |
+| `/le-restaurant/` | 97 | 100 | 100 | 100 | 2.6 s | 0.006 | 62 ms |
+| `/galerie/` | 96 | 100 | 100 | 100 | 2.7 s | 0.006 | 74 ms |
+| `/nous-trouver/` | 96 | 100 | 100 | 100 | 2.7 s | 0 | 60 ms |
+| `/reserver/` | 96 | 100 | 100 | 100 | 2.7 s | 0 | 68 ms |
+| `/mentions-legales/` | 98 | 100 | 100 | 100 | 2.3 s | 0.006 | 105 ms |
+| `/confidentialite/` | 98 | 100 | 100 | 100 | 2.0 s | 0.006 | 90 ms |
+
+Before the fixes below, the medians were 92–98 (`/la-carte/` 92, four pages at 94). What changed:
+- the bytes loaded before the hero photo decide the simulated LCP (≈ 380 KB: fonts, framework JS, photo);
+  Cormorant Garamond cut to what the site uses (77 → 45 KB), an 800 px variant for phones and AVIF 46
+  for the night-graded heroes (mobile hero of `/la-carte/`: 157 → 95 KB);
+- motion setup: the pinned sections are created first, so the global `ScrollTrigger.refresh()` (≈ 100 ms
+  on a mid-range phone, one long task) is gone; checked that no trigger position changes without it.
+
+LCP stays above 2.5 s in the simulated slow 4G on the pages that open on a full-bleed photo: that is the
+cost of the large photos the owner asked for. axe: 0 violations on 10 pages; no horizontal overflow at
+360–1920 px; 18/18 interaction checks; desktop scroll through both pinned sections then client-side
+navigation to every page: no error.
 
 ## Lighthouse 13, mobile preset (simulated slow 4G, 4× CPU)
 

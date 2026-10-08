@@ -47,8 +47,10 @@ Tout respecte le réglage « réduire les animations » du visiteur.
 
 ## 2. Résultats des contrôles (phase 5)
 
-Détail : `docs/qa/phase5-report.md`. Ces chiffres sont ceux de la version 1 ; ceux de la version 2
-sont à remesurer (performance à confirmer, objectif ≥ 95).
+Détail : `docs/qa/phase5-report.md`. Le tableau ci-dessous donne les chiffres de la version 1. La
+version 2 a été remesurée le 8 octobre (médiane de 3 mesures par page) : performance 95 à 98 sur mobile,
+accessibilité, bonnes pratiques et référencement 100 partout, 0 erreur d'accessibilité, aucun
+débordement, 18/18 parcours.
 
 | Contrôle | Résultat |
 |---|---|
@@ -104,8 +106,11 @@ formulation prudente. Il apparaît dès qu'on renseigne le fichier indiqué.
 10. **Plan intégré.** Pour remplacer le lien OpenStreetMap par une carte dans la page, il faut les
     coordonnées GPS exactes de l'entrée. Je n'ai pas pu les vérifier à 50 m près.
 11. **Photos :**
-    - une séance photo pour la terrasse, l'équipe et des assiettes de la carte actuelle ;
-    - une version haute définition de la ruelle (la photo actuelle ne fait que 1 060 px de large).
+    - **les fichiers d'origine des photos** (ceux du téléphone ou de l'appareil, pas des captures
+      d'écran de Google Maps) : c'est le gain de qualité le plus important possible. L'IA libre testée
+      le 8 octobre rend les photos plus nettes mais invente des détails ; elle n'est utilisée que sur
+      la ruelle et l'enseigne, avec les plaques et la rosace du logo laissées intactes ;
+    - une séance photo pour la terrasse, l'équipe et des assiettes de la carte actuelle.
 
 **Hors site, à faire par vous :**
 

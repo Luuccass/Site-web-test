@@ -23,7 +23,7 @@ then retouch.color() with output sharpening --sharpen (old masters: 0.3 at radiu
 Usage (run with python -I, it loads downloaded weights):
   python -I scripts/photos/v2/restore.py sr      --raw RAW --weights W --cache C --model general [--dn 0.5] [--only a,b]
   python -I scripts/photos/v2/restore.py finish  --cache C --model general --out DIR [--only a,b]
-  python -I scripts/photos/v2/restore.py publish --cache C          # writes CHOSEN over assets/photos/retouched
+  python -I scripts/photos/v2/restore.py publish --cache C --raw RAW [--out DIR]  # CHOSEN -> masters (or DIR)
 """
 
 import argparse
@@ -47,9 +47,29 @@ SKIP = {"salle-allee-carreaux", "detail-chartreuse-etagere"}  # not publishable
 LONG = 2800      # target long side of a restored master (px)
 SHARPEN = 0.15   # output sharpening amount for AI-upscaled masters (radius 0.8, as retouch.py)
 
-# Per-photo decision after 100 % comparison against the old EDSR masters (see assets/photos/README.md).
-# Photos not listed keep their old master.
-CHOSEN = {}
+# Per-photo decision after comparing with the old EDSR masters at display size and at 3x zoom (see
+# assets/photos/README.md). The GAN invents detail wherever the source is too small to resolve it:
+# wicker weave of the lamps, label art on the bottles, the sign's rosette, letter-like glyphs on worn
+# plaques, the knife's engraved text (erased). So it is used only on the two softest full-bleed photos,
+# toned down (blend) and with every mark or ornament protected: inside each `protect` box (x0, y0, x1,
+# y1 as fractions of the frame) the pixels are the plain Lanczos upscale of the source. Photos not
+# listed keep their old master.
+CHOSEN = {
+    "exterieur-ruelle": {
+        "model": "general", "dn": 0.5, "blend": 0.6,
+        "protect": [
+            (0.48, 0.35, 0.56, 0.42),    # worn wall plaque under the drainpipe (the GAN draws a glyph)
+            (0.055, 0.80, 0.095, 0.86),  # green house plaque and notice by the door (icon redrawn)
+        ],
+    },
+    "enseigne": {
+        "model": "general", "dn": 0.5, "blend": 1.0,  # flat navy plate: full denoise removes the JPEG blocks
+        "protect": [
+            (0.31, 0.55, 0.45, 0.85),    # rosette of the logo around the « O » (the GAN breaks it apart)
+        ],
+    },
+}
+FEATHER = 0.012  # soft edge of a protect box, fraction of the long side
 
 
 # --------------------------------------------------------------------------------------------- nets
@@ -186,7 +206,17 @@ def model_tag(model, dn):
     return f"general-dn{dn:.2f}" if model == "general" else model
 
 
-def finish(x4, entry, long_side=LONG, sharpen=SHARPEN, blend=1.0, raw_dir=None):
+def protect_mask(shape, boxes):
+    """Float mask (1 inside the boxes) with a feathered edge."""
+    h, w = shape[:2]
+    m = np.zeros((h, w), np.float32)
+    for x0, y0, x1, y1 in boxes:
+        m[round(y0 * h):round(y1 * h), round(x0 * w):round(x1 * w)] = 1
+    sigma = FEATHER * max(h, w) / 2
+    return np.clip(cv2.GaussianBlur(m, (0, 0), sigma) * 1.6, 0, 1)[..., None] if boxes else m[..., None]
+
+
+def finish(x4, entry, long_side=LONG, sharpen=SHARPEN, blend=1.0, raw_dir=None, protect=()):
     """Area-downscale the x4 result to the target size, then the unchanged colour stage of retouch.py.
 
     blend < 1 mixes the AI result with a plain Lanczos upscale of the same source pixels
@@ -196,9 +226,13 @@ def finish(x4, entry, long_side=LONG, sharpen=SHARPEN, blend=1.0, raw_dir=None):
     s = min(1.0, long_side / max(h, w))
     size = (round(w * s), round(h * s))
     img = cv2.resize(x4, size, interpolation=cv2.INTER_AREA) if s < 1 else x4
-    if blend < 1:
+    if blend < 1 or protect:
         base = cv2.resize(geometry(entry, raw_dir), size, interpolation=cv2.INTER_LANCZOS4)
-        img = cv2.addWeighted(img, blend, base, 1 - blend, 0)
+        if blend < 1:
+            img = cv2.addWeighted(img, blend, base, 1 - blend, 0)
+        if protect:
+            m = protect_mask(img.shape, protect)
+            img = (img.astype(np.float32) * (1 - m) + base.astype(np.float32) * m).round().clip(0, 255).astype(np.uint8)
     e = copy.deepcopy(entry)
     e.setdefault("tweaks", {}).setdefault("sharpen", sharpen)
     retouch.MAX_EDGE = max(img.shape[:2])  # no further downscale inside color()
@@ -254,9 +288,11 @@ def main():
         for pid, c in CHOSEN.items():
             tag = model_tag(c["model"], c.get("dn", 0.5))
             x4 = cv2.imread(str(cache / tag / f"{pid}.png"))
-            img = finish(x4, by_id[pid], c.get("long", LONG), c.get("sharpen", SHARPEN), c.get("blend", 1.0), args.raw)
-            write_jpg(MASTERS / f"{pid}.jpg", img)
-            print(f"{pid}: {tag} -> {img.shape[1]}x{img.shape[0]} -> {MASTERS / (pid + '.jpg')}", flush=True)
+            img = finish(x4, by_id[pid], c.get("long", LONG), c.get("sharpen", SHARPEN), c.get("blend", 1.0), args.raw, c.get("protect", ()))
+            dest = Path(args.out) if args.out else MASTERS  # --out: review copy, masters untouched
+            dest.mkdir(parents=True, exist_ok=True)
+            write_jpg(dest / f"{pid}.jpg", img)
+            print(f"{pid}: {tag} -> {img.shape[1]}x{img.shape[0]} -> {dest / (pid + '.jpg')}", flush=True)
 
 
 if __name__ == "__main__":

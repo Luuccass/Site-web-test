@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Example code shipped with the Claude skills (Remotion maps…), not part of the site.
+    ".claude/**",
   ]),
 ]);
 

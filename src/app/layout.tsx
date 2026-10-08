@@ -23,11 +23,12 @@ const spectral = localFont({
   adjustFontFallback: "Times New Roman",
 });
 
-// V2 « Nocturne » display face (variable, latin): giant headlines only.
+// V2 « Nocturne » display face, cut to what the site uses (scripts/fonts/build_fonts.py): upright
+// 300-400 variable (headlines 300, h3 400), italic 300 (the gold accents in headlines).
 const cormorant = localFont({
   src: [
-    { path: "../fonts/CormorantGaramond-Variable.woff2", weight: "300 700", style: "normal" },
-    { path: "../fonts/CormorantGaramond-Italic-Variable.woff2", weight: "300 700", style: "italic" },
+    { path: "../fonts/CormorantGaramond-Variable.woff2", weight: "300 400", style: "normal" },
+    { path: "../fonts/CormorantGaramond-LightItalic.woff2", weight: "300", style: "italic" },
   ],
   variable: "--font-cormorant",
   display: "swap",

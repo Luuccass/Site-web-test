@@ -2,6 +2,16 @@
 
 Masters retouched with `scripts/photos/retouch.py` from the owner's Google Drive folder « Site web test/assets/photos » (screenshots of the Google Maps photo viewer and phone photos). Process: crop out the Google UI, straighten, light denoise, 2× EDSR upscale, white balance, tone, local contrast, unified warm grade, output sharpening. Sources are not committed (they stay on the owner's Drive).
 
+**AI restoration (2026-10-08, Real-ESRGAN, open source, approved by the owner):** tested on every
+full-bleed photo with `scripts/photos/v2/restore.py`. The model sharpens edges and removes JPEG blocks,
+but wherever the source is too small it *invents* detail: a different wicker weave on the lamps, simplified
+bottle labels, a broken-up rosette on the sign, a letter-like glyph on a worn wall plaque, the engraving
+erased from the knife next to the octopus. Selected only for `exterieur-ruelle` (softest source, used four
+times) and `enseigne` (heavy JPEG blocks), toned down for the ruelle and with every plaque, mark and the
+rosette protected (original pixels there), published after an independent check for invented detail;
+every other photo keeps its EDSR master. The real fix remains
+the original photo files (the sources are screenshots) or a photo shoot.
+
 **Rights:** the owner confirmed on 2026-10-06 that the retained photos are theirs. The Chartreuse shelf photo stays excluded (customer upload).
 
 | File | Source | Subject | Alt (FR) | Rights | Notes |

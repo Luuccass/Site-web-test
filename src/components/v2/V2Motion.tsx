@@ -70,34 +70,8 @@ export function V2Motion() {
 
     (async () => {
       await new Promise((r) => requestAnimationFrame(() => r(null)));
-      await step(() => {
-        gsap.utils.toArray<HTMLElement>("[data-reveal]").forEach((el) => {
-          gsap.from(el, { y: 60, opacity: 0, duration: 1.2, ease: "expo.out", scrollTrigger: { trigger: el, start: "top 88%", once: true } });
-        });
-      });
-      await step(() => {
-        gsap.utils.toArray<HTMLElement>("[data-words]").forEach((el) => {
-          const words = Array.from(el.querySelectorAll<HTMLElement>("[data-w]"));
-          words.forEach((w) => w.style.setProperty("--o", "0.4")); // 0.4: unlit words stay readable (3:1 at this size)
-          ScrollTrigger.create({
-            trigger: el,
-            start: "top 80%",
-            end: "bottom 45%",
-            scrub: true,
-            onUpdate: (st) => {
-              const lit = st.progress * words.length;
-              words.forEach((w, i) => w.style.setProperty("--o", String(Math.min(1, Math.max(0.4, lit - i + 0.4)))));
-            },
-          });
-        });
-      });
-      await step(() => {
-        gsap.utils.toArray<HTMLElement>("[data-parallax]").forEach((el) => {
-          const k = parseFloat(el.dataset.parallax || "0");
-          const host = el.closest("section") ?? el;
-          gsap.fromTo(el, { yPercent: -k * 18 }, { yPercent: k * 18, ease: "none", scrollTrigger: { trigger: host, start: "top bottom", end: "bottom top", scrub: true } });
-        });
-      });
+      // Pins first, top to bottom: their spacers are in place before the other triggers measure,
+      // so no global ScrollTrigger.refresh() is needed (it cost ~100 ms on a mid-range phone).
       await step(() => {
         gsap.utils.toArray<HTMLElement>("[data-arch]").forEach((section) => {
           const stage = section.querySelector<HTMLElement>("[data-arch-stage]");
@@ -129,6 +103,34 @@ export function V2Motion() {
         }
       });
       await step(() => {
+        gsap.utils.toArray<HTMLElement>("[data-reveal]").forEach((el) => {
+          gsap.from(el, { y: 60, opacity: 0, duration: 1.2, ease: "expo.out", scrollTrigger: { trigger: el, start: "top 88%", once: true } });
+        });
+      });
+      await step(() => {
+        gsap.utils.toArray<HTMLElement>("[data-words]").forEach((el) => {
+          const words = Array.from(el.querySelectorAll<HTMLElement>("[data-w]"));
+          words.forEach((w) => w.style.setProperty("--o", "0.4")); // 0.4: unlit words stay readable (3:1 at this size)
+          ScrollTrigger.create({
+            trigger: el,
+            start: "top 80%",
+            end: "bottom 45%",
+            scrub: true,
+            onUpdate: (st) => {
+              const lit = st.progress * words.length;
+              words.forEach((w, i) => w.style.setProperty("--o", String(Math.min(1, Math.max(0.4, lit - i + 0.4)))));
+            },
+          });
+        });
+      });
+      await step(() => {
+        gsap.utils.toArray<HTMLElement>("[data-parallax]").forEach((el) => {
+          const k = parseFloat(el.dataset.parallax || "0");
+          const host = el.closest("section") ?? el;
+          gsap.fromTo(el, { yPercent: -k * 18 }, { yPercent: k * 18, ease: "none", scrollTrigger: { trigger: host, start: "top bottom", end: "bottom top", scrub: true } });
+        });
+      });
+      await step(() => {
         gsap.utils.toArray<HTMLElement>("[data-count]").forEach((el) => {
           const to = parseInt(el.dataset.count || "0", 10);
           const obj = { v: 0 };
@@ -143,11 +145,12 @@ export function V2Motion() {
           });
         });
       });
-      if (cancelled) return;
-      ScrollTrigger.refresh();
-      document.fonts?.ready.then(() => {
-        if (!cancelled) ScrollTrigger.refresh();
-      });
+      // Web fonts that arrive later change text heights: measure again then, and only then.
+      if (!cancelled && document.fonts && document.fonts.status !== "loaded") {
+        document.fonts.ready.then(() => {
+          if (!cancelled) ScrollTrigger.refresh();
+        });
+      }
     })();
 
     return () => {
